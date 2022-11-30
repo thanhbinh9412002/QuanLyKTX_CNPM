@@ -7,6 +7,7 @@ create table DangNhap (
 	TenDangNhap char(15) ,
 	MatKhau char(20) NOT NULL,
 	VaiTro nvarchar(10),
+	TrangThai bit,
 	Constraint PK_TaiKhoan Primary Key (TenDangNhap)
 )
 GO
