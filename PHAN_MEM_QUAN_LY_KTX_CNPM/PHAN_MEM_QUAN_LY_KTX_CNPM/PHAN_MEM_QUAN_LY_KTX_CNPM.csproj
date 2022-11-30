@@ -126,7 +126,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="data_query\Phong_HoaDon.sql" />
+    <Content Include="data_query\Database.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

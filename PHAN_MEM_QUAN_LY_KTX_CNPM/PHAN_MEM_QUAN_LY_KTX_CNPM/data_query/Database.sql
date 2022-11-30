@@ -60,10 +60,11 @@ create table HoaDon (
 	MAHD char(10),
 	MaPhong char(10), 
 	NgayLapHD Date,
+	TrangThai bit,
+	TongTien float,
 	Constraint PK_HoaDon Primary Key (MAHD)
 )
 GO
-
 
 create table ChiTietHoaDon(
 	MAHD char(10),
@@ -338,20 +339,94 @@ END
 GO
 
 insert into Phong values ('A101',2000000,5,8,1)
+insert into Phong values ('A102',2000000,5,8,1)
 
 insert into SinhVien Values('20133104',N'Nguyễn Văn Thanh','0367064834', N'Nam',3,N'Không',N'Việt Nam','221502781','A101',1)
 insert into SinhVien Values('20133105',N'Nguyễn Văn Thanh','0367064834', N'Nam',3,N'Không',N'Việt Nam','221502782','A101',1)
 
-insert into HoaDon values('HD1','A101','2022-12-12')
+insert into HoaDon values('HD1','A102','2022-12-12',0,300000)
+insert into HoaDon values('HD2','A101','2022-12-12',0,200000)
 
 insert into ChiTietHoaDon values('HD1',100,100,3.2,15000)
+insert into ChiTietHoaDon values('HD2',100,100,3.2,15000)
 
 insert into ThongBao values(N'Nghỉ học','Các em nghỉ học nhé','2022-12-12')
 
 insert into TrangThietBi Values('TB1','A101', 'Giường' , 0,4 )
 
 
+GO
+create function [dbo].[func_DanhSachPhong] ()
+returns table
+	as
+	return 
+		select p.MaPhong, p.GiaPhong, p.SoLuongSinhVienHienTai, p.SoLuongSinhVienToiDa, p.TinhTrang
+		From Phong as p
 
-	
+GO
+create function [dbo].[func_HoaDonPhong]( @MaPhong char(10))
+returns table
+	as
+		return select HD.MAHD as [Mã Hóa Đơn],
+					HD.MaPhong as [Mã phòng],
+					HD.NgayLapHD as [Ngày lập],
+					HD.TrangThai as [Trạng thái],
+					HD.TongTien as [Tổng tiền]
+				from  HoaDon as HD 
+				where HD.MaPhong = @MaPhong
+
+GO
+create procedure [dbo].[proc_ThemHoaDon]
+(	@MAHD char(10),
+	@MaPhong char(10),
+	@NgayLapHD Date,
+	@TrangThai bit,
+	@TongTien float
+)
+as insert into HoaDon Values(@MAHD, @MaPhong, @NgayLapHD, @TrangThai, @TongTien);
+
+GO
+create procedure [dbo].[proc_ThemChitietHoaDon]
+(	@MAHD char(10),
+	@SoDien int,
+	@SoNuoc int,
+	@GiaDien float,
+	@GiaNuoc float
+)
+as insert into ChiTietHoaDon Values(@MAHD, @SoDien, @SoNuoc, @GiaDien, @GiaNuoc);
+
+GO
+create function [dbo].[func_ChitietHD]( @MaHD char(10))
+returns table
+	as
+		return select ctHD.MAHD as [Mã Hóa Đơn],
+					ctHD.SoDien as [Số điện],
+					ctHD.SoNuoc as [Số nước],
+					ctHD.GiaDien as [Giá điện],
+					ctHD.GiaNuoc as [Giá nước]
+				from  ChiTietHoaDon as ctHD 
+				where ctHD.MAHD = @MaHD
+
+GO
+create function [dbo].[func_HoaDonChuaThanhToan] (@MaPhong char(10))
+returns table
+	as
+		return select HD.MAHD as [Mã Hóa Đơn],
+					HD.MaPhong as [Mã phòng],
+					HD.NgayLapHD as [Ngày lập],
+					HD.TrangThai as [Trạng thái],
+					HD.TongTien as [Tổng tiền]
+				from  HoaDon as HD 
+				where HD.TrangThai = 0 and HD.MaPhong = @MaPhong
+
+GO
+create procedure [dbo].[proc_SuaHoaDon] (@mahd char(10), @maphong char(10),  @ngaytao Date, @TrangThai bit, @TongTien float)
+as 
+update HoaDon set MAHD = @mahd,
+				  MaPhong = @maphong,
+				  NgayLapHD = @ngaytao,
+				  TrangThai = @TrangThai,
+				  TongTien = @TongTien
+where MAHD = @mahd
 
  
