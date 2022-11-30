@@ -54,6 +54,24 @@
     <Compile Include="DAO\HoaDon_DAO.cs" />
     <Compile Include="DAO\PhiSinhVien_DAO.cs" />
     <Compile Include="DAO\Phong_DAO.cs" />
+    <Compile Include="effect\RJTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="effect\RJTextBox.Designer.cs">
+      <DependentUpon>RJTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="effect\VBButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="effect\view.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\frm_DangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frm_DangNhap.Designer.cs">
+      <DependentUpon>frm_DangNhap.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\frm_Test.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,8 +105,14 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Provider\DataProvider.cs" />
+    <EmbeddedResource Include="effect\RJTextBox.resx">
+      <DependentUpon>RJTextBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\frm_ChitietHoaDon.resx">
       <DependentUpon>frm_ChitietHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frm_DangNhap.resx">
+      <DependentUpon>frm_DangNhap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\frm_HoaDon.resx">
       <DependentUpon>frm_HoaDon.cs</DependentUpon>
@@ -107,6 +131,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="View\frm_Test.resx">
       <DependentUpon>frm_Test.cs</DependentUpon>
@@ -127,6 +152,12 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="data_query\Database.sql" />
+    <None Include="Resources\private-password.png" />
+    <None Include="Resources\Restart-icon.png" />
+    <None Include="Resources\show-password.png" />
+    <None Include="Resources\Login-icon.png" />
+    <None Include="Resources\Key-icon.png" />
+    <None Include="Resources\account-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
