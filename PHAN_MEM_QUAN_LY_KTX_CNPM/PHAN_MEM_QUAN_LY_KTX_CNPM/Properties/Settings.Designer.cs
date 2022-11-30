@@ -16,7 +16,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM.Properties
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase
     {
 
-        private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
+        public static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
 
         public static Settings Default
         {

@@ -46,14 +46,59 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="BUS\ChitietHD_BUS.cs" />
+    <Compile Include="BUS\HoaDon_BUS.cs" />
+    <Compile Include="BUS\PhiSinhVien_BUS.cs" />
+    <Compile Include="BUS\Phong_BUS.cs" />
+    <Compile Include="DAO\ChitietHoaDon_DAO.cs" />
+    <Compile Include="DAO\HoaDon_DAO.cs" />
+    <Compile Include="DAO\PhiSinhVien_DAO.cs" />
+    <Compile Include="DAO\Phong_DAO.cs" />
+    <Compile Include="View\frm_Test.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="View\frm_Test.Designer.cs">
+      <DependentUpon>frm_Test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frm_PhiSinhVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frm_PhiSinhVien.Designer.cs">
+      <DependentUpon>frm_PhiSinhVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frm_ChitietHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frm_ChitietHoaDon.Designer.cs">
+      <DependentUpon>frm_ChitietHoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frm_HoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frm_HoaDon.Designer.cs">
+      <DependentUpon>frm_HoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frm_Phong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frm_Phong.Designer.cs">
+      <DependentUpon>frm_Phong.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Provider\DataProvider.cs" />
+    <EmbeddedResource Include="View\frm_ChitietHoaDon.resx">
+      <DependentUpon>frm_ChitietHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frm_HoaDon.resx">
+      <DependentUpon>frm_HoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frm_PhiSinhVien.resx">
+      <DependentUpon>frm_PhiSinhVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frm_Phong.resx">
+      <DependentUpon>frm_Phong.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -63,6 +108,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\frm_Test.resx">
+      <DependentUpon>frm_Test.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

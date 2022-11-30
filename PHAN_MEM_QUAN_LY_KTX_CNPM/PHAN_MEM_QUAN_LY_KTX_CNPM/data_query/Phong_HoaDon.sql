@@ -1,13 +1,13 @@
-create database KTX
+﻿create database KTX
 GO
 use KTX
 GO
 
-create table TaiKhoan (
-	TenTaiKhoan char(15) ,
+create table DangNhap (
+	TenDangNhap char(15) ,
 	MatKhau char(20) NOT NULL,
-	VaiTro nvarchar(10) NOT NULL,
-	Constraint PK_TaiKhoan Primary Key (TenTaiKhoan)
+	VaiTro nvarchar(10),
+	Constraint PK_TaiKhoan Primary Key (TenDangNhap)
 )
 GO
 
@@ -21,7 +21,18 @@ CREATE TABLE SinhVien(
     QuocTich nvarchar(10) NOT NULL,
     CMND_CCCD char(15) NOT NULL,
     MaPhong char(10) NOT NULL,
+	SoKy int ,
     Constraint PK_SinhVien Primary Key (MaSinhVien)
+)
+GO
+
+create table TaiKhoanSV (
+	MaTK char(10),
+	TinhTrang bit ,
+	NgayCap Date,
+	NgayHetHan Date,
+	TenChuTK nvarchar(50),
+	Constraint PK_TaiKhoanSV Primary Key (MaTK)
 )
 GO
 
@@ -40,7 +51,6 @@ create table TrangThietBi (
 	TenThietBi nvarchar(20) NOT NULL,
 	SoLuongHong int NOT NULL,
 	SoLuongTot int NOT NULL,
---	SoLuongToiDa int NOT NULL
 	Constraint PK_PhongThietBi Primary Key (MaThietBi,MaPhong)
 )
 GO
@@ -73,10 +83,37 @@ create table ThongBao (
 )
 GO
 
-/*create table YeuCau(
-	Id int IDENTITY(1,1) PRIMARY KEY,
+create table SuaChua(
+	Id int IDENTITY(1,1) PRIMARY KEY, 
+	TenThietBi nvarchar(20) NOT NULL,
+	SoLuong int,
+	ChiTiet nvarchar(50)
+)
+GO
 
-)*/
+create table GiaHan (
+	Id int IDENTITY(1,1) PRIMARY KEY,
+	MaSinhVien char(10),
+	SoKy int
+)
+GO
+
+create table TraPhong(
+	Id int IDENTITY(1,1) PRIMARY KEY,
+	MaPhong char(10),
+	MaSinhVien char(10),
+	NgayTra Date
+)
+GO
+
+ALTER TABLE GiaHan  
+ADD FOREIGN KEY (MaSinhVien) REFERENCES SinhVien(MaSinhVien)
+GO
+
+ALTER TABLE TraPhong
+ADD FOREIGN KEY (MaSinhVien) REFERENCES SinhVien(MaSinhVien),
+	FOREIGN KEY (MaPhong) REFERENCES Phong(MaPhong);
+GO
 
 ALTER TABLE SinhVien WITH CHECK ADD CONSTRAINT 
 FK_SinhVien_Phong 
@@ -85,6 +122,15 @@ ON UPDATE CASCADE
 ON DELETE CASCADE
 GO
 ALTER TABLE SinhVien CHECK CONSTRAINT FK_SinhVien_Phong
+GO
+
+ALTER TABLE TaiKhoanSV WITH CHECK ADD CONSTRAINT 
+FK_SinhVien_TaiKhoan 
+FOREIGN KEY (MaTK) REFERENCES SinhVien(MaSinhVien)
+ON UPDATE CASCADE
+ON DELETE CASCADE
+GO
+ALTER TABLE TaiKhoanSV CHECK CONSTRAINT FK_SinhVien_TaiKhoan
 GO
 
 ALTER TABLE TrangThietBi
@@ -109,45 +155,201 @@ GO
 ALTER TABLE ChiTietHoaDon CHECK CONSTRAINT FK_ChiTietHoaDon_HoaDon
 GO
 
-/*insert into Phong values ('P101',2000000,5,8,1)
-insert into Phong values ('P102',1000000,2,5,0)
-insert into Phong values ('P103',2500000,3,8,1)
-insert into Phong values ('P104',1000000,4,8,0)
-insert into Phong values ('P105',2000000,3,5,0)
-insert into Phong values ('P106',3000000,5,8,1)
-insert into Phong values ('P107',1500000,7,8,0)
+-- Ràng buộc điều kiện
+ALTER TABLE SinhVien WITH CHECK ADD CONSTRAINT 
+CHECK_CMND_CCCD_SV CHECK ((len(CMND_CCCD)=(9)) or (len(CMND_CCCD)=(12)))
+GO
+--Done
+ALTER TABLE SinhVien WITH CHECK ADD CONSTRAINT 
+CHECK_SDT_SV CHECK ((len(SoDienThoai)=(10)))
+GO
+
+ALTER TABLE ChiTietHoaDon WITH CHECK ADD CONSTRAINT 
+CHECK_SoTien_HoaDon CHECK (SoDien > 0 and SoNuoc > 0)
+GO
+
+--Alter table HoaDonDienNuoc drop constraint CHECK_SoTien_HoaDonDienNuoc
+--Done
+ALTER TABLE DangNhap WITH CHECK ADD CONSTRAINT 
+CHECK_MatKhau_TaiKhoan CHECK ((len(MatKhau)>=(8)))
+GO
+
+--Done
+ALTER TABLE Phong WITH CHECK ADD CONSTRAINT
+CHECK_SoluongSV CHECK ((SoLuongSinhVienHienTai>=(0) AND
+SoLuongSinhVienToiDa<(9)))
+GO
+
+ALTER TABLE TrangThietBi WITH CHECK ADD CONSTRAINT 
+CHECK_SoThietBiTrongPhong CHECK (SoLuongHong >= (0) and SoLuongTot >= (0))
+GO
 
 
-insert into HoaDon values('HD1',200000,100000,'P102','7-11-2021',1)
-insert into HoaDon values('HD2',250000,110000,'P102','7-11-2021',0)
-insert into HoaDon values('HD3',240000,190000,'P102','7-11-2021',0)
-insert into HoaDon values('HD4',230000,160000,'P102','7-11-2021',1)
+--																	Trigger
+CREATE TRIGGER Tg_ThemTaiKhoan
+ON SinhVien
+FOR INSERT
+AS
+BEGIN
+		INSERT INTO TaiKhoanSV(
+			MaTK ,
+			TinhTrang ,
+			NgayCap,
+			NgayHetHan,
+			TenChuTK
+		)
+		SELECT
+			i.MaSinhVien,
+			1,
+			CAST( GETDATE() AS Date ),
+			DATEADD(year,5, CAST( GETDATE() AS Date )),
+			i.HoTen
+			FROM inserted i
+END
+GO
+--Done
+CREATE TRIGGER Tg_ThemThongTinDangNhap
+ON SinhVien
+FOR INSERT
+AS
+BEGIN
+	INSERT INTO DangNhap(
+			TenDangNhap,
+			MatKhau,
+			VaiTro
+		)
+		SELECT
+			i.CMND_CCCD,
+			i.CMND_CCCD,
+			null
+			FROM inserted i
+END
+GO
+-- Done
+CREATE TRIGGER tg_XoaThongTinDangNhapSinhVien
+ON SinhVien
+FOR DELETE
+AS
+	BEGIN
+		DELETE FROM TaiKhoanSV
+		FROM deleted i
+		WHERE MaTK = i.MaSinhVien
+	END
+GO
+-- Done
+CREATE TRIGGER tg_Phong 
+ON Phong
+AFTER INSERT, UPDATE
+AS
+	BEGIN
+		if (select count(*) as Count 
+				from (select MaPhong from inserted where MaPhong is not null and MaPhong like'%[a-zA-Z][0-9]%') as q) = 0
+					ROLLBACK TRANSACTION
+	END
+GO
+--Done
+CREATE TRIGGER tg_SoLuongSinhVienTrongPhongKhiThem
+ON SinhVien
+AFTER INSERT
+AS
+BEGIN
+	SET NOCOUNT ON;
+	DECLARE @SoLuongSinhVien int, @SoLuongSinhVienToiDa int
+	SELECT @SoLuongSinhVien = Phong.SoLuongSinhVienHienTai,@SoLuongSinhVienToiDa = Phong.SoLuongSinhVienToiDa
+	FROM inserted, Phong
+	WHERE inserted.MaPhong= Phong.MaPhong
+	IF(@SoLuongSinhVien >= @SoLuongSinhVienToiDa)
+		BEGIN
+			RAISERROR(N'Phòng đã đủ sinh viên', 16,1)
+			ROLLBACK
+		END
+	ELSE
+		BEGIN 
+			UPDATE Phong SET SoLuongSinhVienHienTai = SoLuongSinhVienHienTai + 1
+			FROM inserted, Phong
+			WHERE Phong.MaPhong = inserted.MaPhong
+		END
+END
+GO
+--one
+CREATE TRIGGER tg_SoLuongSinhVienTrongPhongKhiSua
+ON SinhVien
+AFTER UPDATE
+AS
+BEGIN
+	SET NOCOUNT ON;
+	DECLARE @SoLuongSinhVien int, @SoLuongSinhVienToiDa int, @SoPhongCu nchar(10), @SoPhongMoi nchar(10)
+	SELECT @SoLuongSinhVien = Phong.SoLuongSinhVienHienTai, @SoLuongSinhVienToiDa = Phong.SoLuongSinhVienToiDa,@SoPhongMoi = updated.MaPhong,@SoPhongCu = deleted.MaPhong
+	FROM inserted updated,deleted, Phong
+	WHERE updated.MaPhong = Phong.MaPhong
+	IF(@SoPhongCu != @SoPhongMoi)
+	BEGIN
+		IF(@SoLuongSinhVien >= @SoLuongSinhVienToiDa)
+		BEGIN
+			RAISERROR(N'Phòng đã đủ sinh viên', 16,1)
+			ROLLBACK TRANSACTION
+		END
+		ELSE
+		BEGIN 
+			UPDATE Phong SET SoLuongSinhVienHienTai = SoLuongSinhVienHienTai - 1
+			FROM deleted, Phong
+			WHERE Phong.MaPhong = deleted.MaPhong
+			UPDATE Phong SET SoLuongSinhVienHienTai = SoLuongSinhVienHienTai + 1
+			FROM inserted updated, Phong
+			WHERE Phong.MaPhong = updated.MaPhong
+		END
+	END
+END
+GO
+-- Done
+CREATE TRIGGER tg_GiamSoLuongSinhVien
+ON SinhVien
+FOR DELETE
+AS
+BEGIN
+	SET NOCOUNT ON;
+	DECLARE @SoLuongSinhVien int
+	SELECT @SoLuongSinhVien = Phong.SoLuongSinhVienHienTai
+	FROM deleted , Phong
+	WHERE deleted.MaPhong = Phong.MaPhong
 
-insert into HoaDon values('HD5',240000,190000,'P103','7-11-2021',0)
-create table NoPhi(
-	id int identity(1,1) primary key,
-	MaPhong char(10) references  Phong(MaPhong),
-	MAHD char(10) references HoaDon(MAHD)
-)
+	UPDATE Phong SET SoLuongSinhVienHienTai = SoLuongSinhVienHienTai - 1
+	FROM deleted, Phong
+	WHERE Phong.MaPhong = deleted.MaPhong
+END
+GO
+--Done
+CREATE TRIGGER tg_ThemHoaDon
+ON HoaDon
+AFTER INSERT, UPDATE
+AS 
+BEGIN
+	SET NOCOUNT ON;
+	DECLARE @SoSinhVien int
+	SELECT @SoSinhVien = Phong.SoLuongSinhVienHienTai
+	FROM inserted, Phong 
+	WHERE inserted.MaPhong = Phong.MaPhong
+	IF (@SoSinhVien = 0)
+	BEGIN
+		RAISERROR(N'Phòng trống', 16,1)
+		ROLLBACK TRANSACTION
+	END
+END
+GO
 
-select * from HoaDon
-group by(MaHD)
+insert into Phong values ('A101',2000000,5,8,1)
 
-alter function [dbo].[Thongtinnophi](@maphong char(10))
-returns int
-as
-begin
-	declare @check int
-	if exists (select * from HoaDon
-						where MaPhong=@maphong and
-							TrangThai=1)
-		set @check=1
-	else 
-		set @check=0
-	return @check
-end
+insert into SinhVien Values('20133104',N'Nguyễn Văn Thanh','0367064834', N'Nam',3,N'Không',N'Việt Nam','221502781','A101',1)
+insert into SinhVien Values('20133105',N'Nguyễn Văn Thanh','0367064834', N'Nam',3,N'Không',N'Việt Nam','221502782','A101',1)
 
-SELECT dbo.Thongtinnophi('P103');*/
+insert into HoaDon values('HD1','A101','2022-12-12')
+
+insert into ChiTietHoaDon values('HD1',100,100,3.2,15000)
+
+insert into ThongBao values(N'Nghỉ học','Các em nghỉ học nhé','2022-12-12')
+
+insert into TrangThietBi Values('TB1','A101', 'Giường' , 0,4 )
+
 
 
 	
