@@ -50,10 +50,12 @@
     <Compile Include="BUS\HoaDon_BUS.cs" />
     <Compile Include="BUS\PhiSinhVien_BUS.cs" />
     <Compile Include="BUS\Phong_BUS.cs" />
+    <Compile Include="BUS\ThongBao_BUS.cs" />
     <Compile Include="DAO\ChitietHoaDon_DAO.cs" />
     <Compile Include="DAO\HoaDon_DAO.cs" />
     <Compile Include="DAO\PhiSinhVien_DAO.cs" />
     <Compile Include="DAO\Phong_DAO.cs" />
+    <Compile Include="DAO\ThongBao_DAO.cs" />
     <Compile Include="effect\RJTextBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -65,6 +67,12 @@
     </Compile>
     <Compile Include="effect\view.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\frm_ThongBao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frm_ThongBao.Designer.cs">
+      <DependentUpon>frm_ThongBao.cs</DependentUpon>
     </Compile>
     <Compile Include="View\frm_DangNhap.cs">
       <SubType>Form</SubType>
@@ -135,6 +143,9 @@
     </Compile>
     <EmbeddedResource Include="View\frm_Test.resx">
       <DependentUpon>frm_Test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frm_ThongBao.resx">
+      <DependentUpon>frm_ThongBao.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
