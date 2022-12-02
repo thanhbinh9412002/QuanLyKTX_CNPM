@@ -32,15 +32,14 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_DangNhap));
             this.label1 = new System.Windows.Forms.Label();
-            this.rdbtn_quanly = new System.Windows.Forms.RadioButton();
-            this.rdbtn_admin = new System.Windows.Forms.RadioButton();
-            this.lb_trangthai = new System.Windows.Forms.Label();
             this.rdbtn_sinhvien = new System.Windows.Forms.RadioButton();
+            this.rdbtn_quanly = new System.Windows.Forms.RadioButton();
+            this.lb_trangthai = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.txt_password = new PHAN_MEM_QUAN_LY_KTX_CNPM.effect.RJTextBox();
-            this.txt_user = new PHAN_MEM_QUAN_LY_KTX_CNPM.effect.RJTextBox();
+            this.txt_username = new PHAN_MEM_QUAN_LY_KTX_CNPM.effect.RJTextBox();
             this.btn_hienpass = new CustomButton.VBButton();
             this.btn_dangnhap = new CustomButton.VBButton();
             this.elipseControl1 = new ElipseToolDemo.ElipseControl();
@@ -60,31 +59,29 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.label1.Text = "PHẦN MỀM QUẢN LÝ KÝ TÚC XÁ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // rdbtn_sinhvien
+            // 
+            this.rdbtn_sinhvien.AutoSize = true;
+            this.rdbtn_sinhvien.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbtn_sinhvien.Location = new System.Drawing.Point(210, 137);
+            this.rdbtn_sinhvien.Name = "rdbtn_sinhvien";
+            this.rdbtn_sinhvien.Size = new System.Drawing.Size(91, 24);
+            this.rdbtn_sinhvien.TabIndex = 19;
+            this.rdbtn_sinhvien.TabStop = true;
+            this.rdbtn_sinhvien.Text = "Sinh viên";
+            this.rdbtn_sinhvien.UseVisualStyleBackColor = true;
+            // 
             // rdbtn_quanly
             // 
             this.rdbtn_quanly.AutoSize = true;
             this.rdbtn_quanly.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbtn_quanly.Location = new System.Drawing.Point(169, 133);
+            this.rdbtn_quanly.Location = new System.Drawing.Point(89, 137);
             this.rdbtn_quanly.Name = "rdbtn_quanly";
             this.rdbtn_quanly.Size = new System.Drawing.Size(80, 24);
-            this.rdbtn_quanly.TabIndex = 19;
+            this.rdbtn_quanly.TabIndex = 18;
             this.rdbtn_quanly.TabStop = true;
             this.rdbtn_quanly.Text = "Quản lý";
             this.rdbtn_quanly.UseVisualStyleBackColor = true;
-            this.rdbtn_quanly.KeyDown += new System.Windows.Forms.KeyEventHandler(this.rdbtn_quanly_KeyDown);
-            // 
-            // rdbtn_admin
-            // 
-            this.rdbtn_admin.AutoSize = true;
-            this.rdbtn_admin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbtn_admin.Location = new System.Drawing.Point(48, 133);
-            this.rdbtn_admin.Name = "rdbtn_admin";
-            this.rdbtn_admin.Size = new System.Drawing.Size(115, 24);
-            this.rdbtn_admin.TabIndex = 18;
-            this.rdbtn_admin.TabStop = true;
-            this.rdbtn_admin.Text = "Quản trị viên";
-            this.rdbtn_admin.UseVisualStyleBackColor = true;
-            this.rdbtn_admin.KeyDown += new System.Windows.Forms.KeyEventHandler(this.rdbtn_admin_KeyDown);
             // 
             // lb_trangthai
             // 
@@ -95,19 +92,6 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.lb_trangthai.Size = new System.Drawing.Size(363, 62);
             this.lb_trangthai.TabIndex = 22;
             this.lb_trangthai.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // rdbtn_sinhvien
-            // 
-            this.rdbtn_sinhvien.AutoSize = true;
-            this.rdbtn_sinhvien.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbtn_sinhvien.Location = new System.Drawing.Point(255, 133);
-            this.rdbtn_sinhvien.Name = "rdbtn_sinhvien";
-            this.rdbtn_sinhvien.Size = new System.Drawing.Size(89, 24);
-            this.rdbtn_sinhvien.TabIndex = 26;
-            this.rdbtn_sinhvien.TabStop = true;
-            this.rdbtn_sinhvien.Text = "Học sinh";
-            this.rdbtn_sinhvien.UseVisualStyleBackColor = true;
-            this.rdbtn_sinhvien.KeyDown += new System.Windows.Forms.KeyEventHandler(this.rdbtn_sinhvien_KeyDown);
             // 
             // button2
             // 
@@ -155,30 +139,29 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.txt_password.TabIndex = 32;
             this.txt_password.Texts = "";
             this.txt_password.UnderlinedStyle = true;
-            this.txt_password.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_password_KeyDown);
             // 
-            // txt_user
+            // txt_username
             // 
-            this.txt_user.BackColor = System.Drawing.Color.LightCyan;
-            this.txt_user.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.txt_user.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txt_user.BorderSize = 2;
-            this.txt_user.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_user.ForeColor = System.Drawing.Color.DimGray;
-            this.txt_user.Location = new System.Drawing.Point(133, 48);
-            this.txt_user.Margin = new System.Windows.Forms.Padding(4);
-            this.txt_user.Multiline = false;
-            this.txt_user.Name = "txt_user";
-            this.txt_user.Padding = new System.Windows.Forms.Padding(7);
-            this.txt_user.PasswordChar = false;
-            this.txt_user.Size = new System.Drawing.Size(160, 31);
-            this.txt_user.TabIndex = 31;
-            this.txt_user.Texts = "";
-            this.txt_user.UnderlinedStyle = true;
-            this.txt_user.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_user_KeyDown);
+            this.txt_username.BackColor = System.Drawing.Color.LightCyan;
+            this.txt_username.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.txt_username.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txt_username.BorderSize = 2;
+            this.txt_username.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_username.ForeColor = System.Drawing.Color.DimGray;
+            this.txt_username.Location = new System.Drawing.Point(133, 48);
+            this.txt_username.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_username.Multiline = false;
+            this.txt_username.Name = "txt_username";
+            this.txt_username.Padding = new System.Windows.Forms.Padding(7);
+            this.txt_username.PasswordChar = false;
+            this.txt_username.Size = new System.Drawing.Size(160, 31);
+            this.txt_username.TabIndex = 31;
+            this.txt_username.Texts = "";
+            this.txt_username.UnderlinedStyle = true;
             // 
             // btn_hienpass
             // 
+            this.btn_hienpass.AutoEllipsis = true;
             this.btn_hienpass.BackColor = System.Drawing.Color.LightCoral;
             this.btn_hienpass.BackgroundColor = System.Drawing.Color.LightCoral;
             this.btn_hienpass.BorderColor = System.Drawing.Color.PaleVioletRed;
@@ -201,6 +184,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             // 
             // btn_dangnhap
             // 
+            this.btn_dangnhap.AutoSize = true;
             this.btn_dangnhap.BackColor = System.Drawing.Color.LightCoral;
             this.btn_dangnhap.BackgroundColor = System.Drawing.Color.LightCoral;
             this.btn_dangnhap.BorderColor = System.Drawing.Color.PaleVioletRed;
@@ -233,14 +217,13 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.BackColor = System.Drawing.Color.LightCyan;
             this.ClientSize = new System.Drawing.Size(378, 296);
             this.Controls.Add(this.txt_password);
-            this.Controls.Add(this.txt_user);
+            this.Controls.Add(this.txt_username);
             this.Controls.Add(this.btn_hienpass);
             this.Controls.Add(this.btn_dangnhap);
-            this.Controls.Add(this.rdbtn_sinhvien);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.rdbtn_sinhvien);
             this.Controls.Add(this.rdbtn_quanly);
-            this.Controls.Add(this.rdbtn_admin);
             this.Controls.Add(this.lb_trangthai);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -261,15 +244,14 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.RadioButton rdbtn_quanly;
-        private System.Windows.Forms.RadioButton rdbtn_admin;
         private System.Windows.Forms.Label lb_trangthai;
         private System.Windows.Forms.RadioButton rdbtn_sinhvien;
         private System.Windows.Forms.Timer timer1;
         private ElipseToolDemo.ElipseControl elipseControl1;
         private CustomButton.VBButton btn_hienpass;
         private CustomButton.VBButton btn_dangnhap;
-        private effect.RJTextBox txt_user;
+        private effect.RJTextBox txt_username;
         private effect.RJTextBox txt_password;
+        private System.Windows.Forms.RadioButton rdbtn_quanly;
     }
 }

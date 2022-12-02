@@ -7,15 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-//using QuanLyKTX.BUS;
-//using QuanLyKTX.Class;
+using PHAN_MEM_QUAN_LY_KTX_CNPM.BUS;
 
 namespace PHAN_MEM_QUAN_LY_KTX_CNPM
 {
     public partial class frm_DangNhap : Form
     {
-        //public frm_TrangChu fmTrangChu;
-        public string role;
+        public frm_Trangchu fmTrangChu;
+        private string user;
+        private string role;
+
         // HIỆU ỨNG//
         private int counter = 0;
         private int len = 0;
@@ -30,92 +31,43 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
 
         private void btn_dangnhap_Click(object sender, EventArgs e)
         {
-            string user = txt_user.Text;
-            string password = txt_password.Text;
-            //string role;
-            if (rdbtn_admin.Checked == true)
+            user = txt_username.Texts;
+            string password = txt_password.Texts;
+            if (rdbtn_quanly.Checked == true)
             {
-                role = "Admin";
+                role = "Quản Lý";
             }
             else
             {
-                role = "Quản lý";
+                role = "Sinh Viên";
             }
-            //Tai_khoan tk = new Tai_khoan(user, password, role);
-           // DangNhap_BUS dnBUS = new DangNhap_BUS();
-            //int kq = dnBUS.Check_Tai_Khoan(tk);
-           /* if (kq == 1)
+            DangNhap_BUS dnBUS = new DangNhap_BUS();
+            int kq = dnBUS.Check_Tai_Khoan(user,password,role);
+            if (kq == 1)
             {
-                txt_user.ResetText();
-                txt_password.ResetText();
-                rdbtn_admin.Refresh();
-                rdbtn_quanly.Refresh();
-                //fmTrangChu = new frm_TrangChu(user, role);
+                txt_username.Focus();
                 this.Hide();
-                //fmTrangChu.ShowDialog();
+                fmTrangChu = new frm_Trangchu(user, role);
+                fmTrangChu.ShowDialog();
                 this.Show();
+                txt_username.Texts = "";
+                txt_password.Texts = "";
             }
             else
             {
                 lb_trangthai.Text = "Đăng nhập không thành công! Vui lòng kiểm tra lại !";
-                txt_password.ResetText();
-                rdbtn_admin.Refresh();
-                rdbtn_quanly.Refresh();
+                txt_password.Texts = "";
                 txt_password.Focus();
-            }*/
+            }
         }
 
         private void frm_DangNhap_Load(object sender, EventArgs e)
         {
-            txt_user.Focus();
+            txt_username.Focus();
             txt = label1.Text;
             len = txt.Length;
             label1.Text = "";
             timer1.Start();
-        }
-
-        private void txt_user_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Down)
-            {
-                txt_password.Focus();
-            }
-        }
-
-        private void txt_password_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Down)
-            {
-                rdbtn_admin.Focus();
-            }
-            else if (e.KeyCode == Keys.Up)
-            {
-                txt_user.Focus();
-            }
-        }
-
-        private void rdbtn_admin_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Down)
-            {
-                btn_dangnhap.Focus();
-            }
-            else if (e.KeyCode == Keys.Up)
-            {
-                txt_password.Focus();
-            }
-        }
-
-        private void rdbtn_quanly_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Down)
-            {
-                btn_dangnhap.Focus();
-            }
-            else if (e.KeyCode == Keys.Up)
-            {
-                txt_password.Focus();
-            }
         }
 
         private void btn_hienpass_Click(object sender, EventArgs e)
@@ -157,18 +109,6 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
                     label1.ForeColor = Color.Orange;
                 else
                     label1.ForeColor = Color.Blue;
-            }
-        }
-
-        private void rdbtn_sinhvien_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Down)
-            {
-                btn_dangnhap.Focus();
-            }
-            else if (e.KeyCode == Keys.Up)
-            {
-                txt_password.Focus();
             }
         }
     }

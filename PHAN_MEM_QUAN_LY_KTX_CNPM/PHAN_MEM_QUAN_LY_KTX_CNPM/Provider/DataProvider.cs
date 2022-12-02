@@ -13,7 +13,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM.Provider
     public class DataProvider
     {
         private SqlConnection connection;
-        public string connect = @"Data Source=.\SQLExpress;Initial Catalog=KTX;Integrated Security=True";
+        public string connect = @"Data Source=THANHBINH\SQLEXPRESS;Initial Catalog=KTX;Integrated Security=True";
 
         public DataProvider()
         {

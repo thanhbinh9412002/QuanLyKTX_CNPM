@@ -37,18 +37,20 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             // dgvPhong
             // 
             this.dgvPhong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPhong.Location = new System.Drawing.Point(111, 77);
+            this.dgvPhong.Location = new System.Drawing.Point(256, 63);
+            this.dgvPhong.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvPhong.Name = "dgvPhong";
             this.dgvPhong.RowHeadersWidth = 51;
             this.dgvPhong.RowTemplate.Height = 24;
-            this.dgvPhong.Size = new System.Drawing.Size(549, 269);
+            this.dgvPhong.Size = new System.Drawing.Size(239, 219);
             this.dgvPhong.TabIndex = 0;
             // 
             // btnHD
             // 
-            this.btnHD.Location = new System.Drawing.Point(325, 381);
+            this.btnHD.Location = new System.Drawing.Point(244, 310);
+            this.btnHD.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnHD.Name = "btnHD";
-            this.btnHD.Size = new System.Drawing.Size(165, 57);
+            this.btnHD.Size = new System.Drawing.Size(124, 46);
             this.btnHD.TabIndex = 1;
             this.btnHD.Text = "Hóa đơn";
             this.btnHD.UseVisualStyleBackColor = true;
@@ -56,11 +58,12 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             // 
             // frm_Phong
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.btnHD);
             this.Controls.Add(this.dgvPhong);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frm_Phong";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý phòng";

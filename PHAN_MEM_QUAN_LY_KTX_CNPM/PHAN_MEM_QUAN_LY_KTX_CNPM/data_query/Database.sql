@@ -7,7 +7,6 @@ create table DangNhap (
 	TenDangNhap char(15) ,
 	MatKhau char(20) NOT NULL,
 	VaiTro nvarchar(10),
-	TrangThai bit,
 	Constraint PK_TaiKhoan Primary Key (TenDangNhap)
 )
 GO
@@ -27,7 +26,7 @@ CREATE TABLE SinhVien(
 )
 GO
 
-/*create table TaiKhoanSV (
+create table TaiKhoanSV (
 	MaTK char(10),
 	TinhTrang bit ,
 	NgayCap Date,
@@ -35,7 +34,7 @@ GO
 	TenChuTK nvarchar(50),
 	Constraint PK_TaiKhoanSV Primary Key (MaTK)
 )
-GO*/
+GO
 
 create table Phong (
 	MaPhong char(10) primary key ,
@@ -99,14 +98,16 @@ create table SuaChua(
 	Id int IDENTITY(1,1) PRIMARY KEY, 
 	TenThietBi nvarchar(20) NOT NULL,
 	SoLuong int,
-	ChiTiet nvarchar(50)
+	ChiTiet nvarchar(1000),
+	TrangThai bit
 )
 GO
 
 create table GiaHan (
 	Id int IDENTITY(1,1) PRIMARY KEY,
 	MaSinhVien char(10),
-	SoKy int
+	SoKy int,
+	TrangThai bit
 )
 GO
 
@@ -114,7 +115,8 @@ create table TraPhong(
 	Id int IDENTITY(1,1) PRIMARY KEY,
 	MaPhong char(10),
 	MaSinhVien char(10),
-	NgayTra Date
+	NgayTra Date,
+	TrangThai bit
 )
 GO
 
@@ -136,22 +138,22 @@ GO
 ALTER TABLE SinhVien CHECK CONSTRAINT FK_SinhVien_Phong
 GO
 
-/*ALTER TABLE TaiKhoanSV WITH CHECK ADD CONSTRAINT 
+ALTER TABLE TaiKhoanSV WITH CHECK ADD CONSTRAINT 
 FK_SinhVien_TaiKhoan 
 FOREIGN KEY (MaTK) REFERENCES SinhVien(MaSinhVien)
 ON UPDATE CASCADE
 ON DELETE CASCADE
 GO
 ALTER TABLE TaiKhoanSV CHECK CONSTRAINT FK_SinhVien_TaiKhoan
-GO*/
+GO
 
-/*ALTER TABLE TrangThietBi
-ADD CONSTRAINT FK_ThietBi_Phong
+ALTER TABLE ThietBiTrongPhong
+ADD CONSTRAINT FK_ThietBiPhong_Phong
 FOREIGN KEY (MaPhong) REFERENCES Phong(MaPhong)
 ON DELETE CASCADE;
 GO
-ALTER TABLE TrangThietBi CHECK CONSTRAINT FK_ThietBi_Phong
-GO*/
+ALTER TABLE ThietBiTrongPhong CHECK CONSTRAINT FK_ThietBiPhong_Phong
+GO
 --Done
 ALTER TABLE ThietBiTrongPhong
 WITH CHECK ADD CONSTRAINT FK_TrangThietBi_ThietBi
@@ -216,7 +218,7 @@ GO
 
 
 --																	Trigger
-/*CREATE TRIGGER Tg_ThemTaiKhoan
+CREATE TRIGGER Tg_ThemTaiKhoan
 ON SinhVien
 FOR INSERT
 AS
@@ -236,7 +238,7 @@ BEGIN
 			i.HoTen
 			FROM inserted i
 END
-GO*/
+GO
 
 --Done
 CREATE TRIGGER Tg_ThemThongTinDangNhap
@@ -252,12 +254,12 @@ BEGIN
 		SELECT
 			i.CMND_CCCD,
 			i.CMND_CCCD,
-			null
+			'Sinh Viên'
 			FROM inserted i
 END
 GO
 -- Done
-/*CREATE TRIGGER tg_XoaThongTinDangNhapSinhVien
+CREATE TRIGGER tg_XoaThongTinDangNhapSinhVien
 ON SinhVien
 FOR DELETE
 AS
@@ -266,7 +268,7 @@ AS
 		FROM deleted i
 		WHERE MaTK = i.MaSinhVien
 	END
-GO*/
+GO
 -- Done
 CREATE TRIGGER tg_Phong 
 ON Phong
@@ -497,5 +499,28 @@ update HoaDon set MAHD = @mahd,
 				  TrangThai = @TrangThai,
 				  TongTien = @TongTien
 where MAHD = @mahd
+go
 
+-- Kiem tra dang nhap
+create function [dbo].[func_KiemTraDangNhap] (@TenTK char(15), @MK char(20), @Vaitro nvarchar(10))
+returns int
+	as
+		begin
+			declare @check int
+			if exists (select * from DangNhap
+						where @TenTK=DangNhap.TenDangNhap and @MK=DangNhap.MatKhau and
+							@Vaitro=VaiTro)
+						set @check=1
+			else	
+					set @check=0
+			return @check
+		end
+GO
+-- Doi mat khau
+
+create procedure [dbo].[proc_DoiMatKhau] (@tentk char(15), @mk char(20) )
+as update DangNhap
+	set MatKhau = @mk
+	where TenDangNhap = @tentk
+go
  
