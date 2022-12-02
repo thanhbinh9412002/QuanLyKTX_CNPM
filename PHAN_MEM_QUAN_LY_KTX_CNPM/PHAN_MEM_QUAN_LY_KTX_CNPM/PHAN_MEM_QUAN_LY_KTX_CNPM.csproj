@@ -50,14 +50,12 @@
     <Compile Include="BUS\HoaDon_BUS.cs" />
     <Compile Include="BUS\PhiSinhVien_BUS.cs" />
     <Compile Include="BUS\Phong_BUS.cs" />
-    <Compile Include="BUS\DangNhap_BUS.cs" />
-    <Compile Include="DAO\DangNhap_DAO.cs" />
+    <Compile Include="BUS\ThongBao_BUS.cs" />
     <Compile Include="DAO\ChitietHoaDon_DAO.cs" />
     <Compile Include="DAO\HoaDon_DAO.cs" />
     <Compile Include="DAO\PhiSinhVien_DAO.cs" />
     <Compile Include="DAO\Phong_DAO.cs" />
-    <Compile Include="BUS\DoiMatKhau_BUS.cs" />
-    <Compile Include="DAO\DoiMatKhau_DAO.cs" />
+    <Compile Include="DAO\ThongBao_DAO.cs" />
     <Compile Include="effect\RJTextBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -70,41 +68,11 @@
     <Compile Include="effect\view.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\frm_GiaHan.cs">
+    <Compile Include="View\frm_ThongBao.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\frm_GiaHan.Designer.cs">
-      <DependentUpon>frm_GiaHan.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\frm_SuaChua.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\frm_SuaChua.Designer.cs">
-      <DependentUpon>frm_SuaChua.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\frm_TraPhong.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\frm_TraPhong.Designer.cs">
-      <DependentUpon>frm_TraPhong.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\frm_YeuCau.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\frm_YeuCau.Designer.cs">
-      <DependentUpon>frm_YeuCau.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\frm_DoiMatKhau.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\frm_DoiMatKhau.Designer.cs">
-      <DependentUpon>frm_DoiMatKhau.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\frm_ThongTinNoPhi.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\frm_ThongTinNoPhi.Designer.cs">
-      <DependentUpon>frm_ThongTinNoPhi.cs</DependentUpon>
+    <Compile Include="View\frm_ThongBao.Designer.cs">
+      <DependentUpon>frm_ThongBao.cs</DependentUpon>
     </Compile>
     <Compile Include="View\frm_DangNhap.cs">
       <SubType>Form</SubType>
@@ -112,11 +80,11 @@
     <Compile Include="View\frm_DangNhap.Designer.cs">
       <DependentUpon>frm_DangNhap.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\frm_TrangChu.cs">
+    <Compile Include="View\frm_Test.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\frm_TrangChu.Designer.cs">
-      <DependentUpon>frm_TrangChu.cs</DependentUpon>
+    <Compile Include="View\frm_Test.Designer.cs">
+      <DependentUpon>frm_Test.cs</DependentUpon>
     </Compile>
     <Compile Include="View\frm_PhiSinhVien.cs">
       <SubType>Form</SubType>
@@ -145,22 +113,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Provider\DataProvider.cs" />
-    <Compile Include="BUS\YeuCau_BUS.cs" />
-    <Compile Include="DAO\YeuCau_DAO.cs" />
     <EmbeddedResource Include="effect\RJTextBox.resx">
       <DependentUpon>RJTextBox.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\frm_GiaHan.resx">
-      <DependentUpon>frm_GiaHan.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\frm_SuaChua.resx">
-      <DependentUpon>frm_SuaChua.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\frm_TraPhong.resx">
-      <DependentUpon>frm_TraPhong.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\frm_DoiMatKhau.resx">
-      <DependentUpon>frm_DoiMatKhau.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\frm_ChitietHoaDon.resx">
       <DependentUpon>frm_ChitietHoaDon.cs</DependentUpon>
@@ -187,14 +141,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="View\frm_ThongTinNoPhi.resx">
-      <DependentUpon>frm_ThongTinNoPhi.cs</DependentUpon>
+    <EmbeddedResource Include="View\frm_Test.resx">
+      <DependentUpon>frm_Test.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\frm_TrangChu.resx">
-      <DependentUpon>frm_TrangChu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\frm_YeuCau.resx">
-      <DependentUpon>frm_YeuCau.cs</DependentUpon>
+    <EmbeddedResource Include="View\frm_ThongBao.resx">
+      <DependentUpon>frm_ThongBao.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -212,27 +163,6 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="data_query\Database.sql" />
-    <None Include="Resources\2621170.png" />
-    <None Include="Resources\document-icon.png" />
-    <None Include="Resources\account-icon1.png" />
-    <None Include="Resources\request-icon.png" />
-    <None Include="Resources\remove-icon.png" />
-    <None Include="Resources\Save-icon.png" />
-    <None Include="Resources\logout-icon.png" />
-    <None Include="Resources\device-icon.png" />
-    <None Include="Resources\bell_icon.png" />
-    <None Include="Resources\password-reset.png" />
-    <None Include="Resources\Actions-go-previous-icon.png" />
-    <None Include="Resources\Actions-go-next-icon.png" />
-    <None Include="Resources\Actions-go-up-icon.png" />
-    <None Include="Resources\Actions-go-down-icon.png" />
-    <None Include="Resources\ktx3.png" />
-    <None Include="Resources\ktx2.png" />
-    <None Include="Resources\KTX.png" />
-    <None Include="Resources\room-icon.png" />
-    <None Include="Resources\home-icon .png" />
-    <None Include="Resources\Students-icon.png" />
-    <None Include="Resources\Awicons-Vista-Artistic-2-Hot-Home.ico" />
     <None Include="Resources\private-password.png" />
     <None Include="Resources\Restart-icon.png" />
     <None Include="Resources\show-password.png" />

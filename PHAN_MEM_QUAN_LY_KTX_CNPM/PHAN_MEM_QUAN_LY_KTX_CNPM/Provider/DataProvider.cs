@@ -13,7 +13,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM.Provider
     public class DataProvider
     {
         private SqlConnection connection;
-        public string connect = @"Data Source=THANHBINH\SQLEXPRESS;Initial Catalog=KTX;Integrated Security=True";
+        public string connect = @"Data Source=LAPTOP-MB5F72F2\SQLEXPRESS;Initial Catalog=KTX;Integrated Security=True";
 
         public DataProvider()
         {
@@ -121,6 +121,31 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM.Provider
             cmd.Parameters.Add(n);
             cmd.ExecuteScalar();
             kq = (Int32)n.Value;
+            connection.Close();
+            return kq;
+        }
+        public double ExecuteStoredProcedure_float(string spName, string[] pNames, object[] pValues) //trả về 1 giá trị khi gọi procedure bên sql
+
+        {
+            double kq = 0;
+            openConnection();
+            // Khai báo và khởi tạo đối tượng Command với tham số tên thủ tục spName
+            SqlCommand cmd = new SqlCommand(spName, connection);
+            // Khai báo kiểu thủ tục
+            cmd.CommandType = CommandType.StoredProcedure;
+            // Khai báo tham số SqlParameter
+            SqlParameter p;
+            // Khởi tạo danh sách các tham số với giá trị tương ứng
+            for (int i = 0; i < pNames.Length; i++)
+            {
+                p = new SqlParameter(pNames[i], pValues[i]);
+                cmd.Parameters.Add(p);
+            }
+            SqlParameter n = new SqlParameter("@kq", SqlDbType.Float);
+            n.Direction = ParameterDirection.ReturnValue;
+            cmd.Parameters.Add(n);
+            cmd.ExecuteScalar();
+            kq = (Double)n.Value;
             connection.Close();
             return kq;
         }

@@ -23,5 +23,13 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM.DAO
             sqlParameters[0].Value = maphong;
             return cnn.executeReader("SELECT * FROM func_HoaDonChuaThanhToan(@MaPhong)", sqlParameters);
         }
+
+        public DataTable GetAccountSV(string mssv)
+        {
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+            sqlParameters[0] = new SqlParameter("@MaSinhVien", System.Data.SqlDbType.Char);
+            sqlParameters[0].Value = mssv;
+            return cnn.executeReader("SELECT * FROM func_LayTKSV(@MaSinhVien)", sqlParameters);
+        }
     }
 }

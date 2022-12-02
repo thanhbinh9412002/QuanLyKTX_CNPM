@@ -40,5 +40,55 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM.DAO
             object[] pvalues = { mahd, maphong, ngaylap, trangthai, tongtien };
             cnn.ExecuteStoredProcedure_Update(sql, pNames, pvalues);
         }
+
+        public int laySoDien (string mahd)
+        {
+            int newProdID = 0;
+            string sql = "[dbo].[func_LaySoDien]";
+            string[] pNames = { "@MAHD"};
+            object[] pvalues = { mahd };
+            newProdID = cnn.ExecuteStoredProcedure(sql, pNames, pvalues);
+            return newProdID;
+        }
+
+        public int laySoNuoc(string mahd)
+        {
+            int newProdID = 0;
+            string sql = "[dbo].[func_LaySoNuoc]";
+            string[] pNames = { "@MAHD" };
+            object[] pvalues = { mahd };
+            newProdID = cnn.ExecuteStoredProcedure(sql, pNames, pvalues);
+            return newProdID;
+        }
+
+        public double layGiaDien(string mahd)
+        {
+            double newProdID = 0;
+            string sql = "[dbo].[func_LayGiaDien]";
+            string[] pNames = { "@MAHD" };
+            object[] pvalues = { mahd };
+            newProdID = cnn.ExecuteStoredProcedure_float(sql, pNames, pvalues);
+            return newProdID;
+        }
+
+        public double layGiaNuoc(string mahd)
+        {
+            double newProdID = 0;
+            string sql = "[dbo].[func_LayGiaNuoc]";
+            string[] pNames = { "@MAHD" };
+            object[] pvalues = { mahd };
+            newProdID = cnn.ExecuteStoredProcedure_float(sql, pNames, pvalues);
+            return newProdID;
+        }
+
+        public int CheckTaoHD(string maphong)
+        {
+            int newProdID = 0;
+            string sql = "[dbo].[func_KiemtraTaoHD]";
+            string[] pNames = { "@MaPhong" };
+            object[] pvalues = { maphong };
+            newProdID = cnn.ExecuteStoredProcedure(sql, pNames, pvalues);
+            return newProdID;
+        }
     }
 }

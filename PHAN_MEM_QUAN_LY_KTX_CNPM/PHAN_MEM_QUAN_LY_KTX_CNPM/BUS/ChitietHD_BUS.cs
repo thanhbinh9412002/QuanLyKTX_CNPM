@@ -24,5 +24,9 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM.BUS
         {
             ChitietHoaDonDAO.AddDetailInvoice(mahd, sodien, sonuoc, giadien, gianuoc);
         }
+        public void UpdateDetailInvoice(string mahd, int sodien, int sonuoc, double giadien, double gianuoc)
+        {
+            ChitietHoaDonDAO.UpdateDetailInvoice(mahd, sodien, sonuoc, giadien, gianuoc);
+        }
     }
 }

@@ -20,5 +20,9 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM.BUS
         {
             return PhiSinhVienDAO.GetAllInformation(maphong);
         }
+        public DataTable GetAccountSV(string mssv)
+        {
+            return PhiSinhVienDAO.GetAccountSV(mssv);
+        }
     }
 }
