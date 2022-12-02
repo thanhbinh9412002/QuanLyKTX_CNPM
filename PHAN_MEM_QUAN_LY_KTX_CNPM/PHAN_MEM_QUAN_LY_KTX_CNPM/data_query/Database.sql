@@ -27,7 +27,7 @@ CREATE TABLE SinhVien(
 )
 GO
 
-/*create table TaiKhoanSV (
+create table TaiKhoanSV (
 	MaTK char(10),
 	TinhTrang bit ,
 	NgayCap Date,
@@ -35,7 +35,7 @@ GO
 	TenChuTK nvarchar(50),
 	Constraint PK_TaiKhoanSV Primary Key (MaTK)
 )
-GO*/
+GO
 
 create table Phong (
 	MaPhong char(10) primary key ,
@@ -54,6 +54,7 @@ create table TrangThietBi (
 	Constraint PK_TrangThietBi Primary Key (MaThietBi)
 )
 GO
+
 -- Tạo bảng thiết bị trong phòng
 create table ThietBiTrongPhong (
 	MaThietBiTrongPhong char(10),
@@ -136,14 +137,14 @@ GO
 ALTER TABLE SinhVien CHECK CONSTRAINT FK_SinhVien_Phong
 GO
 
-/*ALTER TABLE TaiKhoanSV WITH CHECK ADD CONSTRAINT 
+ALTER TABLE TaiKhoanSV WITH CHECK ADD CONSTRAINT 
 FK_SinhVien_TaiKhoan 
 FOREIGN KEY (MaTK) REFERENCES SinhVien(MaSinhVien)
 ON UPDATE CASCADE
 ON DELETE CASCADE
 GO
 ALTER TABLE TaiKhoanSV CHECK CONSTRAINT FK_SinhVien_TaiKhoan
-GO*/
+GO
 
 /*ALTER TABLE TrangThietBi
 ADD CONSTRAINT FK_ThietBi_Phong
@@ -210,18 +211,18 @@ CHECK_SoluongSV CHECK ((SoLuongSinhVienHienTai>=(0) AND
 SoLuongSinhVienToiDa<(9)))
 GO
 
-ALTER TABLE TrangThietBi WITH CHECK ADD CONSTRAINT 
+ALTER TABLE ThietBiTrongPhong WITH CHECK ADD CONSTRAINT 
 CHECK_SoThietBiTrongPhong CHECK (SoLuongHong >= (0) and SoLuongTot >= (0))
 GO
 
 
 --																	Trigger
-/*CREATE TRIGGER Tg_ThemTaiKhoan
+CREATE TRIGGER Tg_ThemTaiKhoan
 ON SinhVien
 FOR INSERT
 AS
 BEGIN
-		INSERT INTO DangNhap(
+		INSERT INTO TaiKhoanSV(
 			MaTK ,
 			TinhTrang ,
 			NgayCap,
@@ -236,7 +237,7 @@ BEGIN
 			i.HoTen
 			FROM inserted i
 END
-GO*/
+GO
 
 --Done
 CREATE TRIGGER Tg_ThemThongTinDangNhap
@@ -257,7 +258,7 @@ BEGIN
 END
 GO
 -- Done
-/*CREATE TRIGGER tg_XoaThongTinDangNhapSinhVien
+CREATE TRIGGER tg_XoaThongTinDangNhapSinhVien
 ON SinhVien
 FOR DELETE
 AS
@@ -266,7 +267,7 @@ AS
 		FROM deleted i
 		WHERE MaTK = i.MaSinhVien
 	END
-GO*/
+GO
 -- Done
 CREATE TRIGGER tg_Phong 
 ON Phong
@@ -383,13 +384,13 @@ insert into Phong Values ('P709',200000, 0 , 6 , 1)
 insert into SinhVien Values('20133104',N'Nguyễn Văn Thanh','0367064834', N'Nam',3,N'Không',N'Việt Nam','221502781','P101',1)
 insert into SinhVien Values('20133105',N'Nguyễn Văn Thanh','0367064834', N'Nam',3,N'Không',N'Việt Nam','221502782','P101',1)
 
-insert into SinhVien Values('20133104',N'Nguyễn Văn Thanh','0367064834', N'Nam',3,N'Không',N'Việt Nam','221502781','P102',2)
+insert into SinhVien Values('20133107',N'Nguyễn Văn Thanh','0367064834', N'Nam',3,N'Không',N'Việt Nam','221502788','P102',2)
 insert into SinhVien Values('22133102',N'Lương Sĩ Hoàng','0312452123', N'Nam',1,N'Không',N'Việt Nam','221531232','P102',2)
 insert into SinhVien Values('21133101',N'Trần Thái Tú','0364412341', N'Nam',2,N'Không',N'Việt Nam','221512453','P102',1)
 
 insert into SinhVien Values('22133133',N'Cao Tuấn Tú','0367125212', N'Nam',3,N'Không',N'Việt Nam','221512654','P203',2)
 
-insert into SinhVien Values('21133122',N'Nguyễn Phước Ninh','0367784321', N'Nam',2,N'Không',N'Việt Nam','221586215','P301',2)
+insert into SinhVien Values('21133122',N'Nguyễn Phước Ninh','0367784321', N'Nam',2,N'Không',N'Việt Nam','221586219','P301',2)
 insert into SinhVien Values('22412122',N'Nguyễn Thanh Tuấn ','0367095412', N'Nam',1,N'Không',N'Việt Nam','221587656','P301',2)
 
 insert into SinhVien Values('21133166',N'Huỳnh Công Hậu','0367987431', N'Nam',2,N'Không',N'Việt Nam','221574767','P505',1)
@@ -402,13 +403,6 @@ insert into SinhVien Values('22133752',N'Nguyễn Thị Thanh ','0372403491', N'
 insert into SinhVien Values('21241242',N'Huỳnh Lê Vân','0367784295', N'Nữ',2,N'Không',N'Việt Nam','221521232','P709',1)
 insert into SinhVien Values('20196542',N'Nguyễn Thị Thùy','0367823472', N'Nữ',3,N'Không',N'Việt Nam','221551921','P709',2)
 
-
-insert into HoaDon values('HD1','A102','2022-12-12',0,300000)
-insert into HoaDon values('HD2','A101','2022-12-12',0,200000)
-
-
-insert into ChiTietHoaDon values('HD1',100,100,3.2,15000)
-insert into ChiTietHoaDon values('HD2',100,100,3.2,15000)
 
 
 insert into ThongBao values(N'Nghỉ học','Các em nghỉ học nhé','2022-12-12')
@@ -498,4 +492,88 @@ update HoaDon set MAHD = @mahd,
 				  TongTien = @TongTien
 where MAHD = @mahd
 
- 
+create procedure [dbo].[proc_SuaChiTietHoaDon] (@MAHD char(10),
+	@SoDien int,
+	@SoNuoc int,
+	@GiaDien float,
+	@GiaNuoc float)
+as 
+update ChiTietHoaDon set MAHD = @MAHD,
+				  SoDien = @SoDien,
+				  SoNuoc = @SoNuoc,
+				  GiaDien = @GiaDien,
+				  GiaNuoc = @GiaNuoc
+where MAHD = @MAHD
+
+create function [dbo].[func_LaySoDien](@MAHD char(10)) 
+returns int
+AS 
+BEGIN 
+    DECLARE @sodien int 
+    SELECT @sodien=ChiTietHoaDon.SoDien
+	from ChiTietHoaDon
+	where ChiTietHoaDon.MAHD = @MAHD
+    RETURN @sodien
+END
+
+create function [dbo].[func_LaySoNuoc](@MAHD char(10)) 
+returns int
+AS 
+BEGIN 
+    DECLARE @sonuoc int 
+    SELECT @sonuoc=ChiTietHoaDon.SoNuoc
+	from ChiTietHoaDon
+	where ChiTietHoaDon.MAHD = @MAHD
+    RETURN @sonuoc
+END
+
+create function [dbo].[func_LayGiaDien](@MAHD char(10)) 
+returns float
+AS 
+BEGIN 
+    DECLARE @giadien float 
+    SELECT @giadien=ChiTietHoaDon.GiaDien
+	from ChiTietHoaDon
+	where ChiTietHoaDon.MAHD = @MAHD
+    RETURN @giadien
+END
+
+create function [dbo].[func_LayGiaNuoc](@MAHD char(10)) 
+returns float
+AS 
+BEGIN 
+    DECLARE @gianuoc float 
+    SELECT @gianuoc=ChiTietHoaDon.GiaNuoc
+	from ChiTietHoaDon
+	where ChiTietHoaDon.MAHD = @MAHD
+    RETURN @gianuoc
+END
+
+create function [dbo].[func_KiemtraTaoHD](@MaPhong char(10)) 
+returns int
+AS 
+BEGIN 
+	DECLARE @check int
+    IF EXISTS (SELECT hd.TrangThai FROM HoaDon as hd WHERE hd.TrangThai=0 and hd.MaPhong = @MaPhong ) 
+	BEGIN
+		set  @check=0
+	END
+	ELSE
+	BEGIN
+		set  @check=1
+	END
+	return @check
+END
+
+create function [dbo].[func_LayTKSV] (@MaSinhVien char(10))
+returns table
+	as
+		return select tk.MaTK as [Mã tài],
+					tk.TinhTrang as [Tình trạng],
+					tk.NgayCap as [Ngày cấp],
+					tk.NgayHetHan as [Ngày hết hạn],
+					tk.TenChuTK as [Tên chủ tk]
+				from  TaiKhoanSV as tk
+				where tk.MaTK = @MaSinhVien
+
+GO
