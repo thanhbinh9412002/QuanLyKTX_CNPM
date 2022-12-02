@@ -168,6 +168,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
                     tt = 0;
                 }
                 HDBUS.UpdateInvoice(txtMaHD.Text, maphong, dateTimePicker1.Value, tt, float.Parse(txtTongTien.Text));
+                ChitietHBBUS.UpdateDetailInvoice(txtMaHD.Text, int.Parse(txtSoDien.Text), int.Parse(txtSoNuoc.Text), float.Parse(txtGiaDien.Text), float.Parse(txtGiaNuoc.Text));
             }
 
             LoadDataAdmin();
@@ -175,15 +176,26 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
 
         private void btnTao_Click(object sender, EventArgs e)
         {
-            them = true;
-            cbTrangThai.Text = "Chưa thanh toán";
-            txtMaPhong.Text = maphong;
-            string madh = RandomString(7);
-            txtMaHD.Text = madh;
-            txtMaHD.Enabled = false;
-            cbTrangThai.Enabled = false;
-            txtTongTien.Text = "0";
-            tong = float.Parse(txtTongTien.Text);
+            int check = HDBUS.CheckTaoHD(maphong);
+            if(check == 0)
+            {
+                MessageBox.Show("No create Bills");
+            }else
+            {
+                them = true;
+                cbTrangThai.Text = "Chưa thanh toán";
+                txtMaPhong.Text = maphong;
+                string madh = RandomString(7);
+                txtMaHD.Text = madh;
+                txtMaHD.Enabled = false;
+                cbTrangThai.Enabled = false;
+                txtTongTien.Text = "0";
+                tong = float.Parse(txtTongTien.Text);
+                txtSoDien.Clear();
+                txtSoNuoc.Clear();
+                txtGiaDien.Clear();
+                txtGiaNuoc.Clear();
+            }
         }
 
         private void btnChiTiet_Click(object sender, EventArgs e)
@@ -207,10 +219,16 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             {
                 gbHoaDon.Enabled = true;
                 cbTrangThai.Text = "Chưa thanh toán";
-                txtTongTien.Text = dgvHoaDon.Rows[r].Cells[4].Value.ToString();
                 txtMaHD.Text = dgvHoaDon.Rows[r].Cells[0].Value.ToString();
                 txtMaPhong.Text = dgvHoaDon.Rows[r].Cells[1].Value.ToString();
                 dateTimePicker1.Value = DateTime.Parse(dgvHoaDon.Rows[r].Cells[2].Value.ToString());
+                txtSoDien.Text = HDBUS.laySoDien(txtMaHD.Text).ToString();
+                txtSoNuoc.Text = HDBUS.laySoNuoc(txtMaHD.Text).ToString();
+                txtGiaDien.Text = HDBUS.layGiaDien(txtMaHD.Text).ToString();
+                txtGiaNuoc.Text = HDBUS.layGiaNuoc(txtMaHD.Text).ToString();
+                txtTongTien.Text = dgvHoaDon.Rows[r].Cells[4].Value.ToString();
+                //MessageBox.Show(txtTongTien.Text);
+                
             }
             else
             {
@@ -225,6 +243,11 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
                 txtTongTien.Clear();
                 gbHoaDon.Enabled = false;
             } 
+        }
+
+        private void txtTongTien_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -28,5 +28,25 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM.BUS
         {
             HoaDonDAO.UpdateInvoice(mahd, maphong, ngaylap, trangthai, tongtien);
         }
+        public int laySoDien(string mahd)
+        {
+            return HoaDonDAO.laySoDien(mahd);
+        }
+        public int laySoNuoc(string mahd)
+        {
+            return HoaDonDAO.laySoNuoc(mahd);
+        }
+        public double layGiaDien(string mahd)
+        {
+            return HoaDonDAO.layGiaDien(mahd);
+        }
+        public double layGiaNuoc(string mahd)
+        {
+            return HoaDonDAO.layGiaNuoc(mahd);
+        }
+        public int CheckTaoHD(string maphong)
+        {
+            return HoaDonDAO.CheckTaoHD(maphong);
+        }
     }
 }

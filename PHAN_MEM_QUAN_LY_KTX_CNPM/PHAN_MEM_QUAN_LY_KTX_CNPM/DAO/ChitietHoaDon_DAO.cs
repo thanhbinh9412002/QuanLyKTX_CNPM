@@ -30,5 +30,13 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM.DAO
             object[] pvalues = { mahd, sodien, sonuoc, giadien, gianuoc };
             cnn.ExecuteStoredProcedure_Update(sql, pNames, pvalues);
         }
+
+        public void UpdateDetailInvoice(string mahd, int sodien, int sonuoc, double giadien, double gianuoc)
+        {
+            string sql = "proc_SuaChiTietHoaDon";
+            string[] pNames = { "@MAHD", "@SoDien", "@SoNuoc", "@GiaDien", "@GiaNuoc" };
+            object[] pvalues = { mahd, sodien, sonuoc, giadien, gianuoc };
+            cnn.ExecuteStoredProcedure_Update(sql, pNames, pvalues);
+        }
     }
 }
