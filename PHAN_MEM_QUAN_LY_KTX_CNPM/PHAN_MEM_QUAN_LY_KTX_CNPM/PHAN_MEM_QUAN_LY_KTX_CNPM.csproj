@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BUS\ChitietHD_BUS.cs" />
+    <Compile Include="BUS\ChiTietPhong_BUS.cs" />
     <Compile Include="BUS\DangNhap_BUS.cs" />
     <Compile Include="BUS\DoiMatKhau_BUS.cs" />
     <Compile Include="BUS\HoaDon_BUS.cs" />
@@ -70,6 +71,7 @@
     <Compile Include="BUS\ThongBao_BUS.cs" />
     <Compile Include="BUS\YeuCau_BUS.cs" />
     <Compile Include="DAO\ChitietHoaDon_DAO.cs" />
+    <Compile Include="DAO\ChiTietPhong_DAO.cs" />
     <Compile Include="DAO\DangNhap_DAO.cs" />
     <Compile Include="DAO\DoiMatKhau_DAO.cs" />
     <Compile Include="DAO\HoaDon_DAO.cs" />
@@ -91,6 +93,12 @@
     </Compile>
     <Compile Include="BUS\TrangChu_BUS.cs" />
     <Compile Include="DAO\TrangChu_DAO.cs" />
+    <Compile Include="View\frm_ChiTietPhong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frm_ChiTietPhong.Designer.cs">
+      <DependentUpon>frm_ChiTietPhong.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\frm_DoiMatKhau.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +185,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\frm_ChitietHoaDon.resx">
       <DependentUpon>frm_ChitietHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frm_ChiTietPhong.resx">
+      <DependentUpon>frm_ChiTietPhong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\frm_DangNhap.resx">
       <DependentUpon>frm_DangNhap.cs</DependentUpon>

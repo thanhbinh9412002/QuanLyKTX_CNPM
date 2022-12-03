@@ -19,5 +19,25 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM.BUS
         {
             return PhongDAO.GetAllInformation();
         }
+        public void AddRoom(string MaPhong, int GiaPhong, int SVHienTai, int SVToiDa, int tinhtrang)
+        {
+            PhongDAO.AddRoom(MaPhong, GiaPhong, SVHienTai, SVToiDa, tinhtrang);
+        }
+        public void UpdateRoom(string MaPhong, int GiaPhong, int SVHienTai, int SVToiDa, int tinhtrang)
+        {
+            PhongDAO.AddRoom(MaPhong, GiaPhong, SVHienTai, SVToiDa, tinhtrang);
+        }
+        public void DeleteRoom(string MaPhong)
+        {
+            PhongDAO.DeleteRoom(MaPhong);
+        }
+        public DataTable PhongDay()
+        {
+            return PhongDAO.PhongDay();
+        }
+        public DataTable PhongConCho()
+        {
+            return PhongDAO.PhongConCho();
+        }
     }
 }

@@ -13,8 +13,8 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM.Provider
     public class DataProvider
     {
         private SqlConnection connection;
-        public string connect = @"Data Source=THANHBINH\SQLEXPRESS;Initial Catalog=KTX;Integrated Security=True";
-
+        //public string connect = @"Data Source=THANHBINH\SQLEXPRESS;Initial Catalog=KTX;Integrated Security=True";
+        public string connect = @"Data Source=DESKTOP-JBR423G;Initial Catalog=KTX;Integrated Security=True";
         public DataProvider()
         {
             connection = new SqlConnection(connect);
@@ -192,6 +192,20 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM.Provider
                 cmd.Parameters.Add(p);
             }
             return cmd.ExecuteNonQuery();
+        }
+        public DataTable ExecuteProcedureDatatableNoPara(string spName) //trả về 1 bảng khi gọi procedure bên sql
+        {
+
+            openConnection();
+            // Khai báo và khởi tạo đối tượng Command với tham số tên thủ tục spName
+            SqlCommand cmd = new SqlCommand(spName, connection);
+            // Khai báo kiểu thủ tục
+            cmd.CommandType = CommandType.StoredProcedure;
+            DataTable dt = new DataTable();
+            SqlDataReader dataReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+            dt.Load(dataReader);
+            return dt;
+
         }
     }
 }

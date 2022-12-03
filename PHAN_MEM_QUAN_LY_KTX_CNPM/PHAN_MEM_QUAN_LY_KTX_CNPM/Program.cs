@@ -16,7 +16,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frm_DangNhap());
+            Application.Run(new frm_Phong());
         }
     }
 }
