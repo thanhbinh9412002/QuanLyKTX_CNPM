@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PHAN_MEM_QUAN_LY_KTX_CNPM.BUS;
 namespace PHAN_MEM_QUAN_LY_KTX_CNPM
 {
     public partial class frm_Trangchu : Form
@@ -18,6 +19,8 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
 
         private string user;
         private string role;
+        public string MaPhong;              //lấy mã phòng theo biến này
+        public string MaSinhVien;           // lấy mã sinh viên theo biến này
 
         // HIỆU ỨNG//
         private int counter = 0;
@@ -84,6 +87,11 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             btn_yeucau.Location = btn_thietbi.Location;   
             x = 400;
             y = 280;
+            TrangChu_BUS tcBUS = new TrangChu_BUS();
+            MaPhong = tcBUS.TraVeMaPhong(user);
+            MaSinhVien = tcBUS.TraVeMaSinhVien(user);
+            //MessageBox.Show(MaPhong);
+            //MessageBox.Show(MaSinhVien);
         }
 
         private void loadeffect()

@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -47,15 +62,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BUS\ChitietHD_BUS.cs" />
+    <Compile Include="BUS\DangNhap_BUS.cs" />
+    <Compile Include="BUS\DoiMatKhau_BUS.cs" />
     <Compile Include="BUS\HoaDon_BUS.cs" />
     <Compile Include="BUS\PhiSinhVien_BUS.cs" />
     <Compile Include="BUS\Phong_BUS.cs" />
     <Compile Include="BUS\ThongBao_BUS.cs" />
+    <Compile Include="BUS\YeuCau_BUS.cs" />
     <Compile Include="DAO\ChitietHoaDon_DAO.cs" />
+    <Compile Include="DAO\DangNhap_DAO.cs" />
+    <Compile Include="DAO\DoiMatKhau_DAO.cs" />
     <Compile Include="DAO\HoaDon_DAO.cs" />
     <Compile Include="DAO\PhiSinhVien_DAO.cs" />
     <Compile Include="DAO\Phong_DAO.cs" />
     <Compile Include="DAO\ThongBao_DAO.cs" />
+    <Compile Include="DAO\YeuCau_DAO.cs" />
     <Compile Include="effect\RJTextBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -68,6 +89,26 @@
     <Compile Include="effect\view.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="BUS\TrangChu_BUS.cs" />
+    <Compile Include="DAO\TrangChu_DAO.cs" />
+    <Compile Include="View\frm_DoiMatKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frm_DoiMatKhau.Designer.cs">
+      <DependentUpon>frm_DoiMatKhau.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frm_GiaHan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frm_GiaHan.Designer.cs">
+      <DependentUpon>frm_GiaHan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frm_SuaChua.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frm_SuaChua.Designer.cs">
+      <DependentUpon>frm_SuaChua.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\frm_ThongBao.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,12 +120,6 @@
     </Compile>
     <Compile Include="View\frm_DangNhap.Designer.cs">
       <DependentUpon>frm_DangNhap.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\frm_Test.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\frm_Test.Designer.cs">
-      <DependentUpon>frm_Test.cs</DependentUpon>
     </Compile>
     <Compile Include="View\frm_PhiSinhVien.cs">
       <SubType>Form</SubType>
@@ -113,6 +148,30 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Provider\DataProvider.cs" />
+    <Compile Include="View\frm_ThongTinNoPhi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frm_ThongTinNoPhi.Designer.cs">
+      <DependentUpon>frm_ThongTinNoPhi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frm_TrangChu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frm_TrangChu.Designer.cs">
+      <DependentUpon>frm_TrangChu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frm_TraPhong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frm_TraPhong.Designer.cs">
+      <DependentUpon>frm_TraPhong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frm_YeuCau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frm_YeuCau.Designer.cs">
+      <DependentUpon>frm_YeuCau.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="effect\RJTextBox.resx">
       <DependentUpon>RJTextBox.cs</DependentUpon>
     </EmbeddedResource>
@@ -121,6 +180,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\frm_DangNhap.resx">
       <DependentUpon>frm_DangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frm_DoiMatKhau.resx">
+      <DependentUpon>frm_DoiMatKhau.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frm_GiaHan.resx">
+      <DependentUpon>frm_GiaHan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\frm_HoaDon.resx">
       <DependentUpon>frm_HoaDon.cs</DependentUpon>
@@ -141,11 +206,23 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="View\frm_Test.resx">
-      <DependentUpon>frm_Test.cs</DependentUpon>
+    <EmbeddedResource Include="View\frm_SuaChua.resx">
+      <DependentUpon>frm_SuaChua.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\frm_ThongBao.resx">
       <DependentUpon>frm_ThongBao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frm_ThongTinNoPhi.resx">
+      <DependentUpon>frm_ThongTinNoPhi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frm_TrangChu.resx">
+      <DependentUpon>frm_TrangChu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frm_TraPhong.resx">
+      <DependentUpon>frm_TraPhong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frm_YeuCau.resx">
+      <DependentUpon>frm_YeuCau.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -160,7 +237,18 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="data_query\Database.sql" />
     <None Include="Resources\private-password.png" />

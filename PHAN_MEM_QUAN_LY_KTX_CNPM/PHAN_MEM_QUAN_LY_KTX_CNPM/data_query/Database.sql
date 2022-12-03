@@ -100,14 +100,16 @@ create table SuaChua(
 	Id int IDENTITY(1,1) PRIMARY KEY, 
 	TenThietBi nvarchar(20) NOT NULL,
 	SoLuong int,
-	ChiTiet nvarchar(50)
+	ChiTiet nvarchar(50),
+	TrangThai nvarchar(30)
 )
 GO
 
 create table GiaHan (
 	Id int IDENTITY(1,1) PRIMARY KEY,
 	MaSinhVien char(10),
-	SoKy int
+	SoKy int,
+	TrangThai nvarchar(30)
 )
 GO
 
@@ -115,7 +117,8 @@ create table TraPhong(
 	Id int IDENTITY(1,1) PRIMARY KEY,
 	MaPhong char(10),
 	MaSinhVien char(10),
-	NgayTra Date
+	NgayTra Date,
+	TrangThai nvarchar(30)
 )
 GO
 
@@ -576,4 +579,53 @@ returns table
 				from  TaiKhoanSV as tk
 				where tk.MaTK = @MaSinhVien
 
+GO
+
+-- Kiem tra dang nhap
+create function [dbo].[func_KiemTraDangNhap] (@TenTK char(15), @MK char(20), @Vaitro nvarchar(10))
+returns int
+	as
+		begin
+			declare @check int
+			if exists (select * from DangNhap
+						where @TenTK=DangNhap.TenDangNhap and @MK=DangNhap.MatKhau and
+							@Vaitro=VaiTro)
+						set @check=1
+			else	
+					set @check=0
+			return @check
+		end
+GO
+-- Doi mat khau
+
+create procedure [dbo].[proc_DoiMatKhau] (@tentk char(15), @mk char(20) )
+as update DangNhap
+	set MatKhau = @mk
+	where TenDangNhap = @tentk
+go
+
+-- Lấy mã phòng
+
+create function [dbo].[func_LayMaPhong](@cmnd char(15)) 
+returns char(15)
+AS 
+BEGIN 
+    DECLARE @maphong char(15) 
+    SELECT @maphong = MaPhong  
+	from SinhVien
+    RETURN @maphong
+END
+GO
+
+-- Lấy sinh viên
+
+create function [dbo].[func_LaySinhVien](@cmnd char(15)) 
+returns char(10)
+AS 
+BEGIN 
+    DECLARE @masv char(10) 
+    SELECT @maphong = MaPhong  
+	from SinhVien
+    RETURN  @masv
+END
 GO
