@@ -31,6 +31,14 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
         {
             this.dgvHoaDon = new System.Windows.Forms.DataGridView();
             this.gbHoaDon = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.txtMaPhong = new System.Windows.Forms.TextBox();
             this.txtTongTien = new System.Windows.Forms.TextBox();
             this.txtGiaNuoc = new System.Windows.Forms.TextBox();
@@ -45,15 +53,8 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.btnLuu = new System.Windows.Forms.Button();
             this.btnChiTiet = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.btnHuy = new System.Windows.Forms.Button();
+            this.btnTroVe = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDon)).BeginInit();
             this.gbHoaDon.SuspendLayout();
             this.SuspendLayout();
@@ -101,6 +102,86 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.gbHoaDon.TabIndex = 94;
             this.gbHoaDon.TabStop = false;
             this.gbHoaDon.Text = "Thông tin hóa đơn";
+            // 
+            // label9
+            // 
+            this.label9.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(550, 113);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(91, 25);
+            this.label9.TabIndex = 44;
+            this.label9.Text = "Tổng tiền";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(550, 75);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(91, 25);
+            this.label2.TabIndex = 43;
+            this.label2.Text = "Giá nước";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label8
+            // 
+            this.label8.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(550, 32);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(91, 25);
+            this.label8.TabIndex = 42;
+            this.label8.Text = "Giá điện";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(285, 115);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(91, 25);
+            this.label3.TabIndex = 41;
+            this.label3.Text = "Ngày lập";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(285, 74);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(91, 25);
+            this.label1.TabIndex = 40;
+            this.label1.Text = "Số nước";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(285, 32);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(91, 25);
+            this.label4.TabIndex = 39;
+            this.label4.Text = "Số điện";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label5
+            // 
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(7, 117);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(108, 25);
+            this.label5.TabIndex = 38;
+            this.label5.Text = "Trạng thái";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label7
+            // 
+            this.label7.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(7, 79);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(108, 25);
+            this.label7.TabIndex = 37;
+            this.label7.Text = "Mã phòng";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtMaPhong
             // 
@@ -270,86 +351,6 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.btnSua.UseVisualStyleBackColor = true;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
-            // label7
-            // 
-            this.label7.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(7, 79);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(108, 25);
-            this.label7.TabIndex = 37;
-            this.label7.Text = "Mã phòng";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label5
-            // 
-            this.label5.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(7, 117);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(108, 25);
-            this.label5.TabIndex = 38;
-            this.label5.Text = "Trạng thái";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label4
-            // 
-            this.label4.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(285, 32);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(91, 25);
-            this.label4.TabIndex = 39;
-            this.label4.Text = "Số điện";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(285, 74);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 25);
-            this.label1.TabIndex = 40;
-            this.label1.Text = "Số nước";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label3
-            // 
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(285, 115);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(91, 25);
-            this.label3.TabIndex = 41;
-            this.label3.Text = "Ngày lập";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label8
-            // 
-            this.label8.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(550, 32);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(91, 25);
-            this.label8.TabIndex = 42;
-            this.label8.Text = "Giá điện";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(550, 75);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 25);
-            this.label2.TabIndex = 43;
-            this.label2.Text = "Giá nước";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label9
-            // 
-            this.label9.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(550, 113);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(91, 25);
-            this.label9.TabIndex = 44;
-            this.label9.Text = "Tổng tiền";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // btnHuy
             // 
             this.btnHuy.BackColor = System.Drawing.Color.LightCoral;
@@ -364,11 +365,27 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.btnHuy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnHuy.UseVisualStyleBackColor = true;
             // 
+            // btnTroVe
+            // 
+            this.btnTroVe.BackColor = System.Drawing.Color.LightCoral;
+            this.btnTroVe.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnTroVe.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTroVe.Location = new System.Drawing.Point(654, 418);
+            this.btnTroVe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnTroVe.Name = "btnTroVe";
+            this.btnTroVe.Size = new System.Drawing.Size(103, 43);
+            this.btnTroVe.TabIndex = 101;
+            this.btnTroVe.Text = "Trở về";
+            this.btnTroVe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnTroVe.UseVisualStyleBackColor = true;
+            this.btnTroVe.Click += new System.EventHandler(this.btnTroVe_Click);
+            // 
             // frm_HoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(843, 471);
+            this.Controls.Add(this.btnTroVe);
             this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.btnSua);
             this.Controls.Add(this.btnChiTiet);
@@ -412,5 +429,6 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnHuy;
+        private System.Windows.Forms.Button btnTroVe;
     }
 }

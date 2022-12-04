@@ -100,16 +100,14 @@ create table SuaChua(
 	Id int IDENTITY(1,1) PRIMARY KEY, 
 	TenThietBi nvarchar(20) NOT NULL,
 	SoLuong int,
-	ChiTiet nvarchar(50),
-	TrangThai nvarchar(30)
+	ChiTiet nvarchar(50)
 )
 GO
 
 create table GiaHan (
 	Id int IDENTITY(1,1) PRIMARY KEY,
 	MaSinhVien char(10),
-	SoKy int,
-	TrangThai nvarchar(30)
+	SoKy int
 )
 GO
 
@@ -117,8 +115,7 @@ create table TraPhong(
 	Id int IDENTITY(1,1) PRIMARY KEY,
 	MaPhong char(10),
 	MaSinhVien char(10),
-	NgayTra Date,
-	TrangThai nvarchar(30)
+	NgayTra Date
 )
 GO
 
@@ -243,7 +240,7 @@ END
 GO
 
 --Done
-CREATE TRIGGER Tg_ThemThongTinDangNhap
+create TRIGGER Tg_ThemThongTinDangNhap
 ON SinhVien
 FOR INSERT
 AS
@@ -251,12 +248,14 @@ BEGIN
 	INSERT INTO DangNhap(
 			TenDangNhap,
 			MatKhau,
-			VaiTro
+			VaiTro,
+			TrangThai
 		)
 		SELECT
 			i.CMND_CCCD,
 			i.CMND_CCCD,
-			null
+			'Sinh viên',
+			1
 			FROM inserted i
 END
 GO
@@ -419,8 +418,44 @@ insert into TrangThietBi Values('TB4', N'Quạt' ,45)
 insert into TrangThietBi Values('TB5', N'Sào phơi đồ',60)
 GO
 
+insert into ThietBiTrongPhong Values('TB1','P101', 2 , 2, 4)
+insert into ThietBiTrongPhong Values('TB2','P101', 0 , 2, 2)
+insert into ThietBiTrongPhong Values('TB3','P101', 0 , 1, 1)
+insert into ThietBiTrongPhong Values('TB4','P101', 1 , 1, 2)
+insert into ThietBiTrongPhong Values('TB5','P101', 1 , 3, 4)
+insert into ThietBiTrongPhong Values('TB1','P102', 2 , 0, 2)
+insert into ThietBiTrongPhong Values('TB2','P102', 0 , 1, 1)
+insert into ThietBiTrongPhong Values('TB3','P102', 2 , 0, 2)
+insert into ThietBiTrongPhong Values('TB4','P102', 0 , 1, 1)
+insert into ThietBiTrongPhong Values('TB5','P102', 1 , 1, 2)
+GO
 
-
+create procedure [dbo].[proc_ThemThietBiTrongPhong]
+(	@matb char(10),
+	@maphong char(10),
+	@soluonghong int,
+	@soluongtot int,
+	@soluongtoida int
+	)
+as insert into ThietBiTrongPhong Values(@matb, @maphong, @soluonghong, @soluongtot, @soluongtoida);
+GO
+create procedure [dbo].[proc_SuaThietBiTrongPhong]
+(	@matb char(10),
+	@maphong char(10),
+	@soluonghong int,
+	@soluongtot int,
+	@soluongtoida int
+	)
+as update ThietBiTrongPhong
+set MaThietBiTrongPhong = @matb,
+	MaPhong = @maphong,
+	SoLuongHong = @soluonghong,
+	SoLuongTot = @soluongtot,
+	SoLuongToiDa = @soluongtoida
+where MaThietBiTrongPhong = @matb and MaPhong = @maphong;
+GO
+create procedure [dbo].[proc_XoaThietBiTrongPhong] (@matb char(10), @maphong char(10))
+as delete ThietBiTrongPhong where MaThietBiTrongPhong = @matb and MaPhong = @maphong
 GO
 create function [dbo].[func_DanhSachPhong] ()
 returns table
@@ -494,8 +529,9 @@ update HoaDon set MAHD = @mahd,
 				  TrangThai = @TrangThai,
 				  TongTien = @TongTien
 where MAHD = @mahd
-
-create procedure [dbo].[proc_SuaChiTietHoaDon] (@MAHD char(10),
+GO
+create procedure [dbo].[proc_SuaChiTietHoaDon] (
+@MAHD char(10),
 	@SoDien int,
 	@SoNuoc int,
 	@GiaDien float,
@@ -508,7 +544,7 @@ update ChiTietHoaDon set MAHD = @MAHD,
 				  GiaNuoc = @GiaNuoc
 where MAHD = @MAHD
 
-create function [dbo].[func_LaySoDien](@MAHD char(10)) 
+/*create function [dbo].[func_LaySoDien](@MAHD char(10)) 
 returns int
 AS 
 BEGIN 
@@ -550,8 +586,8 @@ BEGIN
 	from ChiTietHoaDon
 	where ChiTietHoaDon.MAHD = @MAHD
     RETURN @gianuoc
-END
-
+END*/
+GO
 create function [dbo].[func_KiemtraTaoHD](@MaPhong char(10)) 
 returns int
 AS 
@@ -567,7 +603,7 @@ BEGIN
 	END
 	return @check
 END
-
+GO
 create function [dbo].[func_LayTKSV] (@MaSinhVien char(10))
 returns table
 	as
@@ -580,7 +616,6 @@ returns table
 				where tk.MaTK = @MaSinhVien
 
 GO
-
 -- Kiem tra dang nhap
 create function [dbo].[func_KiemTraDangNhap] (@TenTK char(15), @MK char(20), @Vaitro nvarchar(10))
 returns int
@@ -606,26 +641,33 @@ go
 
 -- Lấy mã phòng
 
-create function [dbo].[func_LayMaPhong](@cmnd char(15)) 
+alter function [dbo].[func_LayMaPhong](@cmnd char(15)) 
 returns char(15)
 AS 
 BEGIN 
     DECLARE @maphong char(15) 
     SELECT @maphong = MaPhong  
 	from SinhVien
+	where CMND_CCCD = @cmnd
     RETURN @maphong
 END
 GO
 
 -- Lấy sinh viên
 
-create function [dbo].[func_LaySinhVien](@cmnd char(15)) 
+alter function [dbo].[func_LayMaSinhVien](@cmnd char(15)) 
 returns char(10)
 AS 
 BEGIN 
     DECLARE @masv char(10) 
-    SELECT @maphong = MaPhong  
+    SELECT @masv = MaSinhVien  
 	from SinhVien
+	where CMND_CCCD = @cmnd
     RETURN  @masv
 END
 GO
+
+select * from DangNhap
+select * from HoaDon
+
+insert into DangNhap values ('215536972','215536972',N'Quản Lý',1)

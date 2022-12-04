@@ -15,10 +15,16 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
     public partial class frm_PhiSinhVien : Form
     {
         private PhiSinhVien_BUS PhiSinhVienBUS;
+        frm_Trangchu fmtrangchu;
+        public string mssv;
+        public string maphong;
         public frm_PhiSinhVien()
         {
             InitializeComponent();
             PhiSinhVienBUS = new PhiSinhVien_BUS();
+            fmtrangchu = new frm_Trangchu();
+            mssv = fmtrangchu.MaSinhVien;
+            maphong = fmtrangchu.MaPhong;
         }
 
         private void frm_PhiSinhVien_Load(object sender, EventArgs e)
@@ -27,12 +33,14 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
         }
         public void LoadDataAdmin()
         {
+            MessageBox.Show(mssv);
+            MessageBox.Show(maphong);
             DataGridViewCheckBoxColumn dgvCmb = new DataGridViewCheckBoxColumn();
             dgvCmb.ValueType = typeof(bool);
             dgvCmb.Name = "Chk";
             dgvCmb.HeaderText = "CheckBox";
-            DataTable dt = PhiSinhVienBUS.GetAllInformation("P101");
-            DataTable dt1 = PhiSinhVienBUS.GetAccountSV("20133104");
+            DataTable dt = PhiSinhVienBUS.GetAllInformation(maphong);
+            DataTable dt1 = PhiSinhVienBUS.GetAccountSV(mssv);
 
             for (int i = 0; i <= dt1.Rows.Count - 1; i++)
             {

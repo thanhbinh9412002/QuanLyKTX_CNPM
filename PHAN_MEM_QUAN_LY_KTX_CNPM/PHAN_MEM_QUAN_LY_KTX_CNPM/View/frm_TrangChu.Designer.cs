@@ -514,7 +514,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
         private CustomButton.VBButton btn_yeucau;
         private CustomButton.VBButton btn_thongtinnophi;
         private CustomButton.VBButton btn_thongtincanhan;
-        private System.Windows.Forms.Panel panel_form;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        public System.Windows.Forms.Panel panel_form;
+        public System.Windows.Forms.PictureBox pictureBox1;
     }
 }

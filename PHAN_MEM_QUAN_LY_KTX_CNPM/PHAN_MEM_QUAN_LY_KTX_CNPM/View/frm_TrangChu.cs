@@ -16,6 +16,8 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
 
         frm_DoiMatKhau fmDoiMatKhau;
         frm_YeuCau fmYeuCau;
+        frm_PhiSinhVien fmPhiSV;
+        frm_Phong fmPhong;
 
         private string user;
         private string role;
@@ -281,15 +283,15 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
 
         private void btn_phong_Click(object sender, EventArgs e)
         {
-            /*  pictureBox1.Visible = false;
+            pictureBox1.Visible = false;
             panel_form.Visible = true;
             panel_form.Controls.Clear();
-           fmDoiMatKhau = new frm_DoiMatKhau(user, role);              Đổi tên form thích hợp
-           fmDoiMatKhau.TopLevel = false;
-           panel_form.Controls.Add(fmDoiMatKhau);
-           fmDoiMatKhau.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-           fmDoiMatKhau.Dock = DockStyle.Fill;
-           fmDoiMatKhau.Show();*/
+            fmPhong = new frm_Phong();
+            fmPhong.TopLevel = false;
+            panel_form.Controls.Add(fmPhong);
+            fmPhong.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            fmPhong.Dock = DockStyle.Fill;
+            fmPhong.Show();
         }
 
         private void btn_yeucau_Click(object sender, EventArgs e)
@@ -319,15 +321,17 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
 
         private void btn_thongtinnophi_Click(object sender, EventArgs e)
         {
-            /*  pictureBox1.Visible = false;
+            pictureBox1.Visible = false;
             panel_form.Visible = true;
             panel_form.Controls.Clear();
-            fmDoiMatKhau = new frm_DoiMatKhau(user, role);              Đổi tên form thích hợp
-           fmDoiMatKhau.TopLevel = false;
-           panel1.Controls.Add(fmDoiMatKhau);
-           fmDoiMatKhau.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-           fmDoiMatKhau.Dock = DockStyle.Fill;
-           fmDoiMatKhau.Show();*/
+            fmPhiSV = new frm_PhiSinhVien();
+            fmPhiSV.mssv = MaSinhVien;
+            fmPhiSV.maphong = MaPhong;
+            fmPhiSV.TopLevel = false;
+            panel_form.Controls.Add(fmPhiSV);
+            fmPhiSV.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            fmPhiSV.Dock = DockStyle.Fill;
+            fmPhiSV.Show();
         }
 
         private void btn_thietbi_Click(object sender, EventArgs e)

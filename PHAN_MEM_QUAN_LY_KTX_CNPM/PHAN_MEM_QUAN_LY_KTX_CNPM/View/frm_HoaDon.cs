@@ -17,6 +17,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
         public string maphong;
         private HoaDon_BUS HDBUS;
         private ChitietHD_BUS ChitietHBBUS;
+        public frm_Trangchu fmtrangchu;
         public string mahd;
         public frm_HoaDon()
         {
@@ -70,7 +71,11 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
         private void txtGiaDien_TextChanged(object sender, EventArgs e)
         {
             tongkq = 0;
-            int sodien = int.Parse(txtSoDien.Text);
+            int sodien = 0;
+            if (!string.IsNullOrEmpty(txtSoDien.Text))
+            {
+                sodien = int.Parse(txtSoDien.Text);
+            }
             float giadien = 0;
             string s = txtGiaDien.Text.ToString();
             if (string.IsNullOrEmpty(s))
@@ -89,7 +94,11 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
         private void txtGiaNuoc_TextChanged(object sender, EventArgs e)
         {
             tongkq1 = 0;
-            int sonuoc = int.Parse(txtSoNuoc.Text);
+            int sonuoc = 0;
+            if (!string.IsNullOrEmpty(txtSoNuoc.Text))
+            {
+                sonuoc = int.Parse(txtSoDien.Text);
+            }
             float gianuoc = 0;
             string s = txtGiaNuoc.Text.ToString();
             if (string.IsNullOrEmpty(s))
@@ -170,7 +179,6 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
                 HDBUS.UpdateInvoice(txtMaHD.Text, maphong, dateTimePicker1.Value, tt, float.Parse(txtTongTien.Text));
                 ChitietHBBUS.UpdateDetailInvoice(txtMaHD.Text, int.Parse(txtSoDien.Text), int.Parse(txtSoNuoc.Text), float.Parse(txtGiaDien.Text), float.Parse(txtGiaNuoc.Text));
             }
-
             LoadDataAdmin();
         }
 
@@ -212,20 +220,22 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
         {
             them = false;
             int r = dgvHoaDon.CurrentCell.RowIndex;
-
             string trangthai = dgvHoaDon.Rows[r].Cells[3].Value.ToString();
-            
             if (trangthai == "False" || String.IsNullOrEmpty(trangthai))
             {
-                gbHoaDon.Enabled = true;
+                
                 cbTrangThai.Text = "Chưa thanh toán";
                 txtMaHD.Text = dgvHoaDon.Rows[r].Cells[0].Value.ToString();
                 txtMaPhong.Text = dgvHoaDon.Rows[r].Cells[1].Value.ToString();
                 dateTimePicker1.Value = DateTime.Parse(dgvHoaDon.Rows[r].Cells[2].Value.ToString());
-                txtSoDien.Text = HDBUS.laySoDien(txtMaHD.Text).ToString();
-                txtSoNuoc.Text = HDBUS.laySoNuoc(txtMaHD.Text).ToString();
-                txtGiaDien.Text = HDBUS.layGiaDien(txtMaHD.Text).ToString();
-                txtGiaNuoc.Text = HDBUS.layGiaNuoc(txtMaHD.Text).ToString();
+                DataTable dt = ChitietHBBUS.GetAllInformation(txtMaHD.Text);
+                for (int i = 0; i <= dt.Rows.Count - 1; i++)
+                {
+                    txtSoDien.Text = dt.Rows[i].ItemArray[1].ToString();
+                    txtSoNuoc.Text = dt.Rows[i].ItemArray[2].ToString();
+                    txtGiaDien.Text = dt.Rows[i].ItemArray[3].ToString();
+                    txtGiaNuoc.Text = dt.Rows[i].ItemArray[4].ToString();
+                }
                 txtTongTien.Text = dgvHoaDon.Rows[r].Cells[4].Value.ToString();
                 //MessageBox.Show(txtTongTien.Text);
                 
@@ -247,6 +257,19 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
 
         private void txtTongTien_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void btnTroVe_Click(object sender, EventArgs e)
+        {
+            fmtrangchu = new frm_Trangchu();
+
+            fmtrangchu.panel_form.Controls.Clear();
+            fmPhong.TopLevel = false;
+            fmtrangchu.panel_form.Controls.Add(fmPhong);
+            fmPhong.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            fmPhong.Dock = DockStyle.Fill;
+            fmPhong.Show();
 
         }
     }
