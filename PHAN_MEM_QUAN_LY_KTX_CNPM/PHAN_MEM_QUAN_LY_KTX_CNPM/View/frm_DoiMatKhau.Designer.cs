@@ -33,7 +33,6 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.lb_trangthai = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txt_user = new PHAN_MEM_QUAN_LY_KTX_CNPM.effect.RJTextBox();
             this.txt_newpass = new PHAN_MEM_QUAN_LY_KTX_CNPM.effect.RJTextBox();
@@ -52,28 +51,28 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(831, 32);
+            this.label1.Size = new System.Drawing.Size(1063, 32);
             this.label1.TabIndex = 21;
             this.label1.Text = "ĐỔI MẬT KHẨU";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lb_trangthai
             // 
-            this.lb_trangthai.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_trangthai.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_trangthai.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lb_trangthai.Location = new System.Drawing.Point(133, 164);
+            this.lb_trangthai.Location = new System.Drawing.Point(252, 233);
             this.lb_trangthai.Name = "lb_trangthai";
-            this.lb_trangthai.Size = new System.Drawing.Size(601, 67);
+            this.lb_trangthai.Size = new System.Drawing.Size(601, 111);
             this.lb_trangthai.TabIndex = 36;
             this.lb_trangthai.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label5
             // 
             this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(302, 135);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(376, 179);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(86, 26);
+            this.label5.Size = new System.Drawing.Size(124, 26);
             this.label5.TabIndex = 35;
             this.label5.Text = "Xác nhận";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -81,31 +80,21 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             // label4
             // 
             this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(270, 103);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(371, 140);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(118, 26);
+            this.label4.Size = new System.Drawing.Size(129, 26);
             this.label4.TabIndex = 34;
             this.label4.Text = "Mật khẩu mới";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label3
-            // 
-            this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(274, 103);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(78, 15);
-            this.label3.TabIndex = 33;
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // label2
             // 
             this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(259, 72);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(325, 100);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(129, 26);
+            this.label2.Size = new System.Drawing.Size(175, 26);
             this.label2.TabIndex = 32;
             this.label2.Text = "Tên đăng nhập";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -118,7 +107,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.txt_user.BorderSize = 2;
             this.txt_user.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_user.ForeColor = System.Drawing.Color.DimGray;
-            this.txt_user.Location = new System.Drawing.Point(395, 67);
+            this.txt_user.Location = new System.Drawing.Point(507, 95);
             this.txt_user.Margin = new System.Windows.Forms.Padding(4);
             this.txt_user.Multiline = false;
             this.txt_user.Name = "txt_user";
@@ -137,7 +126,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.txt_newpass.BorderSize = 2;
             this.txt_newpass.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_newpass.ForeColor = System.Drawing.Color.DimGray;
-            this.txt_newpass.Location = new System.Drawing.Point(395, 98);
+            this.txt_newpass.Location = new System.Drawing.Point(507, 135);
             this.txt_newpass.Margin = new System.Windows.Forms.Padding(4);
             this.txt_newpass.Multiline = false;
             this.txt_newpass.Name = "txt_newpass";
@@ -156,7 +145,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.txt_confirmnewpass.BorderSize = 2;
             this.txt_confirmnewpass.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_confirmnewpass.ForeColor = System.Drawing.Color.DimGray;
-            this.txt_confirmnewpass.Location = new System.Drawing.Point(395, 129);
+            this.txt_confirmnewpass.Location = new System.Drawing.Point(507, 174);
             this.txt_confirmnewpass.Margin = new System.Windows.Forms.Padding(4);
             this.txt_confirmnewpass.Multiline = false;
             this.txt_confirmnewpass.Name = "txt_confirmnewpass";
@@ -179,7 +168,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.btn_showpass.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_showpass.ForeColor = System.Drawing.Color.Black;
             this.btn_showpass.Image = global::PHAN_MEM_QUAN_LY_KTX_CNPM.Properties.Resources.show_password;
-            this.btn_showpass.Location = new System.Drawing.Point(460, 259);
+            this.btn_showpass.Location = new System.Drawing.Point(574, 347);
             this.btn_showpass.Name = "btn_showpass";
             this.btn_showpass.Size = new System.Drawing.Size(118, 58);
             this.btn_showpass.TabIndex = 41;
@@ -202,7 +191,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.btn_luu.ForeColor = System.Drawing.Color.Black;
             this.btn_luu.Image = global::PHAN_MEM_QUAN_LY_KTX_CNPM.Properties.Resources.Save_icon;
             this.btn_luu.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_luu.Location = new System.Drawing.Point(289, 259);
+            this.btn_luu.Location = new System.Drawing.Point(399, 347);
             this.btn_luu.Name = "btn_luu";
             this.btn_luu.Size = new System.Drawing.Size(118, 58);
             this.btn_luu.TabIndex = 40;
@@ -217,7 +206,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCyan;
-            this.ClientSize = new System.Drawing.Size(831, 518);
+            this.ClientSize = new System.Drawing.Size(1063, 632);
             this.Controls.Add(this.btn_showpass);
             this.Controls.Add(this.btn_luu);
             this.Controls.Add(this.txt_confirmnewpass);
@@ -226,7 +215,6 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.Controls.Add(this.lb_trangthai);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -246,7 +234,6 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
         private System.Windows.Forms.Label lb_trangthai;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private effect.RJTextBox txt_user;
         private effect.RJTextBox txt_newpass;

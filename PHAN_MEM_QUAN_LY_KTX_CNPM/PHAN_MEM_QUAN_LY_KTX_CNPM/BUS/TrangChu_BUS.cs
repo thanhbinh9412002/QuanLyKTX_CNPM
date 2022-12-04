@@ -23,5 +23,17 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
         {
             return tcDAO.TraVeMaSinhVien(username);
         }
+        public int LaySoLuongYeuCauSuaChua()
+        {
+            return tcDAO.LaySoLuongYeuCauSuaChua();
+        }
+        public int LaySoLuongYeuCauTraPhong()
+        {
+            return tcDAO.LaySoLuongYeuCauTraPhong();
+        }
+        public int LaySoLuongYeuCauGiaHan()
+        {
+            return tcDAO.LaySoLuongYeuCauGiaHan();
+        }
     }
 }

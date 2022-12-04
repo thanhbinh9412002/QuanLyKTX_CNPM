@@ -34,5 +34,29 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             string count = cnn.ExecuteStoredProcedureString(spName, pNames, pValues);
             return count;
         }
+        public int LaySoLuongYeuCauGiaHan()
+        {
+            string spName = "[dbo].[func_LaySoYeuCauGiaHan]";
+            string[] pNames = { };
+            object[] pValues = { };
+            int count = cnn.ExecuteStoredProcedure(spName, pNames, pValues);
+            return count;
+        }
+        public int LaySoLuongYeuCauSuaChua()
+        {
+            string spName = "[dbo].[func_LaySoYeuCauSuaChua]";
+            string[] pNames = { };
+            object[] pValues = { };
+            int count = cnn.ExecuteStoredProcedure(spName, pNames, pValues);
+            return count;
+        }
+        public int LaySoLuongYeuCauTraPhong()
+        {
+            string spName = "[dbo].[func_LaySoYeuCauTraPhong]";
+            string[] pNames = { };
+            object[] pValues = { };
+            int count = cnn.ExecuteStoredProcedure(spName, pNames, pValues);
+            return count;
+        }
     }
 }

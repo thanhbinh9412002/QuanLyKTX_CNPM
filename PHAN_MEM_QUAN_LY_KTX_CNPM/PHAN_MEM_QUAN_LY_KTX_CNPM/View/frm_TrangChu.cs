@@ -21,6 +21,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
         frm_ThongBao fmTB;
         frm_ThongTinCaNhan fmCaNhan;
         frm_SinhVien fmSV;
+        frm_Yeucau_Admin fmYeuCauAd;
 
         private string user;
         private string role;
@@ -70,8 +71,17 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             btn_dangxuat.Visible = true;
             btn_doimk.Visible = true;
             btn_Trangchu.Visible = true;
-            x = 460;
-            y = 340;
+            x = 160;
+            y = 280;
+            fmYeuCauAd = new frm_Yeucau_Admin();
+            if (fmYeuCauAd.thongbao == 1)
+            {
+                timer_tbyeucau.Start();
+            }
+            else
+            {
+                timer_tbyeucau.Stop();
+            }
         }
 
         private void MainNoEnable()
@@ -90,8 +100,8 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             btn_doimk.Location = btn_thongbao.Location;
             btn_thongbao.Location = btn_yeucau.Location;
             btn_yeucau.Location = btn_thietbi.Location;   
-            x = 400;
-            y = 280;
+            x = 220;
+            y = 340;
             TrangChu_BUS tcBUS = new TrangChu_BUS();
             MaPhong = tcBUS.TraVeMaPhong(user);
             MaSinhVien = tcBUS.TraVeMaSinhVien(user);
@@ -158,9 +168,9 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
         {
             if (Hided_caidat)
             {
-                panel2.Height = panel2.Height + 20;
+                panel3.Height = panel3.Height - 20;
                 btn_down.Image = PHAN_MEM_QUAN_LY_KTX_CNPM.Properties.Resources.Actions_go_up_icon;
-                if (panel2.Height == x)
+                if (panel3.Height == x)
                 {
                     timer_caidat.Stop();
                     Hided_caidat = false;
@@ -169,9 +179,9 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             }
             else
             {
-                panel2.Height = panel2.Height - 20;
+                panel3.Height = panel3.Height + 20;
                 btn_down.Image = PHAN_MEM_QUAN_LY_KTX_CNPM.Properties.Resources.Actions_go_down_icon;
-                if (panel2.Height == y)
+                if (panel3.Height == y)
                 {
                     timer_caidat.Stop();
                     Hided_caidat = true;
@@ -202,6 +212,21 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             txt_ngay.Text = DateTime.Now.Date.ToString();
             txt_gio.Enabled = false;
             txt_ngay.Enabled = false;
+        }
+
+        private void timer_tbyeucau_Tick(object sender, EventArgs e)
+        {
+            TrangChu_BUS tcBUS = new TrangChu_BUS();
+            int kq = tcBUS.LaySoLuongYeuCauGiaHan() + tcBUS.LaySoLuongYeuCauSuaChua() + tcBUS.LaySoLuongYeuCauTraPhong();
+            if(kq == 0)
+            {
+                btn_thongbaoyeucau.Visible = false;
+            }    
+            else
+            {
+                btn_thongbaoyeucau.Visible = true;
+                btn_thongbaoyeucau.Text = kq.ToString();
+            }    
         }
 
         private void frm_Trangchu_FormClosing(object sender, FormClosingEventArgs e)
@@ -299,15 +324,30 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
 
         private void btn_yeucau_Click(object sender, EventArgs e)
         {
-            pictureBox1.Visible = false;
-            panel_form.Visible = true;
-            panel_form.Controls.Clear();
-            fmYeuCau = new frm_YeuCau(user, role);
-            fmYeuCau.TopLevel = false;
-            panel_form.Controls.Add(fmYeuCau);
-            fmYeuCau.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            fmYeuCau.Dock = DockStyle.Fill;
-            fmYeuCau.Show();
+            if( role == "Quản Lý")
+            {
+                pictureBox1.Visible = false;
+                panel_form.Visible = true;
+                panel_form.Controls.Clear();
+                fmYeuCauAd = new frm_Yeucau_Admin(user, role);
+                fmYeuCauAd.TopLevel = false;
+                panel_form.Controls.Add(fmYeuCauAd);
+                fmYeuCauAd.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+                fmYeuCauAd.Dock = DockStyle.Fill;
+                fmYeuCauAd.Show();
+            } 
+            else
+            {
+                pictureBox1.Visible = false;
+                panel_form.Visible = true;
+                panel_form.Controls.Clear();
+                fmYeuCau = new frm_YeuCau(user, role);
+                fmYeuCau.TopLevel = false;
+                panel_form.Controls.Add(fmYeuCau);
+                fmYeuCau.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+                fmYeuCau.Dock = DockStyle.Fill;
+                fmYeuCau.Show();
+            }    
         }
 
         private void btn_thongtincanhan_Click(object sender, EventArgs e)

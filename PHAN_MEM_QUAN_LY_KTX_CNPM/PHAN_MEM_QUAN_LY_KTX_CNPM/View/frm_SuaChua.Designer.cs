@@ -51,7 +51,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.groupBox_suachua.Controls.Add(this.txt_soluong_suachua);
             this.groupBox_suachua.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox_suachua.ForeColor = System.Drawing.Color.Maroon;
-            this.groupBox_suachua.Location = new System.Drawing.Point(1, 5);
+            this.groupBox_suachua.Location = new System.Drawing.Point(93, 67);
             this.groupBox_suachua.Name = "groupBox_suachua";
             this.groupBox_suachua.Size = new System.Drawing.Size(708, 327);
             this.groupBox_suachua.TabIndex = 1;
@@ -165,7 +165,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCyan;
-            this.ClientSize = new System.Drawing.Size(710, 337);
+            this.ClientSize = new System.Drawing.Size(879, 486);
             this.Controls.Add(this.groupBox_suachua);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frm_SuaChua";

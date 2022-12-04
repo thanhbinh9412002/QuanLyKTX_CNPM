@@ -18,6 +18,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
         frm_GiaHan fmGiaHan;
         frm_TraPhong fmTraPhong;
         frm_SuaChua fmSuaChua;
+        frm_Yeucau_Admin fmYeuCauAd;
 
         public frm_YeuCau(string user = "", string role = "")
         {
@@ -28,6 +29,8 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
 
         private void menu_suachua_Click(object sender, EventArgs e)
         {
+            pictureBox1.Visible = false;
+            panel2.Visible = true;
             panel2.Controls.Clear();
             fmSuaChua = new frm_SuaChua();
             fmSuaChua.TopLevel = false;
@@ -39,6 +42,8 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
 
         private void menu_traphong_Click(object sender, EventArgs e)
         {
+            pictureBox1.Visible = false;
+            panel2.Visible = true;
             panel2.Controls.Clear();
             fmTraPhong = new frm_TraPhong();
             fmTraPhong.TopLevel = false;
@@ -50,18 +55,37 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
 
         private void menu_giahan_Click(object sender, EventArgs e)
         {
-            panel2.Controls.Clear();
-            fmGiaHan = new frm_GiaHan();
-            fmGiaHan.TopLevel = false;
-            panel2.Controls.Add(fmGiaHan);
-            fmGiaHan.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            fmGiaHan.Dock = DockStyle.Fill;
-            fmGiaHan.Show();
+            fmYeuCauAd = new frm_Yeucau_Admin();
+            if (fmYeuCauAd.ngaybatdau <= DateTime.Now.Date && fmYeuCauAd.ngayketthuc > DateTime.Now.Date)
+            {
+                pictureBox1.Visible = false;
+                panel2.Visible = true;
+                panel2.Controls.Clear();
+                fmGiaHan = new frm_GiaHan();
+                fmGiaHan.TopLevel = false;
+                panel2.Controls.Add(fmGiaHan);
+                fmGiaHan.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+                fmGiaHan.Dock = DockStyle.Fill;
+                fmGiaHan.Show();
+            }
+            else
+            {
+                pictureBox1.Visible = true;
+                panel2.Visible = false;
+                MessageBox.Show("Hiện tại không nằm trong thời hàn đăng ký gia hạn ở ","Thông báo",MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void frm_YeuCau_Load(object sender, EventArgs e)
         {
-            
+            pictureBox1.Visible = true;
+            panel2.Visible = false;
+        }
+
+        private void trangChủToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Visible = true;
+            panel2.Visible = false;
         }
     }
 }

@@ -46,7 +46,7 @@
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(820, 32);
+            this.label2.Size = new System.Drawing.Size(1015, 32);
             this.label2.TabIndex = 53;
             this.label2.Text = "DANH SÁCH SINH VIÊN";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -57,7 +57,7 @@
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnExit.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExit.Location = new System.Drawing.Point(375, 204);
+            this.btnExit.Location = new System.Drawing.Point(448, 399);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(96, 43);
             this.btnExit.TabIndex = 52;
@@ -70,7 +70,7 @@
             // 
             this.cbbPhong.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.cbbPhong.FormattingEnabled = true;
-            this.cbbPhong.Location = new System.Drawing.Point(104, 223);
+            this.cbbPhong.Location = new System.Drawing.Point(177, 418);
             this.cbbPhong.Name = "cbbPhong";
             this.cbbPhong.Size = new System.Drawing.Size(88, 21);
             this.cbbPhong.TabIndex = 51;
@@ -80,7 +80,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(104, 196);
+            this.label3.Location = new System.Drawing.Point(177, 391);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(68, 24);
             this.label3.TabIndex = 50;
@@ -90,16 +90,16 @@
             // 
             this.dgvDSSV.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgvDSSV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDSSV.Location = new System.Drawing.Point(0, 35);
+            this.dgvDSSV.Location = new System.Drawing.Point(12, 35);
             this.dgvDSSV.Name = "dgvDSSV";
-            this.dgvDSSV.Size = new System.Drawing.Size(824, 158);
+            this.dgvDSSV.Size = new System.Drawing.Size(991, 335);
             this.dgvDSSV.TabIndex = 49;
             // 
             // frm_ChiTietPhong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(820, 259);
+            this.ClientSize = new System.Drawing.Size(1015, 454);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.cbbPhong);

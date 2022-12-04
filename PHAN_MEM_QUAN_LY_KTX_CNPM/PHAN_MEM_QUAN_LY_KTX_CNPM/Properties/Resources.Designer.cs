@@ -133,6 +133,16 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add_icon {
+            get {
+                object obj = ResourceManager.GetObject("add-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Awicons_Vista_Artistic_2_Hot_Home {
             get {
                 object obj = ResourceManager.GetObject("Awicons-Vista-Artistic-2-Hot-Home", resourceCulture);
@@ -166,6 +176,16 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM.Properties {
         internal static System.Drawing.Bitmap document_icon {
             get {
                 object obj = ResourceManager.GetObject("document-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Filter_icon {
+            get {
+                object obj = ResourceManager.GetObject("Filter-icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -313,6 +333,16 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap setting {
+            get {
+                object obj = ResourceManager.GetObject("setting", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap show_password {
             get {
                 object obj = ResourceManager.GetObject("show-password", resourceCulture);
@@ -326,6 +356,16 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM.Properties {
         internal static System.Drawing.Bitmap Students_icon {
             get {
                 object obj = ResourceManager.GetObject("Students-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap trash_icon {
+            get {
+                object obj = ResourceManager.GetObject("trash-icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

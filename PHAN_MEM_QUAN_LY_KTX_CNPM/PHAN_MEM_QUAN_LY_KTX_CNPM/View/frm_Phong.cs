@@ -18,6 +18,9 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
         public string maphong;
         private frm_HoaDon fmHD;
 
+        public string MaPhong1; // lấy mã phòng ra để truyền sang form chi tiết phòng và form hóa đơn
+        public int sukien = 0;// kiểm tra xem người dùng đã chọn hàng nào trong datagirdview chưa trước khi chuyển sang form khác --> form quản lý phòng sẽ nhận
+
         public frm_Phong()
         {
             InitializeComponent();
@@ -35,7 +38,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             int SVHienTai = 0;
             txtSVHienTai.Text = SVHienTai.ToString();
         }
-
+/*
         private void btnHD_Click(object sender, EventArgs e)
         {
             int r = dgvPhong.CurrentCell.RowIndex;
@@ -51,7 +54,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             fmHD.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             fmHD.Dock = DockStyle.Fill;
             fmHD.Show();
-        }
+        }*/
 
         private void frm_Phong_Load(object sender, EventArgs e)
         {
@@ -59,7 +62,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             gbThongTinPhong.Enabled = false;
             LoadTextBox_CheckBox();
         }
-
+/*
         private void btnThoat_Click(object sender, EventArgs e)
         {
             panel_child.Visible = false;
@@ -70,8 +73,8 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             main_panel.Controls.Add(fmphong);
             fmphong.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             fmphong.Dock = DockStyle.Fill;
-            fmphong.Show();
-        }
+            fmphong.Show();*//*
+        }*/
         public static bool them = true;
         private void btnThem_Click(object sender, EventArgs e)
         {
@@ -87,41 +90,55 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            int r = dgvPhong.CurrentCell.RowIndex;
-            string MaPhong = dgvPhong.Rows[r].Cells[0].Value.ToString();
-            int svhientai = Convert.ToInt32(dgvPhong.Rows[r].Cells[2].Value.ToString());
-            DialogResult h = MessageBox.Show("Bạn có chắc muốn xóa không?", "Error", MessageBoxButtons.OKCancel);
-            if (h == DialogResult.OK)
+            if(sukien == 1)
             {
-                if (svhientai == 0)
+                int r = dgvPhong.CurrentCell.RowIndex;
+                string MaPhong = dgvPhong.Rows[r].Cells[0].Value.ToString();
+                int svhientai = Convert.ToInt32(dgvPhong.Rows[r].Cells[2].Value.ToString());
+                DialogResult h = MessageBox.Show("Bạn có chắc muốn xóa không?", "Error", MessageBoxButtons.OKCancel);
+                if (h == DialogResult.OK)
                 {
-                    PhongBUS.DeleteRoom(MaPhong);
-                    MessageBox.Show("Xóa thành công");
-                    LoadDataAdmin();
+                    if (svhientai == 0)
+                    {
+                        PhongBUS.DeleteRoom(MaPhong);
+                        MessageBox.Show("Xóa thành công");
+                        LoadDataAdmin();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không thể xóa");
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Không thể xóa");
-                }
-            }
+            }    
+            else
+            {
+                MessageBox.Show("Bạn chưa chọn phòng cần xóa. Mời chọn phòng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }    
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
+
             them = false;
             btnLuu.Enabled = true;
             gbThongTinPhong.Enabled = true;
-
-            int r = dgvPhong.CurrentCell.RowIndex;
-            txtMaPhong.Text = dgvPhong.Rows[r].Cells[0].Value.ToString();
-            txtMaPhong.Enabled = false;
-            txtGiaPhong.Text = dgvPhong.Rows[r].Cells[1].Value.ToString();
-            txtGiaPhong.Enabled = false;
-            txtSVHienTai.Text = dgvPhong.Rows[r].Cells[2].Value.ToString();
-            txtSVHienTai.Enabled = false;
-            cbbSVToiDa.Text = dgvPhong.Rows[r].Cells[3].Value.ToString();
-            cbbTinhTrang.Text = dgvPhong.Rows[r].Cells[4].Value.ToString();
-            cbbTinhTrang.Enabled = true;
+            if(sukien == 1)
+            {
+                int r = dgvPhong.CurrentCell.RowIndex;
+                txtMaPhong.Text = dgvPhong.Rows[r].Cells[0].Value.ToString();
+                txtMaPhong.Enabled = false;
+                txtGiaPhong.Text = dgvPhong.Rows[r].Cells[1].Value.ToString();
+                txtGiaPhong.Enabled = false;
+                txtSVHienTai.Text = dgvPhong.Rows[r].Cells[2].Value.ToString();
+                txtSVHienTai.Enabled = false;
+                cbbSVToiDa.Text = dgvPhong.Rows[r].Cells[3].Value.ToString();
+                cbbTinhTrang.Text = dgvPhong.Rows[r].Cells[4].Value.ToString();
+                cbbTinhTrang.Enabled = true;
+            }    
+            else
+            {
+                MessageBox.Show("Bạn chưa chọn phòng cần sửa. Mời chọn phòng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }    
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
@@ -156,19 +173,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             btnThem.Enabled = true;
             dgvPhong.Enabled = true;
         }
-
-        private void btnTimKiemPhongDay_Click(object sender, EventArgs e)
-        {
-            dgvPhong.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvPhong.DataSource = PhongBUS.PhongDay();
-        }
-
-        private void btnPhongConCho_Click(object sender, EventArgs e)
-        {
-            dgvPhong.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvPhong.DataSource = PhongBUS.PhongConCho();
-        }
-
+/*
         private void btnChiTietPhong_Click(object sender, EventArgs e)
         {
             int r = dgvPhong.CurrentCell.RowIndex;
@@ -182,7 +187,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
         private void btnThietBiTrongPhong_Click(object sender, EventArgs e)
         {
 
-        }
+        }*/
 
         private void cbbSVToiDa_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -201,6 +206,29 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             if (int.Parse(cbbSVToiDa.Text) == 8)
             {
                 txtGiaPhong.Text = "250000";
+            }
+        }
+
+        private void btn_timkiem_Click(object sender, EventArgs e)
+        {
+            if(cbb_timkiem.Text == "Phòng còn chỗ")
+            {
+                dgvPhong.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dgvPhong.DataSource = PhongBUS.PhongConCho();
+            }
+            else
+            {
+                dgvPhong.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dgvPhong.DataSource = PhongBUS.PhongDay();
+            }    
+        }
+
+        private void dgvPhong_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                MaPhong1 = Convert.ToString(dgvPhong.CurrentRow.Cells["Mã phòng"].Value);
+                sukien = 1;
             }
         }
     }

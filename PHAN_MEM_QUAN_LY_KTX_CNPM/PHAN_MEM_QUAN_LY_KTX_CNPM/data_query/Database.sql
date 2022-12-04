@@ -1,5 +1,5 @@
-﻿create database KTX
-GO
+﻿/*create database KTX
+GO*/
 use KTX
 GO
 
@@ -100,14 +100,16 @@ create table SuaChua(
 	Id int IDENTITY(1,1) PRIMARY KEY, 
 	TenThietBi nvarchar(20) NOT NULL,
 	SoLuong int,
-	ChiTiet nvarchar(50)
+	ChiTiet nvarchar(500),
+	TrangThai nvarchar(50)
 )
 GO
 
 create table GiaHan (
 	Id int IDENTITY(1,1) PRIMARY KEY,
 	MaSinhVien char(10),
-	SoKy int
+	SoKy int,
+	TrangThai nvarchar(50)
 )
 GO
 
@@ -115,7 +117,8 @@ create table TraPhong(
 	Id int IDENTITY(1,1) PRIMARY KEY,
 	MaPhong char(10),
 	MaSinhVien char(10),
-	NgayTra Date
+	NgayTra Date,
+	TrangThai nvarchar(50)
 )
 GO
 
@@ -646,7 +649,7 @@ go
 
 -- Lấy mã phòng
 
-alter function [dbo].[func_LayMaPhong](@cmnd char(15)) 
+create function [dbo].[func_LayMaPhong](@cmnd char(15)) 
 returns char(15)
 AS 
 BEGIN 
@@ -660,7 +663,7 @@ GO
 
 -- Lấy sinh viên
 
-alter function [dbo].[func_LayMaSinhVien](@cmnd char(15)) 
+create function [dbo].[func_LayMaSinhVien](@cmnd char(15)) 
 returns char(10)
 AS 
 BEGIN 
@@ -805,5 +808,108 @@ go
 
 create procedure proc_xoasinhvien(@MaSinhVien char(10))
 as delete SinhVien where MaSinhVien=@MaSinhVien
+go
 
 
+create procedure [dbo].[CapnhattrangThaiSuaChua](@id int, @trangthai nvarchar(50))
+as update SuaChua
+set TrangThai = @trangthai
+where Id = @id
+go
+
+create procedure [dbo].[CapnhattrangThaiTraPhong](@id int, @trangthai nvarchar(50))
+as update TraPhong
+set TrangThai = @trangthai
+where Id = @id
+go
+
+create procedure [dbo].[CapnhattrangThaiGiaHan](@id int, @trangthai nvarchar(50))
+as update GiaHan
+set TrangThai = @trangthai
+where Id = @id
+go
+
+create procedure [dbo].[ThemYeuCauSuaChua](@tenthietbi nvarchar(20), @soluong int, @chitiet nvarchar(500), @trangthai nvarchar(50))
+as
+insert into SuaChua Values(@tenthietbi, @soluong, @chitiet, @trangthai)
+go
+
+create procedure [dbo].[ThemYeuCauTraPhong](@maphong char(10), @masinhvien char(10), @ngaytra date, @trangthai nvarchar(50))
+as
+insert into TraPhong Values(@maphong, @masinhvien, @ngaytra, @trangthai)
+go
+
+create procedure [dbo].[ThemYeuCauGiaHan](@masinhvien char(10), @soky int, @trangthai nvarchar(50))
+as
+insert into GiaHan Values(@masinhvien, @soky, @trangthai)
+go
+
+create procedure [dbo].[proc_DanhSachGiaHan]
+as 
+select Id, MaSinhVien as [Mã sinh viên], SoKy as[Số kỳ], TrangThai as [Trạng thái]
+from GiaHan
+GO
+
+create procedure [dbo].[proc_DanhSachTraPhong]
+as 
+select Id, MaPhong as [Mã phòng], MaSinhVien as [Mã sinh viên], NgayTra as [Ngày trả], TrangThai as [Trạng thái]
+from TraPhong
+GO
+
+create procedure [dbo].[proc_DanhSachSuaChua]
+as 
+select Id, TenThietBi as [Tên thiết bị], SoLuong as [Số lượng], ChiTiet as [Chi tiết]
+from SuaChua
+GO
+
+create procedure [dbo].[proc_XoaYeuCauGiaHan] (@id int)
+as delete GiaHan where Id = @id
+GO
+
+create procedure [dbo].[proc_XoaYeuCauTraPhong] (@id int)
+as delete GiaHan where Id = @id
+GO
+
+create procedure [dbo].[proc_XoaYeuCauSuaChua] (@id int)
+as delete GiaHan where Id = @id
+GO
+
+create procedure [dbo].[proc_TenThietBi]
+as
+	select distinct TenThietBi from TrangThietBi
+GO
+CREATE function [dbo].[func_LaySoYeuCauSuaChua]() 
+returns int
+AS 
+BEGIN 
+    DECLARE @kq int 
+    SELECT @kq = count(Id)  
+	from SuaChua
+	where TrangThai = 'Chưa xem'
+    RETURN  @kq
+END
+GO
+
+CREATE function [dbo].[func_LaySoYeuCauTraPhong]() 
+returns int
+AS 
+BEGIN 
+    DECLARE @kq int 
+    SELECT @kq = count(Id)  
+	from TraPhong
+	where TrangThai = 'Chưa xem'
+    RETURN  @kq
+END
+GO
+
+CREATE function [dbo].[func_LaySoYeuCauGiaHan]() 
+returns int
+AS 
+BEGIN 
+    DECLARE @kq int 
+    SELECT @kq = count(Id)  
+	from GiaHan
+	where TrangThai = 'Chưa xem'
+    RETURN  @kq
+END
+GO

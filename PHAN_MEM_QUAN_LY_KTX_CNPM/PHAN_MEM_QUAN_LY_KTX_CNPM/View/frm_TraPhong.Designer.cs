@@ -33,31 +33,30 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.btn_goi = new CustomButton.VBButton();
             this.dateTimePicker_ngaytra = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
-            this.cbb_mssv_traphong = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.cbb_maphong_traphong = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.txt_maphong = new PHAN_MEM_QUAN_LY_KTX_CNPM.effect.RJTextBox();
+            this.txt_masv = new PHAN_MEM_QUAN_LY_KTX_CNPM.effect.RJTextBox();
             this.groupBox_traphong.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox_traphong
             // 
+            this.groupBox_traphong.Controls.Add(this.txt_masv);
+            this.groupBox_traphong.Controls.Add(this.txt_maphong);
             this.groupBox_traphong.Controls.Add(this.btn_goi);
             this.groupBox_traphong.Controls.Add(this.dateTimePicker_ngaytra);
             this.groupBox_traphong.Controls.Add(this.label6);
-            this.groupBox_traphong.Controls.Add(this.cbb_mssv_traphong);
             this.groupBox_traphong.Controls.Add(this.label2);
-            this.groupBox_traphong.Controls.Add(this.cbb_maphong_traphong);
             this.groupBox_traphong.Controls.Add(this.label7);
             this.groupBox_traphong.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox_traphong.ForeColor = System.Drawing.Color.Maroon;
-            this.groupBox_traphong.Location = new System.Drawing.Point(3, 2);
+            this.groupBox_traphong.Location = new System.Drawing.Point(92, 56);
             this.groupBox_traphong.Name = "groupBox_traphong";
             this.groupBox_traphong.Size = new System.Drawing.Size(704, 333);
             this.groupBox_traphong.TabIndex = 40;
             this.groupBox_traphong.TabStop = false;
             this.groupBox_traphong.Text = "Trả phòng";
-            this.groupBox_traphong.Enter += new System.EventHandler(this.groupBox_traphong_Enter);
             // 
             // btn_goi
             // 
@@ -100,15 +99,6 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.label6.Text = "Ngày trả";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // cbb_mssv_traphong
-            // 
-            this.cbb_mssv_traphong.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbb_mssv_traphong.FormattingEnabled = true;
-            this.cbb_mssv_traphong.Location = new System.Drawing.Point(357, 130);
-            this.cbb_mssv_traphong.Name = "cbb_mssv_traphong";
-            this.cbb_mssv_traphong.Size = new System.Drawing.Size(104, 28);
-            this.cbb_mssv_traphong.TabIndex = 40;
-            // 
             // label2
             // 
             this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -119,15 +109,6 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.label2.TabIndex = 39;
             this.label2.Text = "Mã sinh viên";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // cbb_maphong_traphong
-            // 
-            this.cbb_maphong_traphong.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbb_maphong_traphong.FormattingEnabled = true;
-            this.cbb_maphong_traphong.Location = new System.Drawing.Point(357, 72);
-            this.cbb_maphong_traphong.Name = "cbb_maphong_traphong";
-            this.cbb_maphong_traphong.Size = new System.Drawing.Size(104, 28);
-            this.cbb_maphong_traphong.TabIndex = 38;
             // 
             // label7
             // 
@@ -140,16 +121,55 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.label7.Text = "Mã phòng";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // txt_maphong
+            // 
+            this.txt_maphong.BackColor = System.Drawing.SystemColors.Window;
+            this.txt_maphong.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.txt_maphong.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txt_maphong.BorderSize = 2;
+            this.txt_maphong.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_maphong.ForeColor = System.Drawing.Color.DimGray;
+            this.txt_maphong.Location = new System.Drawing.Point(357, 70);
+            this.txt_maphong.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_maphong.Multiline = false;
+            this.txt_maphong.Name = "txt_maphong";
+            this.txt_maphong.Padding = new System.Windows.Forms.Padding(7);
+            this.txt_maphong.PasswordChar = false;
+            this.txt_maphong.Size = new System.Drawing.Size(112, 31);
+            this.txt_maphong.TabIndex = 44;
+            this.txt_maphong.Texts = "";
+            this.txt_maphong.UnderlinedStyle = false;
+            // 
+            // txt_masv
+            // 
+            this.txt_masv.BackColor = System.Drawing.SystemColors.Window;
+            this.txt_masv.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.txt_masv.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txt_masv.BorderSize = 2;
+            this.txt_masv.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_masv.ForeColor = System.Drawing.Color.DimGray;
+            this.txt_masv.Location = new System.Drawing.Point(357, 127);
+            this.txt_masv.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_masv.Multiline = false;
+            this.txt_masv.Name = "txt_masv";
+            this.txt_masv.Padding = new System.Windows.Forms.Padding(7);
+            this.txt_masv.PasswordChar = false;
+            this.txt_masv.Size = new System.Drawing.Size(112, 31);
+            this.txt_masv.TabIndex = 45;
+            this.txt_masv.Texts = "";
+            this.txt_masv.UnderlinedStyle = false;
+            // 
             // frm_TraPhong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCyan;
-            this.ClientSize = new System.Drawing.Size(710, 337);
+            this.ClientSize = new System.Drawing.Size(879, 486);
             this.Controls.Add(this.groupBox_traphong);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frm_TraPhong";
             this.Text = "frm_TraPhong";
+            this.Load += new System.EventHandler(this.frm_TraPhong_Load);
             this.groupBox_traphong.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -160,10 +180,10 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
         private System.Windows.Forms.GroupBox groupBox_traphong;
         private System.Windows.Forms.DateTimePicker dateTimePicker_ngaytra;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox cbb_mssv_traphong;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cbb_maphong_traphong;
         private System.Windows.Forms.Label label7;
         private CustomButton.VBButton btn_goi;
+        private effect.RJTextBox txt_masv;
+        private effect.RJTextBox txt_maphong;
     }
 }

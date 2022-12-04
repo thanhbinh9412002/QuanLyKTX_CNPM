@@ -89,5 +89,6 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             txt_user.Enabled = false;
             txt_newpass.Focus();
         }
+
     }
 }
