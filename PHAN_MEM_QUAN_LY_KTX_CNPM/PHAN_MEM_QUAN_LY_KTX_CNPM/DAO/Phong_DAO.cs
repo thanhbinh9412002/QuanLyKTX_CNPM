@@ -21,14 +21,14 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM.DAO
             //SqlParameter[] sqlParameters = new SqlParameter[0]; 
             return cnn.executeLoadData("SELECT * FROM func_DanhSachPhong()");
         }
-        public void AddRoom(string MaPhong, int GiaPhong, int SVHienTai, int SVToiDa, int tinhtrang)
+        public void AddRoom(string MaPhong, int GiaPhong, int SVHienTai, int SVToiDa, string tinhtrang)
         {
             string sql = "proc_ThemPhong";
             string[] pNames = { "@MaPhong", "@GiaPhong", "@SoLuongSinhVienHienTai", "@SoLuongSinhVienToiDa", "@TinhTrang" };
             object[] pvalues = { MaPhong, GiaPhong, SVHienTai, SVToiDa, tinhtrang };
             cnn.ExecuteStoredProcedure_Update(sql, pNames, pvalues);
         }
-        public void UpdateRoom(string MaPhong, int GiaPhong, int SVHienTai, int SVToiDa, int tinhtrang)
+        public void UpdateRoom(string MaPhong, int GiaPhong, int SVHienTai, int SVToiDa, string tinhtrang)
         {
             string sql = "proc_SuaPhong";
             string[] pNames = { "@MaPhong", "@GiaPhong", "@SoLuongSinhVienHienTai", "@SoLuongSinhVienToiDa", "@TinhTrang" };

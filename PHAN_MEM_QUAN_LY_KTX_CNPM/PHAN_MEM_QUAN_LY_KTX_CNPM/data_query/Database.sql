@@ -42,7 +42,7 @@ create table Phong (
 	GiaPhong int,
 	SoLuongSinhVienHienTai int,
 	SoLuongSinhVienToiDa int ,
-	TinhTrang bit
+	TinhTrang nvarchar(25)
 )
 GO
 
@@ -372,15 +372,15 @@ END
 GO
 
 
-insert into Phong values ('P101',200000, 0 , 6 , 1)
-insert into Phong values ('P102',200000, 0 , 6 , 1)
-insert into Phong Values ('P203',500000, 0 , 4 , 1)
-insert into Phong Values ('P301',150000, 0 , 8 , 1)
-insert into Phong Values ('P505',150000, 0 , 4 , 1)
-insert into Phong Values ('P406',150000, 0 , 8 , 1)
-insert into Phong Values ('P307',500000, 0 , 4 , 1)
-insert into Phong Values ('P602',500000, 0 , 4 , 1)
-insert into Phong Values ('P709',200000, 0 , 6 , 1)
+insert into Phong values ('P101',200000, 0 , 6 , N'Đang sử dụng')
+insert into Phong values ('P102',200000, 0 , 6 , N'Đang sử dụng')
+insert into Phong Values ('P203',500000, 0 , 4 , N'Đang sử dụng')
+insert into Phong Values ('P301',150000, 0 , 8 , N'Đang sử dụng')
+insert into Phong Values ('P505',150000, 0 , 4 , N'Đang sử dụng')
+insert into Phong Values ('P406',150000, 0 , 8 , N'Đang sử dụng')
+insert into Phong Values ('P307',500000, 0 , 4 , N'Đang sử dụng')
+insert into Phong Values ('P602',500000, 0 , 4 , N'Đang sử dụng')
+insert into Phong Values ('P709',200000, 0 , 6 , N'Đang sử dụng')
 
 
 insert into SinhVien Values('20133104',N'Nguyễn Văn Thanh','0367064834', N'Nam',3,N'Không',N'Việt Nam','221502781','P101',1)
@@ -407,7 +407,7 @@ insert into SinhVien Values('20196542',N'Nguyễn Thị Thùy','0367823472', N'N
 
 
 
-insert into ThongBao values(N'Nghỉ học','Các em nghỉ học nhé','2022-12-12')
+insert into ThongBao values(N'Nghỉ học',N'Các em nghỉ học nhé','2022-12-12')
 
 
 --insert into TrangThietBi Values('TB1','A101', 'Giường' , 0,4 )
@@ -461,8 +461,13 @@ create function [dbo].[func_DanhSachPhong] ()
 returns table
 	as
 	return 
-		select p.MaPhong, p.GiaPhong, p.SoLuongSinhVienHienTai, p.SoLuongSinhVienToiDa, p.TinhTrang
+		select p.MaPhong as [Mã Phòng], 
+		p.GiaPhong as [Giá Phòng], 
+		p.SoLuongSinhVienHienTai as [Số Sinh Viên Hiện Tại], 
+		p.SoLuongSinhVienToiDa as [Số Sinh Viên Tối Đa], 
+		p.TinhTrang as [Tình Trạng]
 		From Phong as p
+
 
 GO
 create function [dbo].[func_HoaDonPhong]( @MaPhong char(10))
@@ -671,3 +676,134 @@ select * from DangNhap
 select * from HoaDon
 
 insert into DangNhap values ('215536972','215536972',N'Quản Lý',1)
+go
+--Danh sách sinh viên theo phòng
+Create function [dbo].[func_DanhSachSinhVienTheoPhong] (@MaPhong char(10))
+returns table
+as
+	return
+		select  SV.MaSinhVien as [Mã Sinh Viên],
+		SV.HoTen as [Họ Tên],
+		SV.SoDienThoai as [Số Điện Thoại],
+		SV.GioiTinh as [Giới Tính],
+		SV.NamHoc as [Năm Học],
+		SV.TonGiao as [Tôn Giáo],
+		SV.QuocTich as [Quốc Tịch],
+		SV.CMND_CCCD as [CMND/CCCD],
+		SV.SoKy as [Số Kỳ]
+		FROM SinhVien as SV inner join Phong on SV.MaPhong=Phong.MaPhong
+			Where Phong.MaPhong=@MaPhong
+go
+--Danh sách thông báo 
+Create function [dbo].[func_DanhsachThongBao]() 
+returns table
+as
+	return select TieuDe,NoiDung,NgayDang
+				from ThongBao
+go
+--Xóa phòng
+Create procedure [dbo].[proc_XoaPhong](@MaPhong char(10))
+as delete Phong Where MaPhong = @MaPhong;
+go
+--Thêm Phòng
+Create procedure [dbo].[proc_ThemPhong]
+(@MaPhong char(10),@GiaPhong int,@SoLuongSinhVienHienTai int , @SoLuongSinhVienToiDa int, @TinhTrang nvarchar(25))
+as
+insert into Phong values(@MaPhong,@GiaPhong,@SoLuongSinhVienHienTai,@SoLuongSinhVienToiDa,@TinhTrang);
+go
+--Sửa phòng
+Create procedure [dbo].[proc_SuaPhong] (@MaPhong char(10),@GiaPhong int, @SoLuongSinhVienHienTai int,@SoLuongSinhVienToiDa int,@TinhTrang nvarchar(25))
+as update Phong
+set MaPhong = @MaPhong,
+	GiaPhong = @GiaPhong,
+	SoLuongSinhVienHienTai = @SoLuongSinhVienHienTai,
+	SoLuongSinhVienToiDa = @SoLuongSinhVienToiDa,
+	TinhTrang = @TinhTrang
+where MaPhong = @MaPhong;
+go
+--Gửi thông báo 
+Create procedure [dbo].[proc_GuiThongBao](@tieude nvarchar(100), @noidung nvarchar(1000),@ngaydang date)
+as
+insert into ThongBao Values(@tieude, @noidung, @ngaydang);
+go
+--Danh sách Phòng Đầy
+Create procedure [dbo].[pro_DanhSachPhongDay]
+as
+SELECT MaPhong,GiaPhong,SoLuongSinhVienHienTai, SoLuongSinhVienToiDa,TinhTrang
+  FROM Phong
+  WHERE SoLuongSinhVienHienTai = SoLuongSinhVienToiDa
+ go
+--Danh sách phòng Còn Chỗ
+Create procedure [dbo].[pro_DanhSachPhongConCho]
+as
+SELECT MaPhong,GiaPhong,SoLuongSinhVienHienTai, SoLuongSinhVienToiDa,TinhTrang
+  FROM Phong
+  WHERE SoLuongSinhVienHienTai < SoLuongSinhVienToiDa
+ go
+--Lấy Mã phòng
+Create procedure [dbo].[pro_DanhSachPhong_MaPhong]
+as
+SELECT MaPhong 
+	FROM Phong
+go
+create view view_DanhsachSinhvien
+as(
+	select MaSinhVien as [MSSV],
+			HoTen as [Họ tên],
+			SoDienThoai as [Số điện thoại],
+			GioiTinh [Giới tính],
+			NamHoc as [Nam học],
+			TonGiao as [Tôn giáo],
+			QuocTich as [Quốc tịch],
+			CMND_CCCD as [CMND/CCCD],
+			MaPhong as [Mã Phòng],
+			SoKy as [Số Kỳ]
+	from SinhVien
+)
+go
+create procedure proc_Themsinhvien
+(
+	@MaSinhVien char(10),
+    @HoTen nvarchar(50) ,
+    @SoDienThoai nvarchar(50) ,
+    @GioiTinh nvarchar(10) ,
+    @NamHoc int ,
+    @TonGiao nvarchar(10) ,
+    @QuocTich nvarchar(10) ,
+    @CMND_CCCD char(15),
+    @MaPhong char(10),
+	@SoKy int 
+)
+as insert SinhVien values (@MaSinhVien, @HoTen, @SoDienThoai, @GioiTinh, @NamHoc, @TonGiao, @QuocTich, @CMND_CCCD, @MaPhong,@SoKy)
+go
+create procedure proc_Suasinhvien
+(
+	@MaSinhVien char(10),
+    @HoTen nvarchar(50) ,
+    @SoDienThoai nvarchar(50) ,
+    @GioiTinh nvarchar(10) ,
+    @NamHoc int ,
+    @TonGiao nvarchar(10) ,
+    @QuocTich nvarchar(10) ,
+    @CMND_CCCD char(15),
+    @MaPhong char(10),
+	@SoKy int 
+)
+as update SinhVien 
+set MaSinhVien=@MaSinhVien,
+	HoTen=@HoTen,
+	SoDienThoai=@SoDienThoai,
+	GioiTinh=@GioiTinh,
+	NamHoc=@NamHoc,
+	TonGiao=@TonGiao,
+	QuocTich=@QuocTich,
+	CMND_CCCD=@CMND_CCCD,
+	MaPhong=@MaPhong,
+	SoKy=@SoKy
+where MaSinhVien = @MaSinhVien
+go
+
+create procedure proc_xoasinhvien(@MaSinhVien char(10))
+as delete SinhVien where MaSinhVien=@MaSinhVien
+
+

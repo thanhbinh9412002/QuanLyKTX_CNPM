@@ -18,6 +18,9 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
         frm_YeuCau fmYeuCau;
         frm_PhiSinhVien fmPhiSV;
         frm_Phong fmPhong;
+        frm_ThongBao fmTB;
+        frm_ThongTinCaNhan fmCaNhan;
+        frm_SinhVien fmSV;
 
         private string user;
         private string role;
@@ -270,15 +273,15 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
 
         private void btn_sinhvien_Click(object sender, EventArgs e)
         {
-            /*  pictureBox1.Visible = false;
-              panel_form.Visible = true;
-              panel_form.Controls.Clear();
-              fmDoiMatKhau = new frm_DoiMatKhau(user, role);              Đổi tên form thích hợp
-              fmDoiMatKhau.TopLevel = false;
-              panel_form.Controls.Add(fmDoiMatKhau);
-              fmDoiMatKhau.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-              fmDoiMatKhau.Dock = DockStyle.Fill;
-              fmDoiMatKhau.Show();*/
+            pictureBox1.Visible = false;
+            panel_form.Visible = true;
+            panel_form.Controls.Clear();
+            fmSV = new frm_SinhVien();
+            fmSV.TopLevel = false;
+            panel_form.Controls.Add(fmSV);
+            fmSV.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            fmSV.Dock = DockStyle.Fill;
+            fmSV.Show();
         }
 
         private void btn_phong_Click(object sender, EventArgs e)
@@ -309,14 +312,15 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
 
         private void btn_thongtincanhan_Click(object sender, EventArgs e)
         {
-            /*  pictureBox1.Visible = false;
+            pictureBox1.Visible = false;
             panel_form.Visible = true;
-           fmDoiMatKhau = new frm_DoiMatKhau(user, role);              Đổi tên form thích hợp
-           fmDoiMatKhau.TopLevel = false;
-           panel_form.Controls.Add(fmDoiMatKhau);
-           fmDoiMatKhau.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-           fmDoiMatKhau.Dock = DockStyle.Fill;
-           fmDoiMatKhau.Show();*/
+            fmCaNhan = new frm_ThongTinCaNhan();
+            fmCaNhan.mssv = MaSinhVien;
+            fmCaNhan.TopLevel = false;
+            panel_form.Controls.Add(fmCaNhan);
+            fmCaNhan.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            fmCaNhan.Dock = DockStyle.Fill;
+            fmCaNhan.Show();
         }
 
         private void btn_thongtinnophi_Click(object sender, EventArgs e)
@@ -349,15 +353,15 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
 
         private void btn_thongbao_Click(object sender, EventArgs e)
         {
-            /*  pictureBox1.Visible = false;
+            pictureBox1.Visible = false;
             panel_form.Visible = true;
             panel_form.Controls.Clear();
-            fmDoiMatKhau = new frm_DoiMatKhau(user, role);              Đổi tên form thích hợp
-           fmDoiMatKhau.TopLevel = false;
-           panel_form.Controls.Add(fmDoiMatKhau);
-           fmDoiMatKhau.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-           fmDoiMatKhau.Dock = DockStyle.Fill;
-           fmDoiMatKhau.Show();*/
+            fmTB = new frm_ThongBao(user, role);
+            fmTB.TopLevel = false;
+            panel_form.Controls.Add(fmTB);
+            fmTB.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            fmTB.Dock = DockStyle.Fill;
+            fmTB.Show();
         }
     }
 }

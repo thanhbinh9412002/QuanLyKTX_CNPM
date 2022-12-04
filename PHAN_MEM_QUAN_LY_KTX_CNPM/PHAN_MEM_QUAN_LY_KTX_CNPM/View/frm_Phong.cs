@@ -31,7 +31,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
         }
         public void LoadTextBox_CheckBox()
         {
-            cbTinhTrang.Checked = true;
+            cbbTinhTrang.Text = "Đang sử dụng";
             int SVHienTai = 0;
             txtSVHienTai.Text = SVHienTai.ToString();
         }
@@ -71,6 +71,137 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             fmphong.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             fmphong.Dock = DockStyle.Fill;
             fmphong.Show();
+        }
+        public static bool them = true;
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            them = true;
+            gbThongTinPhong.Enabled = true;
+            btnLuu.Enabled = true;
+            btnThem.Enabled = false;
+            btnHuy.Enabled = true;
+            cbbTinhTrang.Text = "Đang sử dụng";
+            cbbTinhTrang.Enabled = false;
+            txtSVHienTai.Text = "0";
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            int r = dgvPhong.CurrentCell.RowIndex;
+            string MaPhong = dgvPhong.Rows[r].Cells[0].Value.ToString();
+            int svhientai = Convert.ToInt32(dgvPhong.Rows[r].Cells[2].Value.ToString());
+            DialogResult h = MessageBox.Show("Bạn có chắc muốn xóa không?", "Error", MessageBoxButtons.OKCancel);
+            if (h == DialogResult.OK)
+            {
+                if (svhientai == 0)
+                {
+                    PhongBUS.DeleteRoom(MaPhong);
+                    MessageBox.Show("Xóa thành công");
+                    LoadDataAdmin();
+                }
+                else
+                {
+                    MessageBox.Show("Không thể xóa");
+                }
+            }
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            them = false;
+            btnLuu.Enabled = true;
+            gbThongTinPhong.Enabled = true;
+
+            int r = dgvPhong.CurrentCell.RowIndex;
+            txtMaPhong.Text = dgvPhong.Rows[r].Cells[0].Value.ToString();
+            txtMaPhong.Enabled = false;
+            txtGiaPhong.Text = dgvPhong.Rows[r].Cells[1].Value.ToString();
+            txtGiaPhong.Enabled = false;
+            txtSVHienTai.Text = dgvPhong.Rows[r].Cells[2].Value.ToString();
+            txtSVHienTai.Enabled = false;
+            cbbSVToiDa.Text = dgvPhong.Rows[r].Cells[3].Value.ToString();
+            cbbTinhTrang.Text = dgvPhong.Rows[r].Cells[4].Value.ToString();
+            cbbTinhTrang.Enabled = true;
+        }
+
+        private void btnLuu_Click(object sender, EventArgs e)
+        {
+            if (them == true)
+            {
+                PhongBUS.AddRoom(txtMaPhong.Text, int.Parse(txtGiaPhong.Text), int.Parse(txtSVHienTai.Text), int.Parse(cbbSVToiDa.Text), cbbTinhTrang.Text);
+            }
+            else
+            {
+                PhongBUS.UpdateRoom(txtMaPhong.Text, int.Parse(txtGiaPhong.Text), int.Parse(txtSVHienTai.Text), int.Parse(cbbSVToiDa.Text), cbbTinhTrang.Text);
+            }
+            LoadDataAdmin();
+            txtMaPhong.Clear();
+            txtGiaPhong.Clear();
+            txtSVHienTai.Clear();
+            cbbTinhTrang.Enabled = true;
+            btnThem.Enabled = true;
+        }
+
+        private void btnLoad_Click(object sender, EventArgs e)
+        {
+            LoadDataAdmin();
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            txtMaPhong.Clear();
+            txtGiaPhong.Clear();
+            txtSVHienTai.Clear();
+            cbbTinhTrang.Enabled = false;
+            btnThem.Enabled = true;
+            dgvPhong.Enabled = true;
+        }
+
+        private void btnTimKiemPhongDay_Click(object sender, EventArgs e)
+        {
+            dgvPhong.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvPhong.DataSource = PhongBUS.PhongDay();
+        }
+
+        private void btnPhongConCho_Click(object sender, EventArgs e)
+        {
+            dgvPhong.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvPhong.DataSource = PhongBUS.PhongConCho();
+        }
+
+        private void btnChiTietPhong_Click(object sender, EventArgs e)
+        {
+            int r = dgvPhong.CurrentCell.RowIndex;
+            maphong = dgvPhong.Rows[r].Cells[0].Value.ToString();
+            fmChiTietPhong = new frm_ChiTietPhong();
+            fmChiTietPhong.maphong = maphong;
+            fmChiTietPhong.ShowDialog();
+            this.Show();
+        }
+
+        private void btnThietBiTrongPhong_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbbSVToiDa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (int.Parse(cbbSVToiDa.Text) == 2)
+            {
+                txtGiaPhong.Text = "750000";
+            }
+            if (int.Parse(cbbSVToiDa.Text) == 4)
+            {
+                txtGiaPhong.Text = "500000";
+            }
+            if (int.Parse(cbbSVToiDa.Text) == 6)
+            {
+                txtGiaPhong.Text = "350000";
+            }
+            if (int.Parse(cbbSVToiDa.Text) == 8)
+            {
+                txtGiaPhong.Text = "250000";
+            }
         }
     }
 }
