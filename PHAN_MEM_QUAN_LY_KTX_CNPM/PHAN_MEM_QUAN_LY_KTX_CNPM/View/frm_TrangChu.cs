@@ -18,10 +18,11 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
         frm_YeuCau fmYeuCau;
         frm_PhiSinhVien fmPhiSV;
         frm_Phong fmPhong;
-        frm_ThongBao fmTB;
+        frm_ThongBao_NQL fmTB;
         frm_ThongTinCaNhan fmCaNhan;
         frm_SinhVien fmSV;
         frm_Yeucau_Admin fmYeuCauAd;
+        frm_ThongBao_SV fmTBSV;
 
         private string user;
         private string role;
@@ -396,12 +397,24 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             pictureBox1.Visible = false;
             panel_form.Visible = true;
             panel_form.Controls.Clear();
-            fmTB = new frm_ThongBao(user, role);
-            fmTB.TopLevel = false;
-            panel_form.Controls.Add(fmTB);
-            fmTB.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            fmTB.Dock = DockStyle.Fill;
-            fmTB.Show();
+            if (role == "Quản Lý")
+            {
+                fmTB = new frm_ThongBao_NQL();
+                fmTB.TopLevel = false;
+                panel_form.Controls.Add(fmTB);
+                fmTB.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+                fmTB.Dock = DockStyle.Fill;
+                fmTB.Show();
+            }
+            else
+            {
+                fmTBSV = new frm_ThongBao_SV();
+                fmTBSV.TopLevel = false;
+                panel_form.Controls.Add(fmTBSV);
+                fmTBSV.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+                fmTBSV.Dock = DockStyle.Fill;
+                fmTBSV.Show();
+            }
         }
     }
 }

@@ -23,6 +23,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
         private void frm_ThongTinCaNhan_Load(object sender, EventArgs e)
         {
             loadthongtinsinhvien(mssv);
+            MessageBox.Show(mssv);
         }
         public void loadthongtinsinhvien(string mssv)
         {

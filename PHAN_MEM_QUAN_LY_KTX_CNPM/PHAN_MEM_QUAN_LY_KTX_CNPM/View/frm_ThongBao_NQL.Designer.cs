@@ -1,6 +1,6 @@
 ﻿namespace PHAN_MEM_QUAN_LY_KTX_CNPM
 {
-    partial class frm_ThongBao
+    partial class frm_ThongBao_NQL
     {
         /// <summary>
         /// Required designer variable.
@@ -54,10 +54,10 @@
             this.TieuDe,
             this.NoiDung,
             this.NgayDang});
-            this.dgvThongBao.Location = new System.Drawing.Point(4, 232);
+            this.dgvThongBao.Location = new System.Drawing.Point(13, 207);
             this.dgvThongBao.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvThongBao.Name = "dgvThongBao";
-            this.dgvThongBao.Size = new System.Drawing.Size(613, 240);
+            this.dgvThongBao.Size = new System.Drawing.Size(614, 210);
             this.dgvThongBao.TabIndex = 0;
             // 
             // TieuDe
@@ -124,9 +124,9 @@
             // btnGui
             // 
             this.btnGui.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGui.Location = new System.Drawing.Point(676, 243);
+            this.btnGui.Location = new System.Drawing.Point(634, 194);
             this.btnGui.Name = "btnGui";
-            this.btnGui.Size = new System.Drawing.Size(135, 49);
+            this.btnGui.Size = new System.Drawing.Size(118, 49);
             this.btnGui.TabIndex = 9;
             this.btnGui.Text = "Gửi";
             this.btnGui.UseVisualStyleBackColor = true;
@@ -135,9 +135,9 @@
             // btnHuy
             // 
             this.btnHuy.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHuy.Location = new System.Drawing.Point(676, 413);
+            this.btnHuy.Location = new System.Drawing.Point(634, 364);
             this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(135, 49);
+            this.btnHuy.Size = new System.Drawing.Size(118, 49);
             this.btnHuy.TabIndex = 10;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.UseVisualStyleBackColor = true;
@@ -146,9 +146,9 @@
             // btnLuu
             // 
             this.btnLuu.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLuu.Location = new System.Drawing.Point(676, 323);
+            this.btnLuu.Location = new System.Drawing.Point(634, 274);
             this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(135, 49);
+            this.btnLuu.Size = new System.Drawing.Size(118, 49);
             this.btnLuu.TabIndex = 11;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = true;
@@ -165,7 +165,7 @@
             // 
             this.txtNoiDung.Location = new System.Drawing.Point(116, 64);
             this.txtNoiDung.Name = "txtNoiDung";
-            this.txtNoiDung.Size = new System.Drawing.Size(532, 26);
+            this.txtNoiDung.Size = new System.Drawing.Size(441, 26);
             this.txtNoiDung.TabIndex = 6;
             // 
             // dtpNgayDang
@@ -184,18 +184,18 @@
             this.gbTb.Controls.Add(this.label3);
             this.gbTb.Controls.Add(this.label2);
             this.gbTb.Controls.Add(this.label1);
-            this.gbTb.Location = new System.Drawing.Point(4, 62);
+            this.gbTb.Location = new System.Drawing.Point(12, 48);
             this.gbTb.Name = "gbTb";
-            this.gbTb.Size = new System.Drawing.Size(662, 151);
+            this.gbTb.Size = new System.Drawing.Size(582, 138);
             this.gbTb.TabIndex = 12;
             this.gbTb.TabStop = false;
             this.gbTb.Text = "Thông báo";
             // 
-            // frm_ThongBao
+            // frm_ThongBao_NQL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(836, 486);
+            this.ClientSize = new System.Drawing.Size(799, 440);
             this.Controls.Add(this.gbTb);
             this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.btnHuy);
@@ -204,7 +204,7 @@
             this.Controls.Add(this.dgvThongBao);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "frm_ThongBao";
+            this.Name = "frm_ThongBao_NQL";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frm_ThongBao";
             this.Load += new System.EventHandler(this.frm_ThongBao_Load);
