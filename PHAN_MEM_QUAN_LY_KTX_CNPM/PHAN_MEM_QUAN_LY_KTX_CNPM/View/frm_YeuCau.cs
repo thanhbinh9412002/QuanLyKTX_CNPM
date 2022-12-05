@@ -15,16 +15,21 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
         private string user;
         private string role;
 
-        frm_GiaHan fmGiaHan;
-        frm_TraPhong fmTraPhong;
-        frm_SuaChua fmSuaChua;
-        frm_Yeucau_Admin fmYeuCauAd;
+        public frm_GiaHan fmGiaHan;
+        public frm_TraPhong fmTraPhong;
+        public frm_SuaChua fmSuaChua;
+        public frm_Yeucau_Admin fmYeuCauAd;
+        //frm_Trangchu fmTrangChu;
+
+        public string maphong;
+        public string masv;
 
         public frm_YeuCau(string user = "", string role = "")
         {
             InitializeComponent();
             this.user = user;
             this.role = role;
+           
         }
 
         private void menu_suachua_Click(object sender, EventArgs e)
@@ -46,6 +51,8 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             panel2.Visible = true;
             panel2.Controls.Clear();
             fmTraPhong = new frm_TraPhong();
+            fmTraPhong.maphong = maphong;
+            fmTraPhong.masv = masv;
             fmTraPhong.TopLevel = false;
             panel2.Controls.Add(fmTraPhong);
             fmTraPhong.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -55,13 +62,14 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
 
         private void menu_giahan_Click(object sender, EventArgs e)
         {
-            fmYeuCauAd = new frm_Yeucau_Admin();
+           
             if (fmYeuCauAd.ngaybatdau <= DateTime.Now.Date && fmYeuCauAd.ngayketthuc > DateTime.Now.Date)
             {
                 pictureBox1.Visible = false;
                 panel2.Visible = true;
                 panel2.Controls.Clear();
                 fmGiaHan = new frm_GiaHan();
+                fmGiaHan.masv = masv;
                 fmGiaHan.TopLevel = false;
                 panel2.Controls.Add(fmGiaHan);
                 fmGiaHan.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -72,7 +80,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             {
                 pictureBox1.Visible = true;
                 panel2.Visible = false;
-                MessageBox.Show("Hiện tại không nằm trong thời hàn đăng ký gia hạn ở ","Thông báo",MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Hiện tại không nằm trong thời hạn đăng ký gia hạn ở ","Thông báo",MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -80,6 +88,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
         {
             pictureBox1.Visible = true;
             panel2.Visible = false;
+            
         }
 
         private void trangChủToolStripMenuItem_Click(object sender, EventArgs e)

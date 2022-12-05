@@ -183,9 +183,29 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Facebook_Messenger_logo_2020_svg {
+            get {
+                object obj = ResourceManager.GetObject("Facebook_Messenger_logo_2020.svg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Filter_icon {
             get {
                 object obj = ResourceManager.GetObject("Filter-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap GWSB_I_20_Icons_v1_Visa_Request_Form_Icon {
+            get {
+                object obj = ResourceManager.GetObject("GWSB_I-20_Icons_v1_Visa Request Form_Icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

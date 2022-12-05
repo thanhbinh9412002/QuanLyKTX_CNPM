@@ -36,7 +36,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
         public Image t1, t2, t3;
         public bool Hided_caidat = false;
         public bool Hided_menu = false;
-        public int x, y;
+        public int x, y, sk;
         //-----------//-----------//
 
         public frm_Trangchu(string user = "", string role = "")
@@ -44,7 +44,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             InitializeComponent();
             this.user = user;
             this.role = role;
-           
+
         }
 
         private void frm_Trangchu_Load(object sender, EventArgs e)
@@ -74,15 +74,8 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             btn_Trangchu.Visible = true;
             x = 160;
             y = 280;
-            fmYeuCauAd = new frm_Yeucau_Admin();
-            if (fmYeuCauAd.thongbao == 1)
-            {
-                timer_tbyeucau.Start();
-            }
-            else
-            {
-                timer_tbyeucau.Stop();
-            }
+            btn_thongbaoyeucau.Visible = true;
+            timer_tbyeucau.Start();
         }
 
         private void MainNoEnable()
@@ -100,14 +93,13 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             btn_dangxuat.Location = btn_doimk.Location;
             btn_doimk.Location = btn_thongbao.Location;
             btn_thongbao.Location = btn_yeucau.Location;
-            btn_yeucau.Location = btn_thietbi.Location;   
+            btn_yeucau.Location = btn_thietbi.Location;
+            btn_thongbaoyeucau.Visible = false;
             x = 220;
             y = 340;
             TrangChu_BUS tcBUS = new TrangChu_BUS();
             MaPhong = tcBUS.TraVeMaPhong(user);
             MaSinhVien = tcBUS.TraVeMaSinhVien(user);
-            //MessageBox.Show(MaPhong);
-            //MessageBox.Show(MaSinhVien);
         }
 
         private void loadeffect()
@@ -343,6 +335,8 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
                 panel_form.Visible = true;
                 panel_form.Controls.Clear();
                 fmYeuCau = new frm_YeuCau(user, role);
+                fmYeuCau.maphong = MaPhong;
+                fmYeuCau.masv = MaSinhVien;
                 fmYeuCau.TopLevel = false;
                 panel_form.Controls.Add(fmYeuCau);
                 fmYeuCau.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

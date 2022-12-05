@@ -309,6 +309,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="data_query\Database.sql" />
+    <None Include="Resources\Facebook_Messenger_logo_2020.svg.png" />
+    <None Include="Resources\GWSB_I-20_Icons_v1_Visa Request Form_Icon.png" />
     <None Include="Resources\Filter-icon.png" />
     <None Include="Resources\setting.png" />
     <None Include="Resources\trash-icon.png" />

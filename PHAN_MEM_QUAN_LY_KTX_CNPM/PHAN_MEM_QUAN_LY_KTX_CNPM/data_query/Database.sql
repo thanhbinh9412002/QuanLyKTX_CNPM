@@ -858,7 +858,7 @@ GO
 
 create procedure [dbo].[proc_DanhSachSuaChua]
 as 
-select Id, TenThietBi as [Tên thiết bị], SoLuong as [Số lượng], ChiTiet as [Chi tiết]
+select Id, TenThietBi as [Tên thiết bị], SoLuong as [Số lượng], ChiTiet as [Chi tiết], TrangThai as [Trạng thái]
 from SuaChua
 GO
 
@@ -867,11 +867,11 @@ as delete GiaHan where Id = @id
 GO
 
 create procedure [dbo].[proc_XoaYeuCauTraPhong] (@id int)
-as delete GiaHan where Id = @id
+as delete TraPhong where Id = @id
 GO
 
 create procedure [dbo].[proc_XoaYeuCauSuaChua] (@id int)
-as delete GiaHan where Id = @id
+as delete SuaChua where Id = @id
 GO
 
 create procedure [dbo].[proc_TenThietBi]
@@ -885,7 +885,7 @@ BEGIN
     DECLARE @kq int 
     SELECT @kq = count(Id)  
 	from SuaChua
-	where TrangThai = 'Chưa xem'
+	where TrangThai = N'Chưa xem'
     RETURN  @kq
 END
 GO
@@ -897,7 +897,7 @@ BEGIN
     DECLARE @kq int 
     SELECT @kq = count(Id)  
 	from TraPhong
-	where TrangThai = 'Chưa xem'
+	where TrangThai = N'Chưa xem'
     RETURN  @kq
 END
 GO
@@ -909,7 +909,7 @@ BEGIN
     DECLARE @kq int 
     SELECT @kq = count(Id)  
 	from GiaHan
-	where TrangThai = 'Chưa xem'
+	where TrangThai = N'Chưa xem'
     RETURN  @kq
 END
 GO

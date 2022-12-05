@@ -35,8 +35,8 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.txt_maphong = new PHAN_MEM_QUAN_LY_KTX_CNPM.effect.RJTextBox();
-            this.txt_masv = new PHAN_MEM_QUAN_LY_KTX_CNPM.effect.RJTextBox();
+            this.txt_maphong = new System.Windows.Forms.TextBox();
+            this.txt_masv = new System.Windows.Forms.TextBox();
             this.groupBox_traphong.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,6 +82,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             // 
             // dateTimePicker_ngaytra
             // 
+            this.dateTimePicker_ngaytra.CalendarMonthBackground = System.Drawing.SystemColors.ActiveCaption;
             this.dateTimePicker_ngaytra.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker_ngaytra.Location = new System.Drawing.Point(357, 190);
             this.dateTimePicker_ngaytra.Name = "dateTimePicker_ngaytra";
@@ -123,41 +124,21 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             // 
             // txt_maphong
             // 
-            this.txt_maphong.BackColor = System.Drawing.SystemColors.Window;
-            this.txt_maphong.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.txt_maphong.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txt_maphong.BorderSize = 2;
-            this.txt_maphong.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_maphong.ForeColor = System.Drawing.Color.DimGray;
-            this.txt_maphong.Location = new System.Drawing.Point(357, 70);
-            this.txt_maphong.Margin = new System.Windows.Forms.Padding(4);
-            this.txt_maphong.Multiline = false;
+            this.txt_maphong.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.txt_maphong.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_maphong.Location = new System.Drawing.Point(357, 62);
             this.txt_maphong.Name = "txt_maphong";
-            this.txt_maphong.Padding = new System.Windows.Forms.Padding(7);
-            this.txt_maphong.PasswordChar = false;
-            this.txt_maphong.Size = new System.Drawing.Size(112, 31);
+            this.txt_maphong.Size = new System.Drawing.Size(135, 38);
             this.txt_maphong.TabIndex = 44;
-            this.txt_maphong.Texts = "";
-            this.txt_maphong.UnderlinedStyle = false;
             // 
             // txt_masv
             // 
-            this.txt_masv.BackColor = System.Drawing.SystemColors.Window;
-            this.txt_masv.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.txt_masv.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txt_masv.BorderSize = 2;
-            this.txt_masv.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_masv.ForeColor = System.Drawing.Color.DimGray;
-            this.txt_masv.Location = new System.Drawing.Point(357, 127);
-            this.txt_masv.Margin = new System.Windows.Forms.Padding(4);
-            this.txt_masv.Multiline = false;
+            this.txt_masv.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.txt_masv.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_masv.Location = new System.Drawing.Point(357, 126);
             this.txt_masv.Name = "txt_masv";
-            this.txt_masv.Padding = new System.Windows.Forms.Padding(7);
-            this.txt_masv.PasswordChar = false;
-            this.txt_masv.Size = new System.Drawing.Size(112, 31);
+            this.txt_masv.Size = new System.Drawing.Size(135, 38);
             this.txt_masv.TabIndex = 45;
-            this.txt_masv.Texts = "";
-            this.txt_masv.UnderlinedStyle = false;
             // 
             // frm_TraPhong
             // 
@@ -171,6 +152,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.Text = "frm_TraPhong";
             this.Load += new System.EventHandler(this.frm_TraPhong_Load);
             this.groupBox_traphong.ResumeLayout(false);
+            this.groupBox_traphong.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -183,7 +165,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label7;
         private CustomButton.VBButton btn_goi;
-        private effect.RJTextBox txt_masv;
-        private effect.RJTextBox txt_maphong;
+        private System.Windows.Forms.TextBox txt_masv;
+        private System.Windows.Forms.TextBox txt_maphong;
     }
 }

@@ -31,12 +31,12 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
         {
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel_loadform = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.hoadon_menu = new System.Windows.Forms.ToolStripMenuItem();
             this.chitietphong_menu = new System.Windows.Forms.ToolStripMenuItem();
             this.thietbi_menu = new System.Windows.Forms.ToolStripMenuItem();
             this.quaylai_menu = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel_loadform = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -66,6 +66,14 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1047, 561);
             this.panel1.TabIndex = 86;
+            // 
+            // panel_loadform
+            // 
+            this.panel_loadform.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_loadform.Location = new System.Drawing.Point(0, 29);
+            this.panel_loadform.Name = "panel_loadform";
+            this.panel_loadform.Size = new System.Drawing.Size(1047, 532);
+            this.panel_loadform.TabIndex = 1;
             // 
             // menuStrip1
             // 
@@ -116,14 +124,6 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.quaylai_menu.Size = new System.Drawing.Size(79, 25);
             this.quaylai_menu.Text = "Quay lại";
             this.quaylai_menu.Click += new System.EventHandler(this.quaylai_menu_Click);
-            // 
-            // panel_loadform
-            // 
-            this.panel_loadform.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_loadform.Location = new System.Drawing.Point(0, 29);
-            this.panel_loadform.Name = "panel_loadform";
-            this.panel_loadform.Size = new System.Drawing.Size(1047, 532);
-            this.panel_loadform.TabIndex = 1;
             // 
             // frm_QuanLyPhong
             // 

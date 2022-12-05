@@ -15,7 +15,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
     {
         private string user;
         private string role;
-        public int thongbao = 1;
+
         public int sukien = 0;
         public int id;
         public int giahan = 0;
@@ -23,6 +23,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
         public int suachua = 0;
         public DateTime ngaybatdau;
         public DateTime ngayketthuc;
+        public int tmp = 0;
 
 
         public frm_Yeucau_Admin(string user = "", string role = "")
@@ -32,19 +33,18 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.role = role;
         }
 
-        private void tatthongbao_menu_Click(object sender, EventArgs e)
-        {
-            thongbao = 0;
-        }
-
-        private void nhanthongbao_menu_Click(object sender, EventArgs e)
-        {
-            thongbao = 1;
-        }
-
         private void giahano_menu_Click(object sender, EventArgs e)
         {
-            groupBox2.Visible = true;
+            if(tmp == 0)
+            {
+                groupBox2.Visible = true;
+                tmp = 1;
+            }    
+            else
+            {
+                groupBox2.Visible = false;
+                tmp = 0;
+            } 
         }
 
         private void frm_Yeucau_Admin_Load(object sender, EventArgs e)
@@ -52,6 +52,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             groupBox2.Visible = false;
             dateTimePicker_batdau.MinDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
             dateTimePicker_ketthuc.MinDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+            loaddata_giahan();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -101,7 +102,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             {
                 if(giahan == 1)
                 {
-                    if (ycBUS.XoaYeuCauGiaHan(id) > 0)
+                    if (ycBUS.XoaYeuCauGiaHan(id) == 1)
                     {
                         if (MessageBox.Show("Xóa yêu cầu thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
                         {
@@ -110,12 +111,12 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
                     }
                     else
                     {
-                        MessageBox.Show("Dx có lỗi xảy ra, vui lòng kiểm tra lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Đã có lỗi xảy ra, vui lòng kiểm tra lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }    
                 }
                 else if(traphong == 1)
                 {
-                    if (ycBUS.XoaYeuCauTraPhong(id) > 0)
+                    if (ycBUS.XoaYeuCauTraPhong(id) == 1)
                     {
                         if (MessageBox.Show("Xóa yêu cầu thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
                         {
@@ -124,12 +125,12 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
                     }
                     else
                     {
-                        MessageBox.Show("Dx có lỗi xảy ra, vui lòng kiểm tra lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Đã có lỗi xảy ra, vui lòng kiểm tra lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }   
                 else if(suachua == 1)
                 {
-                    if (ycBUS.XoaYeuCauSuaChua(id) > 0)
+                    if (ycBUS.XoaYeuCauSuaChua(id) == 1)
                     {
                         if (MessageBox.Show("Xóa yêu cầu thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
                         {
@@ -138,7 +139,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
                     }
                     else
                     {
-                        MessageBox.Show("Dx có lỗi xảy ra, vui lòng kiểm tra lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Đã có lỗi xảy ra, vui lòng kiểm tra lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }    
             }   
@@ -150,7 +151,46 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
 
         private void btn_xem_Click(object sender, EventArgs e)
         {
-            
+            YeuCau_BUS ycBUS = new YeuCau_BUS();
+            string trangthai = "Đã xem";
+            if (sukien == 1)
+            {
+                if(suachua == 1)
+                {
+                    if(MessageBox.Show("Yêu cầu: Sửa chữa\n\tTên thiết bị:\t" + Convert.ToString(dataGridView1.CurrentRow.Cells["Tên thiết bị"].Value) + 
+                        "\n\tSố lượng:\t"+ Convert.ToString(dataGridView1.CurrentRow.Cells["Số lượng"].Value) + 
+                        "\n\tChi tiết:\t"+ Convert.ToString(dataGridView1.CurrentRow.Cells["Chi tiết"].Value),
+                        "Chi tiết yêu cầu", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+                    {
+                        ycBUS.CapNhatTrangThaiSuaChua(id, trangthai);
+                        loaddata_suachua();
+                    }    
+                }
+                else if(giahan == 1)
+                {
+                    if(MessageBox.Show("Yêu cầu: Gia hạn\n\tMã sinh viên:\t" + Convert.ToString(dataGridView1.CurrentRow.Cells["Mã sinh viên"].Value) +
+                       "\n\tSố kỳ:\t" + Convert.ToString(dataGridView1.CurrentRow.Cells["Số kỳ"].Value)) == DialogResult.OK)
+                    {
+                        ycBUS.CapNhatTrangThaiTraPhong(id, trangthai);
+                        loaddata_giahan();
+                    }    
+                }
+                else if(traphong == 1)
+                {
+                    if (MessageBox.Show("Yêu cầu: Trả phòng\n\tMã phòng:\t" + Convert.ToString(dataGridView1.CurrentRow.Cells["Mã phòng"].Value) +
+                        "\n\tMã sinh viên:\t" + Convert.ToString(dataGridView1.CurrentRow.Cells["Mã sinh viên"].Value) +
+                        "\n\tNgày trả:\t" + Convert.ToString(dataGridView1.CurrentRow.Cells["Ngày trả"].Value),
+                        "Chi tiết yêu cầu", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+                    {
+                        ycBUS.CapNhatTrangThaiTraPhong(id, trangthai);
+                        loaddata_traphong();
+                    }
+                }    
+            }
+            else
+            {
+                MessageBox.Show("Bạn chưa chọn yêu cầu cần xóa. Mời chọn yêu cầu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
         private void loaddata_suachua()
         {

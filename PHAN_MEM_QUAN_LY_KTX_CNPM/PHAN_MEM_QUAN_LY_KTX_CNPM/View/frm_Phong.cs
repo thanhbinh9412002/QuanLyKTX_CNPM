@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PHAN_MEM_QUAN_LY_KTX_CNPM.BUS;
+using static PHAN_MEM_QUAN_LY_KTX_CNPM.frm_QuanLyPhong;
 namespace PHAN_MEM_QUAN_LY_KTX_CNPM
 {
     public partial class frm_Phong : Form
@@ -16,15 +17,20 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
         public frm_ChiTietPhong fmChiTietPhong;
         public frm_Trangchu fmTrangchu;
         public string maphong;
-        private frm_HoaDon fmHD;
+        public frm_QuanLyPhong fmquanly;
 
         public string MaPhong1; // lấy mã phòng ra để truyền sang form chi tiết phòng và form hóa đơn
         public int sukien = 0;// kiểm tra xem người dùng đã chọn hàng nào trong datagirdview chưa trước khi chuyển sang form khác --> form quản lý phòng sẽ nhận
 
-        public frm_Phong()
+        public frm_QuanLyPhong.SendMessage sender;
+        public frm_QuanLyPhong.SendMessage send;
+
+        public frm_Phong(SendMessage sender, SendMessage send)
         {
             InitializeComponent();
             PhongBUS = new Phong_BUS();
+            this.sender = sender;
+            this.send = send;
         }
 
         public void LoadDataAdmin()
@@ -62,8 +68,8 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             gbThongTinPhong.Enabled = false;
             LoadTextBox_CheckBox();
         }
-/*
-        private void btnThoat_Click(object sender, EventArgs e)
+
+       /* private void btnThoat_Click(object sender, EventArgs e)
         {
             panel_child.Visible = false;
             main_panel.Visible = true; main_panel.Controls.Clear();
@@ -73,7 +79,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             main_panel.Controls.Add(fmphong);
             fmphong.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             fmphong.Dock = DockStyle.Fill;
-            fmphong.Show();*//*
+            fmphong.Show();
         }*/
         public static bool them = true;
         private void btnThem_Click(object sender, EventArgs e)
@@ -90,7 +96,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if(sukien == 1)
+            if (sukien == 1)
             {
                 int r = dgvPhong.CurrentCell.RowIndex;
                 string MaPhong = dgvPhong.Rows[r].Cells[0].Value.ToString();
@@ -109,11 +115,11 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
                         MessageBox.Show("Không thể xóa");
                     }
                 }
-            }    
+            }
             else
             {
                 MessageBox.Show("Bạn chưa chọn phòng cần xóa. Mời chọn phòng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }    
+            }
         }
 
         private void btnSua_Click(object sender, EventArgs e)
@@ -122,7 +128,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             them = false;
             btnLuu.Enabled = true;
             gbThongTinPhong.Enabled = true;
-            if(sukien == 1)
+            if (sukien == 1)
             {
                 int r = dgvPhong.CurrentCell.RowIndex;
                 txtMaPhong.Text = dgvPhong.Rows[r].Cells[0].Value.ToString();
@@ -134,11 +140,11 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
                 cbbSVToiDa.Text = dgvPhong.Rows[r].Cells[3].Value.ToString();
                 cbbTinhTrang.Text = dgvPhong.Rows[r].Cells[4].Value.ToString();
                 cbbTinhTrang.Enabled = true;
-            }    
+            }
             else
             {
                 MessageBox.Show("Bạn chưa chọn phòng cần sửa. Mời chọn phòng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }    
+            }
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
@@ -173,45 +179,10 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             btnThem.Enabled = true;
             dgvPhong.Enabled = true;
         }
-/*
-        private void btnChiTietPhong_Click(object sender, EventArgs e)
-        {
-            int r = dgvPhong.CurrentCell.RowIndex;
-            maphong = dgvPhong.Rows[r].Cells[0].Value.ToString();
-            fmChiTietPhong = new frm_ChiTietPhong();
-            fmChiTietPhong.maphong = maphong;
-            fmChiTietPhong.ShowDialog();
-            this.Show();
-        }
-
-        private void btnThietBiTrongPhong_Click(object sender, EventArgs e)
-        {
-
-        }*/
-
-        private void cbbSVToiDa_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (int.Parse(cbbSVToiDa.Text) == 2)
-            {
-                txtGiaPhong.Text = "750000";
-            }
-            if (int.Parse(cbbSVToiDa.Text) == 4)
-            {
-                txtGiaPhong.Text = "500000";
-            }
-            if (int.Parse(cbbSVToiDa.Text) == 6)
-            {
-                txtGiaPhong.Text = "350000";
-            }
-            if (int.Parse(cbbSVToiDa.Text) == 8)
-            {
-                txtGiaPhong.Text = "250000";
-            }
-        }
 
         private void btn_timkiem_Click(object sender, EventArgs e)
         {
-            if(cbb_timkiem.Text == "Phòng còn chỗ")
+            if (cbb_timkiem.Text == "Phòng còn chỗ")
             {
                 dgvPhong.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 dgvPhong.DataSource = PhongBUS.PhongConCho();
@@ -220,7 +191,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             {
                 dgvPhong.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 dgvPhong.DataSource = PhongBUS.PhongDay();
-            }    
+            }
         }
 
         private void dgvPhong_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -229,7 +200,9 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             {
                 MaPhong1 = Convert.ToString(dgvPhong.CurrentRow.Cells["Mã phòng"].Value);
                 sukien = 1;
+                this.sender(sukien.ToString());
+                this.send(MaPhong1);
             }
         }
-    }
+    } 
 }

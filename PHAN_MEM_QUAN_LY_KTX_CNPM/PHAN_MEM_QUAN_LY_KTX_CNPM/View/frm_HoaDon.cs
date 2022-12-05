@@ -12,7 +12,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
 {
     public partial class frm_HoaDon : Form
     {
-        private frm_Phong fmPhong;
+        private frm_QuanLyPhong fmQuanLyPhong;
         private frm_ChitietHoaDon fmChitietHD;
         public string maphong;
         private HoaDon_BUS HDBUS;
@@ -22,8 +22,8 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
         public frm_HoaDon()
         {
             InitializeComponent();
-            fmPhong = new frm_Phong();
-            maphong = fmPhong.maphong;
+            fmQuanLyPhong = new frm_QuanLyPhong();
+           
             HDBUS = new HoaDon_BUS();
             ChitietHBBUS = new ChitietHD_BUS();
         }
@@ -262,14 +262,14 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
 
         private void btnTroVe_Click(object sender, EventArgs e)
         {
-            fmtrangchu = new frm_Trangchu();
+           /* fmtrangchu = new frm_Trangchu();
 
             fmtrangchu.panel_form.Controls.Clear();
             fmPhong.TopLevel = false;
             fmtrangchu.panel_form.Controls.Add(fmPhong);
             fmPhong.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             fmPhong.Dock = DockStyle.Fill;
-            fmPhong.Show();
+            fmPhong.Show();*/
 
         }
     }

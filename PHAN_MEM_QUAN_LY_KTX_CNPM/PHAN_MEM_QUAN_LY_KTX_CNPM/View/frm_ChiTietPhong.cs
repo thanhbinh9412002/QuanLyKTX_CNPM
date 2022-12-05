@@ -15,11 +15,10 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
     {
         private ChiTietPhong_BUS ChiTietPhongBUS;
         public frm_Phong frmPhong;
-        public string maphong = null;
+        public string maphong;
         public frm_ChiTietPhong()
         {
             InitializeComponent();
-            frmPhong = new frm_Phong();
             ChiTietPhongBUS = new ChiTietPhong_BUS();
         }
         public void LoadData()

@@ -44,6 +44,8 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.txt_gio = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel_form = new System.Windows.Forms.Panel();
+            this.timer_tbyeucau = new System.Windows.Forms.Timer(this.components);
+            this.btn_thongbaoyeucau = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_right = new System.Windows.Forms.Button();
             this.btn_down = new System.Windows.Forms.Button();
@@ -58,8 +60,6 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.btn_sinhvien = new CustomButton.VBButton();
             this.btn_Trangchu = new CustomButton.VBButton();
             this.elipseControl1 = new ElipseToolDemo.ElipseControl();
-            this.btn_thongbaoyeucau = new System.Windows.Forms.Button();
-            this.timer_tbyeucau = new System.Windows.Forms.Timer(this.components);
             this.panel0.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -184,10 +184,29 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             // panel_form
             // 
             this.panel_form.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_form.ForeColor = System.Drawing.Color.Black;
             this.panel_form.Location = new System.Drawing.Point(30, 0);
             this.panel_form.Name = "panel_form";
             this.panel_form.Size = new System.Drawing.Size(1063, 632);
             this.panel_form.TabIndex = 66;
+            // 
+            // timer_tbyeucau
+            // 
+            this.timer_tbyeucau.Tick += new System.EventHandler(this.timer_tbyeucau_Tick);
+            // 
+            // btn_thongbaoyeucau
+            // 
+            this.btn_thongbaoyeucau.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btn_thongbaoyeucau.BackgroundImage = global::PHAN_MEM_QUAN_LY_KTX_CNPM.Properties.Resources.Facebook_Messenger_logo_2020_svg;
+            this.btn_thongbaoyeucau.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btn_thongbaoyeucau.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_thongbaoyeucau.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_thongbaoyeucau.ForeColor = System.Drawing.Color.Maroon;
+            this.btn_thongbaoyeucau.Location = new System.Drawing.Point(0, 238);
+            this.btn_thongbaoyeucau.Name = "btn_thongbaoyeucau";
+            this.btn_thongbaoyeucau.Size = new System.Drawing.Size(24, 25);
+            this.btn_thongbaoyeucau.TabIndex = 67;
+            this.btn_thongbaoyeucau.UseVisualStyleBackColor = false;
             // 
             // pictureBox1
             // 
@@ -458,21 +477,6 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             // 
             this.elipseControl1.CornerRadius = 20;
             this.elipseControl1.TargetControl = this;
-            // 
-            // btn_thongbaoyeucau
-            // 
-            this.btn_thongbaoyeucau.BackColor = System.Drawing.Color.Red;
-            this.btn_thongbaoyeucau.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_thongbaoyeucau.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_thongbaoyeucau.Location = new System.Drawing.Point(0, 238);
-            this.btn_thongbaoyeucau.Name = "btn_thongbaoyeucau";
-            this.btn_thongbaoyeucau.Size = new System.Drawing.Size(24, 25);
-            this.btn_thongbaoyeucau.TabIndex = 67;
-            this.btn_thongbaoyeucau.UseVisualStyleBackColor = false;
-            // 
-            // timer_tbyeucau
-            // 
-            this.timer_tbyeucau.Tick += new System.EventHandler(this.timer_tbyeucau_Tick);
             // 
             // frm_Trangchu
             // 

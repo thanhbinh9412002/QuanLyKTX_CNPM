@@ -13,7 +13,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
 {
     public partial class frm_GiaHan : Form
     {
-        frm_Trangchu fmTrangChu;
+        public string masv;
         public frm_GiaHan()
         {
             InitializeComponent();
@@ -35,8 +35,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
 
         private void frm_GiaHan_Load(object sender, EventArgs e)
         {
-            fmTrangChu = new frm_Trangchu();
-            txt_masv.Texts = fmTrangChu.MaSinhVien;
+            txt_masv.Texts = masv;
             txt_masv.Enabled = true;
             cbb_soky.Focus();
         }

@@ -23,6 +23,10 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM.DAO
             sqlParameters[0] = new SqlParameter("@MaPhong", System.Data.SqlDbType.Char);
             sqlParameters[0].Value = maphong;
             return cnn.executeReader("SELECT * FROM func_HoaDonPhong(@MaPhong)", sqlParameters);
+            /*string sql = "func_HoaDonPhong(@MaPhong)";
+            string[] pNames = { "@MaPhong" };
+            object[] pvalues = {maphong};
+            return cnn.ExecuteProcedureDatatable(sql, pNames, pvalues);*/
         }
 
         public void AddHD(string mahd, string maphong, DateTime ngaylap, int trangthai, float tongtien)
