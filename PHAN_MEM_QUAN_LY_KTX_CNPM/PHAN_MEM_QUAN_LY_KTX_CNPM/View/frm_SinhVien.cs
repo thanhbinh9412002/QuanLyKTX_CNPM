@@ -115,6 +115,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
                 int soky = Int32.Parse(tb_soky.Text);
                 SinhvienBUS.Themsinhvien(tb_mssv.Text, tb_hoten.Text, tb_sdt.Text, cb_gioitinh.Text, namhoc, tb_tongiao.Text, tb_quoctich.Text, tb_cccd.Text, tb_maphong.Text, soky);
                 MessageBox.Show("Thành Công");
+                DeletedataTextbox();
                 LoadData();
             }
             else
@@ -125,14 +126,21 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
 
         private void btn_sua_Click(object sender, EventArgs e)
         {
-            int namhoc = Int32.Parse(tb_namhoc.Text);
-            int soky = Int32.Parse(tb_soky.Text);
-            DialogResult dg = MessageBox.Show("Bạn có chắc muốn thay đổi?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-            if (dg == DialogResult.OK)
+            if (Checktextbox() == true)
             {
-                SinhvienBUS.Suasinhvien(tb_mssv.Text, tb_hoten.Text, tb_sdt.Text, cb_gioitinh.Text, namhoc, tb_tongiao.Text, tb_quoctich.Text, tb_cccd.Text, tb_maphong.Text, soky);
-                LoadData();
+                int namhoc = Int32.Parse(tb_namhoc.Text);
+                int soky = Int32.Parse(tb_soky.Text);
+                DialogResult dg = MessageBox.Show("Bạn có chắc muốn thay đổi?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (dg == DialogResult.OK)
+                {
+                    SinhvienBUS.Suasinhvien(tb_mssv.Text, tb_hoten.Text, tb_sdt.Text, cb_gioitinh.Text, namhoc, tb_tongiao.Text, tb_quoctich.Text, tb_cccd.Text, tb_maphong.Text, soky);
+                    MessageBox.Show("Cập nhật thành công");
+                    DeletedataTextbox();
+                    LoadData();
+                }
             }
+            else
+                MessageBox.Show("Hãy điền đầy đủ thông tin");
         }
 
         private void btnxoa_Click(object sender, EventArgs e)
@@ -147,6 +155,8 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
                 if (dg == DialogResult.OK)
                 {
                     SinhvienBUS.Xoasinhvien(tb_mssv.Text);
+                    MessageBox.Show("Xóa thành công");
+                    DeletedataTextbox();
                     LoadData();
                 }
             }
@@ -154,7 +164,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
-
+            DeletedataTextbox();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -176,6 +186,19 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             tb_cccd.Text = dgvSinhvien.Rows[i].Cells[7].Value.ToString();
             tb_maphong.Text = dgvSinhvien.Rows[i].Cells[8].Value.ToString();
             tb_soky.Text = dgvSinhvien.Rows[i].Cells[9].Value.ToString();
+        }
+        public void DeletedataTextbox()
+        {
+            tb_mssv.Text = "";
+            tb_hoten.Text = "";
+            tb_sdt.Text = "";
+            cb_gioitinh.Text = "";
+            tb_namhoc.Text = "";
+            tb_tongiao.Text = "";
+            tb_quoctich.Text = "";
+            tb_cccd.Text = "";
+            tb_maphong.Text = "";
+            tb_soky.Text = "";
         }
     }
 }
