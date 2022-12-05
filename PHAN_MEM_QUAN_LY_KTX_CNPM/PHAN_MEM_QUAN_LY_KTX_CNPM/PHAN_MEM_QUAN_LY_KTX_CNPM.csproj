@@ -101,10 +101,10 @@
     <Compile Include="View\frm_ThongBao_SV.Designer.cs">
       <DependentUpon>frm_ThongBao_SV.cs</DependentUpon>
     </Compile>
-    <Compile Include="frm_QuanLyPhong.cs">
+    <Compile Include="View\frm_QuanLyPhong.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_QuanLyPhong.Designer.cs">
+    <Compile Include="View\frm_QuanLyPhong.Designer.cs">
       <DependentUpon>frm_QuanLyPhong.cs</DependentUpon>
     </Compile>
     <Compile Include="View\frm_ThongTinCaNhan.cs">
@@ -113,10 +113,10 @@
     <Compile Include="View\frm_ThongTinCaNhan.Designer.cs">
       <DependentUpon>frm_ThongTinCaNhan.cs</DependentUpon>
     </Compile>
-    <Compile Include="frm_Yeucau_Admin.cs">
+    <Compile Include="View\frm_Yeucau_Admin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_Yeucau_Admin.Designer.cs">
+    <Compile Include="View\frm_Yeucau_Admin.Designer.cs">
       <DependentUpon>frm_Yeucau_Admin.cs</DependentUpon>
     </Compile>
     <Compile Include="View\frm_SinhVien.cs">
@@ -215,13 +215,13 @@
     <EmbeddedResource Include="effect\RJTextBox.resx">
       <DependentUpon>RJTextBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_QuanLyPhong.resx">
+    <EmbeddedResource Include="View\frm_QuanLyPhong.resx">
       <DependentUpon>frm_QuanLyPhong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\frm_ThongTinCaNhan.resx">
       <DependentUpon>frm_ThongTinCaNhan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_Yeucau_Admin.resx">
+    <EmbeddedResource Include="View\frm_Yeucau_Admin.resx">
       <DependentUpon>frm_Yeucau_Admin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\frm_SinhVien.resx">
