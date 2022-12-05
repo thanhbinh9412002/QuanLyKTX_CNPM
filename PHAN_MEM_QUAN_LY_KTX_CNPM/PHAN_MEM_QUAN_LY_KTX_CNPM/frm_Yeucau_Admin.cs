@@ -189,7 +189,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             }
             else
             {
-                MessageBox.Show("Bạn chưa chọn yêu cầu cần xóa. Mời chọn yêu cầu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Bạn chưa chọn yêu cầu cần xem chi tiết. Mời chọn yêu cầu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         private void loaddata_suachua()
