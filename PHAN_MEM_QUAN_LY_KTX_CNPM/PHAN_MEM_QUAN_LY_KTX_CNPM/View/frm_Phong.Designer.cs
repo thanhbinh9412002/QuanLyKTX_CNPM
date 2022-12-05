@@ -42,8 +42,8 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.label2 = new System.Windows.Forms.Label();
             this.dgvPhong = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cbb_timkiem = new System.Windows.Forms.ComboBox();
             this.btn_timkiem = new System.Windows.Forms.Button();
+            this.cbb_timkiem = new System.Windows.Forms.ComboBox();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnLoad = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
@@ -61,7 +61,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(97, 60);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(83, 16);
+            this.label5.Size = new System.Drawing.Size(82, 16);
             this.label5.TabIndex = 51;
             this.label5.Text = "Giá phòng ";
             // 
@@ -112,6 +112,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.cbbSVToiDa.Name = "cbbSVToiDa";
             this.cbbSVToiDa.Size = new System.Drawing.Size(128, 24);
             this.cbbSVToiDa.TabIndex = 55;
+            this.cbbSVToiDa.SelectedIndexChanged += new System.EventHandler(this.cbbSVToiDa_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -164,7 +165,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(51, 96);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(125, 16);
+            this.label4.Size = new System.Drawing.Size(124, 16);
             this.label4.TabIndex = 2;
             this.label4.Text = "Sinh viên hiện tại";
             // 
@@ -174,7 +175,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(61, 131);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(114, 16);
+            this.label3.Size = new System.Drawing.Size(113, 16);
             this.label3.TabIndex = 1;
             this.label3.Text = "Sinh viên tối đa";
             // 
@@ -184,7 +185,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(100, 25);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 16);
+            this.label2.Size = new System.Drawing.Size(79, 16);
             this.label2.TabIndex = 0;
             this.label2.Text = "Mã phòng ";
             // 
@@ -211,19 +212,6 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tìm kiếm";
             // 
-            // cbb_timkiem
-            // 
-            this.cbb_timkiem.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.cbb_timkiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbb_timkiem.FormattingEnabled = true;
-            this.cbb_timkiem.Items.AddRange(new object[] {
-            "Phòng đủ chỗ",
-            "Phòng còn chỗ"});
-            this.cbb_timkiem.Location = new System.Drawing.Point(30, 34);
-            this.cbb_timkiem.Name = "cbb_timkiem";
-            this.cbb_timkiem.Size = new System.Drawing.Size(163, 28);
-            this.cbb_timkiem.TabIndex = 0;
-            // 
             // btn_timkiem
             // 
             this.btn_timkiem.BackColor = System.Drawing.Color.LightCoral;
@@ -241,6 +229,19 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.btn_timkiem.UseVisualStyleBackColor = false;
             this.btn_timkiem.Click += new System.EventHandler(this.btn_timkiem_Click);
             // 
+            // cbb_timkiem
+            // 
+            this.cbb_timkiem.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.cbb_timkiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbb_timkiem.FormattingEnabled = true;
+            this.cbb_timkiem.Items.AddRange(new object[] {
+            "Phòng đủ chỗ",
+            "Phòng còn chỗ"});
+            this.cbb_timkiem.Location = new System.Drawing.Point(30, 34);
+            this.cbb_timkiem.Name = "cbb_timkiem";
+            this.cbb_timkiem.Size = new System.Drawing.Size(163, 28);
+            this.cbb_timkiem.TabIndex = 0;
+            // 
             // btnSua
             // 
             this.btnSua.BackColor = System.Drawing.Color.LightCoral;
@@ -257,6 +258,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.btnSua.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSua.UseVisualStyleBackColor = false;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnLoad
             // 
@@ -275,6 +277,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.btnLoad.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLoad.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLoad.UseVisualStyleBackColor = false;
+            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
             // btnXoa
             // 
@@ -292,6 +295,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.btnXoa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnXoa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnXoa.UseVisualStyleBackColor = false;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnHuy
             // 
@@ -308,6 +312,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.btnHuy.Text = "Hủy";
             this.btnHuy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnHuy.UseVisualStyleBackColor = false;
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // btnLuu
             // 
@@ -323,6 +328,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.btnLuu.Text = "Lưu";
             this.btnLuu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLuu.UseVisualStyleBackColor = false;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // btnThem
             // 
@@ -339,6 +345,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.btnThem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnThem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnThem.UseVisualStyleBackColor = false;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // frm_Phong
             // 

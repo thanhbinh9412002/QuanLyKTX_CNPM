@@ -17,7 +17,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
         frm_DoiMatKhau fmDoiMatKhau;
         frm_YeuCau fmYeuCau;
         frm_PhiSinhVien fmPhiSV;
-        frm_Phong fmPhong;
+        frm_QuanLyPhong fmQLPhong;
         frm_ThongBao_NQL fmTB;
         frm_ThongTinCaNhan fmCaNhan;
         frm_SinhVien fmSV;
@@ -315,12 +315,12 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             pictureBox1.Visible = false;
             panel_form.Visible = true;
             panel_form.Controls.Clear();
-            fmPhong = new frm_Phong();
-            fmPhong.TopLevel = false;
-            panel_form.Controls.Add(fmPhong);
-            fmPhong.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            fmPhong.Dock = DockStyle.Fill;
-            fmPhong.Show();
+            fmQLPhong = new frm_QuanLyPhong();
+            fmQLPhong.TopLevel = false;
+            panel_form.Controls.Add(fmQLPhong);
+            fmQLPhong.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            fmQLPhong.Dock = DockStyle.Fill;
+            fmQLPhong.Show();
         }
 
         private void btn_yeucau_Click(object sender, EventArgs e)

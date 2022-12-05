@@ -19,12 +19,6 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
         {
             InitializeComponent();
         }
-
-        private void frm_ThongTinCaNhan_Load(object sender, EventArgs e)
-        {
-            loadthongtinsinhvien(mssv);
-            MessageBox.Show(mssv);
-        }
         public void loadthongtinsinhvien(string mssv)
         {
             DataTable table = SinhvienBUS.thongtincanhan(mssv);
@@ -38,6 +32,11 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             text_cccd.Text = table.Rows[0].Field<string>(7);
             text_maphong.Text = table.Rows[0].Field<string>(8);
             text_soky.Text = table.Rows[0].Field<int>(9).ToString();
+        }
+        private void frm_ThongTinCaNhan_Load(object sender, EventArgs e)
+        {
+            loadthongtinsinhvien(mssv);
+            MessageBox.Show(mssv);
         }
 
         private void btnCapNhat_Click(object sender, EventArgs e)

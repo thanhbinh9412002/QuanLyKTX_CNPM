@@ -107,10 +107,10 @@
     <Compile Include="frm_QuanLyPhong.Designer.cs">
       <DependentUpon>frm_QuanLyPhong.cs</DependentUpon>
     </Compile>
-    <Compile Include="frm_ThongTinCaNhan.cs">
+    <Compile Include="View\frm_ThongTinCaNhan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_ThongTinCaNhan.Designer.cs">
+    <Compile Include="View\frm_ThongTinCaNhan.Designer.cs">
       <DependentUpon>frm_ThongTinCaNhan.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_Yeucau_Admin.cs">
@@ -218,7 +218,7 @@
     <EmbeddedResource Include="frm_QuanLyPhong.resx">
       <DependentUpon>frm_QuanLyPhong.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_ThongTinCaNhan.resx">
+    <EmbeddedResource Include="View\frm_ThongTinCaNhan.resx">
       <DependentUpon>frm_ThongTinCaNhan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_Yeucau_Admin.resx">
