@@ -353,6 +353,16 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap studentavata {
+            get {
+                object obj = ResourceManager.GetObject("studentavata", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Students_icon {
             get {
                 object obj = ResourceManager.GetObject("Students-icon", resourceCulture);

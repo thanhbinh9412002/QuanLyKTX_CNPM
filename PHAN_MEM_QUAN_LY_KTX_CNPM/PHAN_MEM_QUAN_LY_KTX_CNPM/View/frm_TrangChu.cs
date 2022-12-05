@@ -355,6 +355,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
         {
             pictureBox1.Visible = false;
             panel_form.Visible = true;
+            panel_form.Controls.Clear();
             fmCaNhan = new frm_ThongTinCaNhan();
             fmCaNhan.mssv = MaSinhVien;
             fmCaNhan.TopLevel = false;

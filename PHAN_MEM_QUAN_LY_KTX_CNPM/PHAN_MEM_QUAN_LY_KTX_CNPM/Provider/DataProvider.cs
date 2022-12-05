@@ -16,6 +16,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM.Provider
         //public string connect = @"Data Source=THANHBINH\SQLEXPRESS;Initial Catalog=KTX;Integrated Security=True";
         public string connect = @"Data Source=LAPTOP-MB5F72F2\SQLEXPRESS;Initial Catalog=KTX;Integrated Security=True";
         //public string connect = @"Data Source=DESKTOP-JBR423G;Initial Catalog=KTX;Integrated Security=True";
+        //public string connect = @"Data Source=LAPTOP-M24AHQSG\MSSQLSERVER06;Initial Catalog=KTX;Integrated Security=True";
         public DataProvider()
         {
             connection = new SqlConnection(connect);

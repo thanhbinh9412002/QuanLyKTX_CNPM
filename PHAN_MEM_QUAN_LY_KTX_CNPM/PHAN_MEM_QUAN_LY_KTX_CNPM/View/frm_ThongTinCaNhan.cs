@@ -36,19 +36,43 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
         private void frm_ThongTinCaNhan_Load(object sender, EventArgs e)
         {
             loadthongtinsinhvien(mssv);
-            MessageBox.Show(mssv);
         }
 
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
-            int namhoc = Int32.Parse(text_namhoc.Text);
-            int soky = Int32.Parse(text_soky.Text);
-            DialogResult dg = MessageBox.Show("Bạn có chắc muốn thay đổi?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-            if (dg == DialogResult.OK)
+            if (Checktextbox() == true)
             {
-                SinhvienBUS.Suasinhvien(text_mssv.Text, text_hoten.Text, text_sdt.Text, text_gioitinh.Text, namhoc, text_tongiao.Text, text_quoctich.Text, text_cccd.Text, text_maphong.Text, soky);
-                loadthongtinsinhvien(mssv);
+                int namhoc = Int32.Parse(text_namhoc.Text);
+                int soky = Int32.Parse(text_soky.Text);
+                DialogResult dg = MessageBox.Show("Bạn có chắc muốn thay đổi?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (dg == DialogResult.OK)
+                {
+                    SinhvienBUS.Suasinhvien(text_mssv.Text, text_hoten.Text, text_sdt.Text, text_gioitinh.Text, namhoc, text_tongiao.Text, text_quoctich.Text, text_cccd.Text, text_maphong.Text, soky);
+                    MessageBox.Show("Cập nhật thành công");
+                    loadthongtinsinhvien(mssv);
+                }
             }
+            else
+                MessageBox.Show("Hãy điền đầy đủ thông tin");
+        }
+        public bool Checktextbox()
+        {
+            if (
+            text_mssv.Text == "" ||
+            text_hoten.Text == "" ||
+            text_sdt.Text == "" ||
+            text_gioitinh.Text == "" ||
+            text_namhoc.Text == "" ||
+            text_tongiao.Text == "" ||
+            text_quoctich.Text == "" ||
+            text_cccd.Text == "" ||
+            text_maphong.Text == "" ||
+            text_soky.Text == "")
+            {
+                return false;
+            }
+            else
+                return true;
         }
     }
 }

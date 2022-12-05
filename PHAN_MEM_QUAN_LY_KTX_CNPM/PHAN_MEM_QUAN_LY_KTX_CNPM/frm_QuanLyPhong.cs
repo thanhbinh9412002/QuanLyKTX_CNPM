@@ -55,7 +55,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
 
         private void chitietphong_menu_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(sk.ToString());
+            //MessageBox.Show(sk.ToString());
             fmPhong = new frm_Phong();
             if (fmPhong.sukien == 1)
             {
