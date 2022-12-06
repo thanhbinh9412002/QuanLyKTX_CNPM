@@ -23,6 +23,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
         frm_SinhVien fmSV;
         frm_Yeucau_Admin fmYeuCauAd;
         frm_ThongBao_SV fmTBSV;
+        frm_TrangThietBi fmTTBi;
 
         private string user;
         private string role;
@@ -376,15 +377,15 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
 
         private void btn_thietbi_Click(object sender, EventArgs e)
         {
-            /*  pictureBox1.Visible = false;
+            pictureBox1.Visible = false;
             panel_form.Visible = true;
             panel_form.Controls.Clear();
-            fmDoiMatKhau = new frm_DoiMatKhau(user, role);              Đổi tên form thích hợp
-           fmDoiMatKhau.TopLevel = false;
-           panel_form.Controls.Add(fmDoiMatKhau);
-           fmDoiMatKhau.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-           fmDoiMatKhau.Dock = DockStyle.Fill;
-           fmDoiMatKhau.Show();*/
+            fmTTBi = new frm_TrangThietBi();
+            fmTTBi.TopLevel = false;
+            panel_form.Controls.Add(fmTTBi);
+            fmTTBi.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            fmTTBi.Dock = DockStyle.Fill;
+            fmTTBi.Show();
         }
 
         private void btn_thongbao_Click(object sender, EventArgs e)

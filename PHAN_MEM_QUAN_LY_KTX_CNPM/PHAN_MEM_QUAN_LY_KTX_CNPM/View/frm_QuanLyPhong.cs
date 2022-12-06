@@ -20,7 +20,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
         public frm_Trangchu fmTrangchu;
         public string maphong;
         private frm_HoaDon fmHoaDon;
-
+        private frm_ThietBiTrongPhong fmThietBiPhong;
 
         public int sk;
         public string MaPhong1;
@@ -103,17 +103,17 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
 
             if (sk == 1)
             {
-                hoadon_menu.Enabled = false;
-                chitietphong_menu.Enabled = false;
-                /* panel_loadform.Visible = true;                        đổi tên form
+                 hoadon_menu.Enabled = false;
+                 chitietphong_menu.Enabled = false;
+                 panel_loadform.Visible = true;                        
                  panel_loadform.Controls.Clear();
-                 fmChiTietPhong = new frm_ChiTietPhong();
-                 fmChiTietPhong.maphong = maphong;
-                 fmChiTietPhong.TopLevel = false;
-                 panel_loadform.Controls.Add(fmChiTietPhong);
-                 fmChiTietPhong.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-                 fmChiTietPhong.Dock = DockStyle.Fill;
-                 fmChiTietPhong.Show();*/
+                 fmThietBiPhong = new frm_ThietBiTrongPhong();
+                 fmThietBiPhong.maphong = maphong;
+                 fmThietBiPhong.TopLevel = false;
+                 panel_loadform.Controls.Add(fmThietBiPhong);
+                 fmThietBiPhong.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+                 fmThietBiPhong.Dock = DockStyle.Fill;
+                 fmThietBiPhong.Show();
             }
             else
             {

@@ -256,7 +256,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::PHAN_MEM_QUAN_LY_KTX_CNPM.Properties.Resources.GWSB_I_20_Icons_v1_Visa_Request_Form_Icon;
+            //this.pictureBox1.Image = global::PHAN_MEM_QUAN_LY_KTX_CNPM.Properties.Resources.GWSB_I_20_Icons_v1_Visa_Request_Form_Icon;
             this.pictureBox1.Location = new System.Drawing.Point(666, 32);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(369, 517);

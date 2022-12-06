@@ -33,8 +33,6 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
         }
         public void LoadDataAdmin()
         {
-            MessageBox.Show(mssv);
-            MessageBox.Show(maphong);
             DataGridViewCheckBoxColumn dgvCmb = new DataGridViewCheckBoxColumn();
             dgvCmb.ValueType = typeof(bool);
             dgvCmb.Name = "Chk";
@@ -63,30 +61,16 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             }
             if (dt.Rows.Count == 0)
             {
-                lbPhi.Text = "Khong co thong tin no phi";
+                lbPhi.Text = "Không có thông tin nợ phí";
                 dgvPhiSinhVien.Visible = false;
                 btnThanhToan.Visible = false;
-                btnThanhToanAll.Visible = false;
             }else
             {
-                lbPhi.Text = "thong tin no phi";
+                lbPhi.Text = "Thông tin nợ phí";
                 dgvPhiSinhVien.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 dgvPhiSinhVien.DataSource = dt;
             }
             dgvPhiSinhVien.Columns.Add(dgvCmb);
-        }
-
-        private void btnThanhToanAll_Click(object sender, EventArgs e)
-        {
-            float tongtien = 0;
-            for (int i=0;i < dgvPhiSinhVien.RowCount -1; i++)
-            {
-                dgvPhiSinhVien.Rows[i].Cells["Chk"].Value = true;
-                float tmp = float.Parse(dgvPhiSinhVien.Rows[i].Cells[4].Value.ToString());
-                tongtien = tongtien + tmp;
-            }
-            MessageBox.Show(tongtien.ToString());
-            System.Diagnostics.Process.Start("https://ibank.agribank.com.vn/ibank/index.jsp");
         }
 
         private void btnThanhToan_Click(object sender, EventArgs e)
@@ -107,10 +91,9 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             for (int i = 0; i < dgvPhiSinhVien.RowCount - 1; i++)
             {
                 dgvPhiSinhVien.Rows[i].Cells["Chk"].Value = true;
-                float tmp = float.Parse(dgvPhiSinhVien.Rows[i].Cells[4].Value.ToString());
+                float tmp = float.Parse(dgvPhiSinhVien.Rows[i].Cells[5].Value.ToString());
                 tongtien = tongtien + tmp;
             }
-            MessageBox.Show(tongtien.ToString());
             System.Diagnostics.Process.Start("https://ibank.agribank.com.vn/ibank/index.jsp");
         }
     }

@@ -13,7 +13,6 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
     public partial class frm_HoaDon : Form
     {
         private frm_QuanLyPhong fmQuanLyPhong;
-        private frm_ChitietHoaDon fmChitietHD;
         public string maphong;
         private HoaDon_BUS HDBUS;
         private ChitietHD_BUS ChitietHBBUS;
@@ -187,8 +186,9 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             int check = HDBUS.CheckTaoHD(maphong);
             if(check == 0)
             {
-                MessageBox.Show("No create Bills");
-            }else
+                MessageBox.Show("Không thể tạo mới hóa đơn. Vì hóa đơn trước đó chưa được thanh toán", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
             {
                 them = true;
                 cbTrangThai.Text = "Chưa thanh toán";
@@ -211,9 +211,12 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             int r = dgvHoaDon.CurrentCell.RowIndex;
             mahd = dgvHoaDon.Rows[r].Cells[0].Value.ToString();
 
-            fmChitietHD = new frm_ChitietHoaDon();
-            fmChitietHD.mahd = mahd;
-            fmChitietHD.Show();
+            //fmChitietHD = new frm_ChitietHoaDon();
+            //fmChitietHD.mahd = mahd;
+            //fmChitietHD.Show();
+
+            dgvHoaDon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvHoaDon.DataSource = ChitietHBBUS.GetAllInformation(mahd);
         }
 
         private void btnSua_Click(object sender, EventArgs e)
@@ -237,13 +240,12 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
                     txtGiaNuoc.Text = dt.Rows[i].ItemArray[4].ToString();
                 }
                 txtTongTien.Text = dgvHoaDon.Rows[r].Cells[4].Value.ToString();
-                //MessageBox.Show(txtTongTien.Text);
                 
             }
             else
             {
                 cbTrangThai.Text = "Đã thanh toán";
-                MessageBox.Show("Hóa đơn này đã được thanh toán !");
+                MessageBox.Show("Hóa đơn này đã được thanh toán. Vui lòng không được sửa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtMaHD.Clear();
                 txtMaPhong.Clear();
                 txtSoDien.Clear();
@@ -262,15 +264,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
 
         private void btnTroVe_Click(object sender, EventArgs e)
         {
-           /* fmtrangchu = new frm_Trangchu();
-
-            fmtrangchu.panel_form.Controls.Clear();
-            fmPhong.TopLevel = false;
-            fmtrangchu.panel_form.Controls.Add(fmPhong);
-            fmPhong.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            fmPhong.Dock = DockStyle.Fill;
-            fmPhong.Show();*/
-
+            LoadDataAdmin();
         }
     }
 }
