@@ -39,5 +39,9 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM.BUS
         {
             return PhongDAO.PhongConCho();
         }
+        public DataTable DanhSachMaPhong()
+        {
+            return PhongDAO.DanhSachMaPhong();
+        }
     }
 }
