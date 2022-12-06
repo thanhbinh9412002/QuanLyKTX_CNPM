@@ -1,5 +1,5 @@
-﻿/*create database KTX
-GO*/
+﻿create database KTX
+GO
 use KTX
 GO
 
@@ -562,7 +562,6 @@ BEGIN
 	where ChiTietHoaDon.MAHD = @MAHD
     RETURN @sodien
 END
-
 create function [dbo].[func_LaySoNuoc](@MAHD char(10)) 
 returns int
 AS 
@@ -573,7 +572,6 @@ BEGIN
 	where ChiTietHoaDon.MAHD = @MAHD
     RETURN @sonuoc
 END
-
 create function [dbo].[func_LayGiaDien](@MAHD char(10)) 
 returns float
 AS 
@@ -584,7 +582,6 @@ BEGIN
 	where ChiTietHoaDon.MAHD = @MAHD
     RETURN @giadien
 END
-
 create function [dbo].[func_LayGiaNuoc](@MAHD char(10)) 
 returns float
 AS 
@@ -674,9 +671,6 @@ BEGIN
     RETURN  @masv
 END
 GO
-
-select * from DangNhap
-select * from HoaDon
 
 insert into DangNhap values ('215536972','215536972',N'Quản Lý',1)
 go
@@ -858,7 +852,7 @@ GO
 
 create procedure [dbo].[proc_DanhSachSuaChua]
 as 
-select Id, TenThietBi as [Tên thiết bị], SoLuong as [Số lượng], ChiTiet as [Chi tiết], TrangThai as [Trạng thái]
+select Id, TenThietBi as [Tên thiết bị], SoLuong as [Số lượng], ChiTiet as [Chi tiết]
 from SuaChua
 GO
 
@@ -867,11 +861,11 @@ as delete GiaHan where Id = @id
 GO
 
 create procedure [dbo].[proc_XoaYeuCauTraPhong] (@id int)
-as delete TraPhong where Id = @id
+as delete GiaHan where Id = @id
 GO
 
 create procedure [dbo].[proc_XoaYeuCauSuaChua] (@id int)
-as delete SuaChua where Id = @id
+as delete GiaHan where Id = @id
 GO
 
 create procedure [dbo].[proc_TenThietBi]
@@ -885,7 +879,7 @@ BEGIN
     DECLARE @kq int 
     SELECT @kq = count(Id)  
 	from SuaChua
-	where TrangThai = N'Chưa xem'
+	where TrangThai = 'Chưa xem'
     RETURN  @kq
 END
 GO
@@ -897,7 +891,7 @@ BEGIN
     DECLARE @kq int 
     SELECT @kq = count(Id)  
 	from TraPhong
-	where TrangThai = N'Chưa xem'
+	where TrangThai = 'Chưa xem'
     RETURN  @kq
 END
 GO
@@ -909,7 +903,96 @@ BEGIN
     DECLARE @kq int 
     SELECT @kq = count(Id)  
 	from GiaHan
-	where TrangThai = N'Chưa xem'
+	where TrangThai = 'Chưa xem'
     RETURN  @kq
 END
+GO
+
+CREATE function [dbo].[func_LayTenThietBi]() 
+returns table
+as
+	return select TenThietBi
+				from TrangThietBi
+go
+
+CREATE function [dbo].[func_LayMaThietBiTheoTen](@TenThietBi nvarchar(20)) 
+returns char(10)
+as
+	BEGIN
+		DECLARE @kq char(10) 
+		select @kq=MaThietBi
+		from TrangThietBi
+		where TenThietBi = @TenThietBi
+		RETURN  @kq
+	END
+go
+create function [dbo].[func_DanhSachThietBiPhong] (@MaPhong char(10))
+returns table
+	as
+	return 
+		select ttb.TenThietBi as [Tên thiết bị], 
+		p.SoLuongHong as [Số lượng hỏng], 
+		p.SoLuongTot as [Số lượng tốt], 
+		p.SoLuongToiDa as [Số lượng tối đa]
+		From ThietBiTrongPhong as p, TrangThietBi as ttb
+		where p.MaPhong = @MaPhong and p.MaThietBiTrongPhong = ttb.MaThietBi
+GO
+create function [dbo].[func_TimkiemTBiTheoTen](@tentb nvarchar(50), @MaPhong char(10))
+returns table
+	as
+	return
+		select ttb.TenThietBi as [Tên thiết bị], 
+		p.SoLuongHong as [Số lượng hỏng], 
+		p.SoLuongTot as [Số lượng tốt], 
+		p.SoLuongToiDa as [Số lượng tối đa]
+		From ThietBiTrongPhong as p, TrangThietBi as ttb
+		where p.MaPhong = @MaPhong and p.MaThietBiTrongPhong = ttb.MaThietBi and ttb.TenThietBi = @tentb
+GO
+create function [dbo].[func_TimkiemTBi](@tentb nvarchar(50))
+returns table
+	as
+	return
+		select ttb.MaThietBi as [Mã thiết bị], 
+		ttb.TenThietBi as [Tên thiết bị], 
+		ttb.TongSoLuong as [Số lượng]
+		From TrangThietBi as ttb
+		where ttb.TenThietBi = @tentb
+GO
+create function [dbo].[func_TenTbiTrongPhong](@MaPhong char(10))
+returns table
+	as
+	return
+		select ttb.TenThietBi 
+		From ThietBiTrongPhong as p, TrangThietBi as ttb
+		where p.MaPhong = @MaPhong and p.MaThietBiTrongPhong = ttb.MaThietBi
+GO
+/*alter TRIGGER [dbo].[tg_ThietBiTrongPhong] 
+ON [dbo].[ThietBiTrongPhong]
+AFTER INSERT
+AS
+BEGIN
+		SET NOCOUNT ON;
+		Declare @sltrangthietbi int,@sltoida int
+		select @sltrangthietbi = TrangThietBi.TongSoLuong, @sltoida = inserted.SoLuongToiDa
+		from inserted, TrangThietBi
+		WHERE inserted.MaThietBiTrongPhong = TrangThietBi.MaThietBi
+
+		UPDATE TrangThietBi SET TongSoLuong = @sltrangthietbi - @sltoida
+		FROM inserted, TrangThietBi
+		WHERE inserted.MaThietBiTrongPhong = TrangThietBi.MaThietBi
+END*/
+--GO
+create procedure [dbo].[proc_DanhSachTatCaTrangThietBi]
+as 
+select * from TrangThietBi
+GO
+create procedure [dbo].[proc_ThemThietBi] (@matb char(10), @tentb nvarchar(20), @tongsl int)
+as insert into TrangThietBi values(@matb, @tentb, @tongsl );
+GO
+create procedure [dbo].[proc_SuaThietBi] (@matb char(10), @tentb nvarchar(50), @tongsl int)
+as update TrangThietBi
+set MaThietBi = @matb,
+	TenThietBi = @tentb,
+	TongSoLuong = @tongsl
+where MaThietBi = @matb;
 GO
