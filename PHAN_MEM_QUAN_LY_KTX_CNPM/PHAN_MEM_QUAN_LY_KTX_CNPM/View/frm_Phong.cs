@@ -164,19 +164,19 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
         {
             if (them == true)
             {
-                if (!checkThem("P101"))
+                DialogResult h = MessageBox.Show("Bạn có chắc muốn thêm không?", "Error", MessageBoxButtons.OKCancel);
+                if (h == DialogResult.OK)
                 {
-                    MessageBox.Show((!checkThem("P101")).ToString());
-                    //PhongBUS.AddRoom(txtMaPhong.Text, int.Parse(txtGiaPhong.Text), int.Parse(txtSVHienTai.Text), int.Parse(cbbSVToiDa.Text), cbbTinhTrang.Text);
-                }
-                else
-                {
-                    MessageBox.Show("Mã phòng đã tồn tại. Vui lòng thêm mã phòng khác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    PhongBUS.AddRoom(txtMaPhong.Text, int.Parse(txtGiaPhong.Text), int.Parse(txtSVHienTai.Text), int.Parse(cbbSVToiDa.Text), cbbTinhTrang.Text);
                 }
             }
             else
             {
-                PhongBUS.UpdateRoom(txtMaPhong.Text, int.Parse(txtGiaPhong.Text), int.Parse(txtSVHienTai.Text), int.Parse(cbbSVToiDa.Text), cbbTinhTrang.Text);
+                DialogResult h = MessageBox.Show("Xác nhận thay đổi", "Error", MessageBoxButtons.OKCancel);
+                if (h == DialogResult.OK)
+                {
+                    PhongBUS.UpdateRoom(txtMaPhong.Text, int.Parse(txtGiaPhong.Text), int.Parse(txtSVHienTai.Text), int.Parse(cbbSVToiDa.Text), cbbTinhTrang.Text);
+                }            
             }
             LoadDataAdmin();
             txtMaPhong.Clear();
