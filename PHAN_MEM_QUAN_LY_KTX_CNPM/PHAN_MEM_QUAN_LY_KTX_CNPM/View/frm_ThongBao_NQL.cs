@@ -42,10 +42,15 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            tbBus.GuiThongBao(txtTieuDe.Text, txtNoiDung.Text, dtpNgayDang.Value);
-            txtTieuDe.Clear();
-            txtNoiDung.Clear();
-            LoadData_NQL();
+            DialogResult h = MessageBox.Show("Bạn có chắc muốn gửi không?", "Error", MessageBoxButtons.OKCancel);
+            if (h == DialogResult.OK)
+            {
+                tbBus.GuiThongBao(txtTieuDe.Text, txtNoiDung.Text, dtpNgayDang.Value);
+                txtTieuDe.Clear();
+                txtNoiDung.Clear();
+                LoadData_NQL();
+            }
+
         }
 
         private void btnHuy_Click(object sender, EventArgs e)

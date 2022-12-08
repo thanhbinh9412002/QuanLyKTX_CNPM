@@ -37,6 +37,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
         {
             dgvPhong.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvPhong.DataSource = PhongBUS.GetAllInformation();
+            
         }
         public void LoadTextBox_CheckBox()
         {
@@ -92,8 +93,9 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             cbbTinhTrang.Text = "Đang sử dụng";
             cbbTinhTrang.Enabled = false;
             txtSVHienTai.Text = "0";
-        }
 
+        }
+        
         private void btnXoa_Click(object sender, EventArgs e)
         {
             if (sukien == 1)
@@ -146,16 +148,35 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
                 MessageBox.Show("Bạn chưa chọn phòng cần sửa. Mời chọn phòng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-
+        public bool checkThem(string maphong)
+        {
+            DataTable dt = PhongBUS.DanhSachMaPhong();
+            List<String> lst = new List<string>();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                string name = dt.Rows[i]["MaPhong"].ToString();
+                lst.Add(name);
+            }
+            bool isExists = lst.Contains(maphong);
+            return isExists;
+        }
         private void btnLuu_Click(object sender, EventArgs e)
         {
             if (them == true)
             {
-                PhongBUS.AddRoom(txtMaPhong.Text, int.Parse(txtGiaPhong.Text), int.Parse(txtSVHienTai.Text), int.Parse(cbbSVToiDa.Text), cbbTinhTrang.Text);
+                DialogResult h = MessageBox.Show("Bạn có chắc muốn thêm không?", "Error", MessageBoxButtons.OKCancel);
+                if (h == DialogResult.OK)
+                {
+                    PhongBUS.AddRoom(txtMaPhong.Text, int.Parse(txtGiaPhong.Text), int.Parse(txtSVHienTai.Text), int.Parse(cbbSVToiDa.Text), cbbTinhTrang.Text);
+                }
             }
             else
             {
-                PhongBUS.UpdateRoom(txtMaPhong.Text, int.Parse(txtGiaPhong.Text), int.Parse(txtSVHienTai.Text), int.Parse(cbbSVToiDa.Text), cbbTinhTrang.Text);
+                DialogResult h = MessageBox.Show("Xác nhận thay đổi", "Error", MessageBoxButtons.OKCancel);
+                if (h == DialogResult.OK)
+                {
+                    PhongBUS.UpdateRoom(txtMaPhong.Text, int.Parse(txtGiaPhong.Text), int.Parse(txtSVHienTai.Text), int.Parse(cbbSVToiDa.Text), cbbTinhTrang.Text);
+                }            
             }
             LoadDataAdmin();
             txtMaPhong.Clear();
@@ -202,6 +223,25 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
                 sukien = 1;
                 this.sender(sukien.ToString());
                 this.send(MaPhong1);
+            }
+        }
+        private void cbbSVToiDa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (int.Parse(cbbSVToiDa.Text) == 2)
+            {
+                txtGiaPhong.Text = "750000";
+            }
+            if (int.Parse(cbbSVToiDa.Text) == 4)
+            {
+                txtGiaPhong.Text = "500000";
+            }
+            if (int.Parse(cbbSVToiDa.Text) == 6)
+            {
+                txtGiaPhong.Text = "350000";
+            }
+            if (int.Parse(cbbSVToiDa.Text) == 8)
+            {
+                txtGiaPhong.Text = "250000";
             }
         }
     } 

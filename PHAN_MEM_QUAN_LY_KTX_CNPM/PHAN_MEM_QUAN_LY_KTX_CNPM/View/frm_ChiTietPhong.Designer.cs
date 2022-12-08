@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.label2 = new System.Windows.Forms.Label();
-            this.btnExit = new System.Windows.Forms.Button();
             this.cbbPhong = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.dgvDSSV = new System.Windows.Forms.DataGridView();
@@ -50,21 +49,6 @@
             this.label2.TabIndex = 53;
             this.label2.Text = "DANH SÁCH SINH VIÊN";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnExit
-            // 
-            this.btnExit.BackColor = System.Drawing.Color.LightCoral;
-            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnExit.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExit.Location = new System.Drawing.Point(448, 399);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(96, 43);
-            this.btnExit.TabIndex = 52;
-            this.btnExit.Text = "Trở lại";
-            this.btnExit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnExit.UseVisualStyleBackColor = false;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // cbbPhong
             // 
@@ -101,7 +85,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1015, 454);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.cbbPhong);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dgvDSSV);
@@ -117,7 +100,6 @@
         #endregion
 
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.ComboBox cbbPhong;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dgvDSSV;

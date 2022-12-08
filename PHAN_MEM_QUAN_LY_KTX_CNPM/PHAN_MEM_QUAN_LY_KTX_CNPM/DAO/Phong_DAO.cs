@@ -52,5 +52,10 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM.DAO
             string sql = "pro_DanhSachPhongDay";
             return cnn.ExecuteProcedureDatatableNoPara(sql);
         }
+        public DataTable DanhSachMaPhong()
+        {
+            string sql = "pro_DanhSachPhong_MaPhong";
+            return cnn.ExecuteProcedureDatatableNoPara(sql);
+        }
     }
 }
