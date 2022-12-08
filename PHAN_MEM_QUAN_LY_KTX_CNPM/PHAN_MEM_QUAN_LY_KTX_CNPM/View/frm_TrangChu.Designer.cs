@@ -197,7 +197,6 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             // btn_thongbaoyeucau
             // 
             this.btn_thongbaoyeucau.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.btn_thongbaoyeucau.BackgroundImage = global::PHAN_MEM_QUAN_LY_KTX_CNPM.Properties.Resources.Facebook_Messenger_logo_2020_svg;
             this.btn_thongbaoyeucau.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btn_thongbaoyeucau.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_thongbaoyeucau.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

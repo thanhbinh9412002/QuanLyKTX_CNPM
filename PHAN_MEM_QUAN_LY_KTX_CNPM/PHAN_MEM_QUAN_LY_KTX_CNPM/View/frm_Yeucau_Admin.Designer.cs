@@ -34,12 +34,16 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_xoa = new System.Windows.Forms.Button();
+            this.btn_xem = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dateTimePicker_ketthuc = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker_batdau = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.trangChủToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,16 +52,12 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.trphong_menu = new System.Windows.Forms.ToolStripMenuItem();
             this.càiĐặtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.giahano_menu = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btn_xoa = new System.Windows.Forms.Button();
-            this.btn_xem = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -88,6 +88,16 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.panel1.Size = new System.Drawing.Size(1047, 561);
             this.panel1.TabIndex = 25;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::PHAN_MEM_QUAN_LY_KTX_CNPM.Properties.Resources.GWSB_I_20_Icons_v1_Visa_Request_Form_Icon;
+            this.pictureBox1.Location = new System.Drawing.Point(666, 32);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(369, 517);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
+            // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -100,6 +110,36 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chức năng";
+            // 
+            // btn_xoa
+            // 
+            this.btn_xoa.BackColor = System.Drawing.Color.LightCoral;
+            this.btn_xoa.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_xoa.Image = global::PHAN_MEM_QUAN_LY_KTX_CNPM.Properties.Resources.trash_icon;
+            this.btn_xoa.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_xoa.Location = new System.Drawing.Point(17, 47);
+            this.btn_xoa.Name = "btn_xoa";
+            this.btn_xoa.Size = new System.Drawing.Size(94, 59);
+            this.btn_xoa.TabIndex = 1;
+            this.btn_xoa.Text = "Xóa";
+            this.btn_xoa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_xoa.UseVisualStyleBackColor = false;
+            this.btn_xoa.Click += new System.EventHandler(this.btn_xoa_Click);
+            // 
+            // btn_xem
+            // 
+            this.btn_xem.BackColor = System.Drawing.Color.LightCoral;
+            this.btn_xem.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_xem.Image = global::PHAN_MEM_QUAN_LY_KTX_CNPM.Properties.Resources.document_icon;
+            this.btn_xem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_xem.Location = new System.Drawing.Point(128, 47);
+            this.btn_xem.Name = "btn_xem";
+            this.btn_xem.Size = new System.Drawing.Size(94, 59);
+            this.btn_xem.TabIndex = 0;
+            this.btn_xem.Text = "Xem chi tiết";
+            this.btn_xem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_xem.UseVisualStyleBackColor = false;
+            this.btn_xem.Click += new System.EventHandler(this.btn_xem_Click);
             // 
             // groupBox2
             // 
@@ -148,6 +188,21 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.label3.Size = new System.Drawing.Size(101, 16);
             this.label3.TabIndex = 5;
             this.label3.Text = "Ngày bắt đầu";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.LightCoral;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Image = global::PHAN_MEM_QUAN_LY_KTX_CNPM.Properties.Resources.Save_icon;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.Location = new System.Drawing.Point(173, 115);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(94, 49);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Lưu";
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // dataGridView1
             // 
@@ -254,61 +309,6 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.giahano_menu.Text = "Thời gian gia hạn ở";
             this.giahano_menu.Click += new System.EventHandler(this.giahano_menu_Click);
             // 
-            // pictureBox1
-            // 
-            //this.pictureBox1.Image = global::PHAN_MEM_QUAN_LY_KTX_CNPM.Properties.Resources.GWSB_I_20_Icons_v1_Visa_Request_Form_Icon;
-            this.pictureBox1.Location = new System.Drawing.Point(666, 32);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(369, 517);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
-            // 
-            // btn_xoa
-            // 
-            this.btn_xoa.BackColor = System.Drawing.Color.LightCoral;
-            this.btn_xoa.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_xoa.Image = global::PHAN_MEM_QUAN_LY_KTX_CNPM.Properties.Resources.trash_icon;
-            this.btn_xoa.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_xoa.Location = new System.Drawing.Point(17, 47);
-            this.btn_xoa.Name = "btn_xoa";
-            this.btn_xoa.Size = new System.Drawing.Size(94, 59);
-            this.btn_xoa.TabIndex = 1;
-            this.btn_xoa.Text = "Xóa";
-            this.btn_xoa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_xoa.UseVisualStyleBackColor = false;
-            this.btn_xoa.Click += new System.EventHandler(this.btn_xoa_Click);
-            // 
-            // btn_xem
-            // 
-            this.btn_xem.BackColor = System.Drawing.Color.LightCoral;
-            this.btn_xem.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_xem.Image = global::PHAN_MEM_QUAN_LY_KTX_CNPM.Properties.Resources.document_icon;
-            this.btn_xem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_xem.Location = new System.Drawing.Point(128, 47);
-            this.btn_xem.Name = "btn_xem";
-            this.btn_xem.Size = new System.Drawing.Size(94, 59);
-            this.btn_xem.TabIndex = 0;
-            this.btn_xem.Text = "Xem chi tiết";
-            this.btn_xem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_xem.UseVisualStyleBackColor = false;
-            this.btn_xem.Click += new System.EventHandler(this.btn_xem_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.LightCoral;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Image = global::PHAN_MEM_QUAN_LY_KTX_CNPM.Properties.Resources.Save_icon;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.Location = new System.Drawing.Point(173, 115);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 49);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Lưu";
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // frm_Yeucau_Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -323,13 +323,13 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.Load += new System.EventHandler(this.frm_Yeucau_Admin_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

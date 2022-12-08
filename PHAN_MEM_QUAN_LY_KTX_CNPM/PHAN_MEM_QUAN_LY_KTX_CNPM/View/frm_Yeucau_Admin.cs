@@ -196,18 +196,21 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
         {
             var ycBUS = new YeuCau_BUS();
             DataTable dt = ycBUS.DanhSachYeuCauSuaChua();
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.DataSource = dt;
         }
         private void loaddata_giahan()
         {
             var ycBUS = new YeuCau_BUS();
             DataTable dt = ycBUS.DanhSachYeuCauGiaHan();
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.DataSource = dt;
         }
         private void loaddata_traphong()
         {
             var ycBUS = new YeuCau_BUS();
             DataTable dt = ycBUS.DanhSachYeuCauTraPhong();
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.DataSource = dt;
         }
     }

@@ -331,6 +331,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="data_query\Database.sql" />
+    <None Include="Resources\GWSB_I-20_Icons_v1_Visa Request Form_Icon1.png" />
     <None Include="Resources\studentavata.png" />
     <None Include="Resources\Filter-icon.png" />
     <None Include="Resources\setting.png" />
