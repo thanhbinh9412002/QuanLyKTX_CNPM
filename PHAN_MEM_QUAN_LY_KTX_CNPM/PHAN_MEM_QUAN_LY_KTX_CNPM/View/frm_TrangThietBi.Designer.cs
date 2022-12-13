@@ -58,10 +58,10 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.btnHuy.BackColor = System.Drawing.Color.Salmon;
             this.btnHuy.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHuy.Location = new System.Drawing.Point(976, 408);
-            this.btnHuy.Margin = new System.Windows.Forms.Padding(4);
+            this.btnHuy.Image = global::PHAN_MEM_QUAN_LY_KTX_CNPM.Properties.Resources.remove_icon;
+            this.btnHuy.Location = new System.Drawing.Point(814, 458);
             this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(129, 60);
+            this.btnHuy.Size = new System.Drawing.Size(131, 58);
             this.btnHuy.TabIndex = 134;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -71,22 +71,24 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             // cbbTenTBITimKiem
             // 
             this.cbbTenTBITimKiem.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.cbbTenTBITimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbTenTBITimKiem.FormattingEnabled = true;
-            this.cbbTenTBITimKiem.Location = new System.Drawing.Point(774, 352);
-            this.cbbTenTBITimKiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbbTenTBITimKiem.Location = new System.Drawing.Point(597, 122);
+            this.cbbTenTBITimKiem.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbbTenTBITimKiem.Name = "cbbTenTBITimKiem";
-            this.cbbTenTBITimKiem.Size = new System.Drawing.Size(157, 24);
+            this.cbbTenTBITimKiem.Size = new System.Drawing.Size(133, 28);
             this.cbbTenTBITimKiem.TabIndex = 130;
             // 
             // btnLoad
             // 
-            this.btnLoad.BackColor = System.Drawing.Color.LightCoral;
+            this.btnLoad.BackColor = System.Drawing.Color.Salmon;
             this.btnLoad.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnLoad.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLoad.Location = new System.Drawing.Point(774, 471);
-            this.btnLoad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnLoad.Image = global::PHAN_MEM_QUAN_LY_KTX_CNPM.Properties.Resources.Restart_icon;
+            this.btnLoad.Location = new System.Drawing.Point(597, 397);
+            this.btnLoad.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnLoad.Name = "btnLoad";
-            this.btnLoad.Size = new System.Drawing.Size(159, 54);
+            this.btnLoad.Size = new System.Drawing.Size(131, 58);
             this.btnLoad.TabIndex = 133;
             this.btnLoad.Text = "Load";
             this.btnLoad.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -95,13 +97,14 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             // 
             // btnTimKiem
             // 
-            this.btnTimKiem.BackColor = System.Drawing.Color.LightCoral;
+            this.btnTimKiem.BackColor = System.Drawing.Color.Salmon;
             this.btnTimKiem.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnTimKiem.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTimKiem.Location = new System.Drawing.Point(774, 394);
-            this.btnTimKiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnTimKiem.Image = global::PHAN_MEM_QUAN_LY_KTX_CNPM.Properties.Resources.Filter_icon;
+            this.btnTimKiem.Location = new System.Drawing.Point(597, 159);
+            this.btnTimKiem.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Size = new System.Drawing.Size(159, 54);
+            this.btnTimKiem.Size = new System.Drawing.Size(131, 58);
             this.btnTimKiem.TabIndex = 132;
             this.btnTimKiem.Text = "Tìm kiếm";
             this.btnTimKiem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -112,24 +115,29 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(770, 327);
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(595, 98);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(90, 23);
+            this.label5.Size = new System.Drawing.Size(88, 22);
             this.label5.TabIndex = 131;
             this.label5.Text = "Tìm kiếm";
             // 
             // gbThongTinTB
             // 
+            this.gbThongTinTB.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.gbThongTinTB.Controls.Add(this.label2);
             this.gbThongTinTB.Controls.Add(this.txt_mathietbi);
             this.gbThongTinTB.Controls.Add(this.txt_tenthietbi);
             this.gbThongTinTB.Controls.Add(this.txt_soluong);
             this.gbThongTinTB.Controls.Add(this.label3);
             this.gbThongTinTB.Controls.Add(this.label4);
-            this.gbThongTinTB.Location = new System.Drawing.Point(267, 106);
+            this.gbThongTinTB.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.gbThongTinTB.Location = new System.Drawing.Point(68, 51);
+            this.gbThongTinTB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gbThongTinTB.Name = "gbThongTinTB";
-            this.gbThongTinTB.Size = new System.Drawing.Size(306, 191);
+            this.gbThongTinTB.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbThongTinTB.Size = new System.Drawing.Size(458, 225);
             this.gbThongTinTB.TabIndex = 129;
             this.gbThongTinTB.TabStop = false;
             this.gbThongTinTB.Text = "Thông tin thiết bị";
@@ -137,10 +145,9 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(7, 27);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(118, 30);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(105, 37);
+            this.label2.Size = new System.Drawing.Size(79, 30);
             this.label2.TabIndex = 20;
             this.label2.Text = "Mã thiết bị";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -149,42 +156,38 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             // 
             this.txt_mathietbi.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.txt_mathietbi.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_mathietbi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_mathietbi.Location = new System.Drawing.Point(116, 29);
-            this.txt_mathietbi.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_mathietbi.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_mathietbi.Location = new System.Drawing.Point(200, 32);
             this.txt_mathietbi.Name = "txt_mathietbi";
-            this.txt_mathietbi.Size = new System.Drawing.Size(155, 30);
+            this.txt_mathietbi.Size = new System.Drawing.Size(117, 29);
             this.txt_mathietbi.TabIndex = 17;
             // 
             // txt_tenthietbi
             // 
             this.txt_tenthietbi.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.txt_tenthietbi.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_tenthietbi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_tenthietbi.Location = new System.Drawing.Point(116, 77);
-            this.txt_tenthietbi.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_tenthietbi.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_tenthietbi.Location = new System.Drawing.Point(200, 71);
             this.txt_tenthietbi.Name = "txt_tenthietbi";
-            this.txt_tenthietbi.Size = new System.Drawing.Size(155, 30);
+            this.txt_tenthietbi.Size = new System.Drawing.Size(117, 29);
             this.txt_tenthietbi.TabIndex = 18;
             // 
             // txt_soluong
             // 
             this.txt_soluong.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.txt_soluong.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_soluong.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_soluong.Location = new System.Drawing.Point(116, 123);
-            this.txt_soluong.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_soluong.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_soluong.Location = new System.Drawing.Point(200, 108);
             this.txt_soluong.Name = "txt_soluong";
-            this.txt_soluong.Size = new System.Drawing.Size(155, 30);
+            this.txt_soluong.Size = new System.Drawing.Size(117, 29);
             this.txt_soluong.TabIndex = 19;
             // 
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(-2, 73);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(111, 67);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(115, 43);
+            this.label3.Size = new System.Drawing.Size(86, 35);
             this.label3.TabIndex = 21;
             this.label3.Text = "Tên thiết bị";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -192,10 +195,9 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(16, 122);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(125, 107);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(96, 37);
+            this.label4.Size = new System.Drawing.Size(72, 30);
             this.label4.TabIndex = 22;
             this.label4.Text = "Số lượng";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -205,10 +207,10 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.btn_luu.BackColor = System.Drawing.Color.Salmon;
             this.btn_luu.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_luu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_luu.Location = new System.Drawing.Point(976, 315);
-            this.btn_luu.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_luu.Image = global::PHAN_MEM_QUAN_LY_KTX_CNPM.Properties.Resources.Save_icon;
+            this.btn_luu.Location = new System.Drawing.Point(814, 331);
             this.btn_luu.Name = "btn_luu";
-            this.btn_luu.Size = new System.Drawing.Size(129, 60);
+            this.btn_luu.Size = new System.Drawing.Size(131, 58);
             this.btn_luu.TabIndex = 128;
             this.btn_luu.Text = "Lưu";
             this.btn_luu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -220,10 +222,10 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.btn_sua.BackColor = System.Drawing.Color.Salmon;
             this.btn_sua.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_sua.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_sua.Location = new System.Drawing.Point(976, 215);
-            this.btn_sua.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_sua.Image = global::PHAN_MEM_QUAN_LY_KTX_CNPM.Properties.Resources.setting;
+            this.btn_sua.Location = new System.Drawing.Point(814, 203);
             this.btn_sua.Name = "btn_sua";
-            this.btn_sua.Size = new System.Drawing.Size(129, 60);
+            this.btn_sua.Size = new System.Drawing.Size(131, 58);
             this.btn_sua.TabIndex = 127;
             this.btn_sua.Text = "Sửa";
             this.btn_sua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -236,10 +238,11 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.btn_them.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_them.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_them.ForeColor = System.Drawing.Color.Black;
-            this.btn_them.Location = new System.Drawing.Point(976, 121);
-            this.btn_them.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_them.Image = global::PHAN_MEM_QUAN_LY_KTX_CNPM.Properties.Resources.add_icon;
+            this.btn_them.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_them.Location = new System.Drawing.Point(814, 81);
             this.btn_them.Name = "btn_them";
-            this.btn_them.Size = new System.Drawing.Size(129, 60);
+            this.btn_them.Size = new System.Drawing.Size(131, 58);
             this.btn_them.TabIndex = 126;
             this.btn_them.Text = "Thêm";
             this.btn_them.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -248,15 +251,14 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             // 
             // label1
             // 
-            this.label1.BackColor = System.Drawing.Color.Aquamarine;
+            this.label1.BackColor = System.Drawing.Color.Lime;
             this.label1.Dock = System.Windows.Forms.DockStyle.Top;
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1357, 38);
+            this.label1.Size = new System.Drawing.Size(1047, 31);
             this.label1.TabIndex = 125;
             this.label1.Text = "TRANG THIẾT BỊ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -269,11 +271,10 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.MaThietBi,
             this.TenThietBi,
             this.TongSoLuong});
-            this.dgv_trangthietbi.Location = new System.Drawing.Point(269, 327);
-            this.dgv_trangthietbi.Margin = new System.Windows.Forms.Padding(4);
+            this.dgv_trangthietbi.Location = new System.Drawing.Point(68, 315);
             this.dgv_trangthietbi.Name = "dgv_trangthietbi";
             this.dgv_trangthietbi.RowHeadersWidth = 51;
-            this.dgv_trangthietbi.Size = new System.Drawing.Size(467, 191);
+            this.dgv_trangthietbi.Size = new System.Drawing.Size(458, 223);
             this.dgv_trangthietbi.TabIndex = 124;
             // 
             // MaThietBi
@@ -302,9 +303,10 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             // 
             // frm_TrangThietBi
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1357, 560);
+            this.BackColor = System.Drawing.Color.LightCyan;
+            this.ClientSize = new System.Drawing.Size(1047, 593);
             this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.cbbTenTBITimKiem);
             this.Controls.Add(this.btnLoad);
@@ -316,6 +318,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.Controls.Add(this.btn_them);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgv_trangthietbi);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frm_TrangThietBi";
             this.Text = "frm_TrangThietBi";
             this.Load += new System.EventHandler(this.frm_TrangThietBi_Load);

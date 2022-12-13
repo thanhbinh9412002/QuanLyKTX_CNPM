@@ -27,7 +27,6 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             string trangthai = "Chưa xem";
             TimeSpan Time = dateTimePicker_ngaytra.Value.Date - DateTime.Now.Date;
             int tongngay = Time.Days;
-            MessageBox.Show(tongngay.ToString());
             if (tongngay < 30)
             {
                 MessageBox.Show("Bạn phải thông báo với ban quản lý KTX  tối thiểu trước một tháng nếu muốn trả phòng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -54,6 +53,11 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             txt_masv.Text = masv;
             txt_maphong.Enabled = false;
             txt_masv.Enabled = false;
+        }
+
+        private void btn_huy_Click(object sender, EventArgs e)
+        {
+            dateTimePicker_ngaytra.Focus();
         }
     }
 }

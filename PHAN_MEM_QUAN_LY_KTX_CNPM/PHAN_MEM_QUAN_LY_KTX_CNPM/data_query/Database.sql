@@ -1,5 +1,5 @@
-﻿create database KTX
-GO
+﻿/*create database KTX
+GO*/
 use KTX
 GO
 
@@ -98,6 +98,7 @@ GO
 
 create table SuaChua(
 	Id int IDENTITY(1,1) PRIMARY KEY, 
+	MaPhong char(10),
 	TenThietBi nvarchar(20) NOT NULL,
 	SoLuong int,
 	ChiTiet nvarchar(500),
@@ -386,16 +387,16 @@ insert into Phong Values ('P602',500000, 0 , 4 , N'Đang sử dụng')
 insert into Phong Values ('P709',200000, 0 , 6 , N'Đang sử dụng')
 
 
-insert into SinhVien Values('20133104',N'Nguyễn Văn Thanh','0367064834', N'Nam',3,N'Không',N'Việt Nam','221502781','P101',1)
-insert into SinhVien Values('20133105',N'Nguyễn Văn Thanh','0367064834', N'Nam',3,N'Không',N'Việt Nam','221502782','P101',1)
+insert into SinhVien Values('20133104',N'Nguyễn Văn Thanh','0367064834', N'Nam',3,N'Không',N'Việt Nam','987654321','P101',1)
+insert into SinhVien Values('20133105',N'Nguyễn Minh Thanh','0367064889', N'Nam',3,N'Không',N'Việt Nam','221502782','P101',1)
 
-insert into SinhVien Values('20133107',N'Nguyễn Văn Thanh','0367064834', N'Nam',3,N'Không',N'Việt Nam','221502788','P102',2)
+insert into SinhVien Values('20133107',N'Nguyễn Văn Thanh','0367924834', N'Nam',3,N'Không',N'Việt Nam','221502788','P102',2)
 insert into SinhVien Values('22133102',N'Lương Sĩ Hoàng','0312452123', N'Nam',1,N'Không',N'Việt Nam','221531232','P102',2)
 insert into SinhVien Values('21133101',N'Trần Thái Tú','0364412341', N'Nam',2,N'Không',N'Việt Nam','221512453','P102',1)
 
 insert into SinhVien Values('22133133',N'Cao Tuấn Tú','0367125212', N'Nam',3,N'Không',N'Việt Nam','221512654','P203',2)
 
-insert into SinhVien Values('21133122',N'Nguyễn Phước Ninh','0367784321', N'Nam',2,N'Không',N'Việt Nam','221586219','P301',2)
+insert into SinhVien Values('21133129',N'Nguyễn Phước Ninh','0367784321', N'Nam',2,N'Không',N'Việt Nam','221586219','P301',2)
 insert into SinhVien Values('22412122',N'Nguyễn Thanh Tuấn ','0367095412', N'Nam',1,N'Không',N'Việt Nam','221587656','P301',2)
 
 insert into SinhVien Values('21133166',N'Huỳnh Công Hậu','0367987431', N'Nam',2,N'Không',N'Việt Nam','221574767','P505',1)
@@ -672,7 +673,7 @@ BEGIN
 END
 GO
 
-insert into DangNhap values ('215536972','215536972',N'Quản Lý',1)
+insert into DangNhap values ('123456789','123456789',N'Quản Lý',1)
 go
 --Danh sách sinh viên theo phòng
 Create function [dbo].[func_DanhSachSinhVienTheoPhong] (@MaPhong char(10))
@@ -823,9 +824,9 @@ set TrangThai = @trangthai
 where Id = @id
 go
 
-create procedure [dbo].[ThemYeuCauSuaChua](@tenthietbi nvarchar(20), @soluong int, @chitiet nvarchar(500), @trangthai nvarchar(50))
+create procedure [dbo].[ThemYeuCauSuaChua](@maphong char(10),@tenthietbi nvarchar(20), @soluong int, @chitiet nvarchar(500), @trangthai nvarchar(50))
 as
-insert into SuaChua Values(@tenthietbi, @soluong, @chitiet, @trangthai)
+insert into SuaChua Values(@maphong, @tenthietbi, @soluong, @chitiet, @trangthai)
 go
 
 create procedure [dbo].[ThemYeuCauTraPhong](@maphong char(10), @masinhvien char(10), @ngaytra date, @trangthai nvarchar(50))
@@ -840,19 +841,21 @@ go
 
 create procedure [dbo].[proc_DanhSachGiaHan]
 as 
-select Id, MaSinhVien as [Mã sinh viên], SoKy as[Số kỳ], TrangThai as [Trạng thái]
-from GiaHan
+select a.Id, a.MaSinhVien as [Mã sinh viên], b.HoTen as [Họ và tên], a.SoKy as[Số kỳ], a.TrangThai as [Trạng thái]
+from GiaHan as a, SinhVien as b
+where a.MaSinhVien = b.MaSinhVien
 GO
 
 create procedure [dbo].[proc_DanhSachTraPhong]
 as 
-select Id, MaPhong as [Mã phòng], MaSinhVien as [Mã sinh viên], NgayTra as [Ngày trả], TrangThai as [Trạng thái]
-from TraPhong
+select a.Id, a.MaPhong as [Mã phòng], b.MaSinhVien as [Mã sinh viên], b.HoTen as [Họ và tên] , NgayTra as [Ngày trả], TrangThai as [Trạng thái]
+from TraPhong as a, SinhVien as b
+where a.MaSinhVien = b.MaSinhVien
 GO
 
 create procedure [dbo].[proc_DanhSachSuaChua]
 as 
-select Id, TenThietBi as [Tên thiết bị], SoLuong as [Số lượng], ChiTiet as [Chi tiết]
+select Id, MaPhong as [Mã phòng], TenThietBi as [Tên thiết bị], SoLuong as [Số lượng], ChiTiet as [Chi tiết]
 from SuaChua
 GO
 
@@ -861,11 +864,11 @@ as delete GiaHan where Id = @id
 GO
 
 create procedure [dbo].[proc_XoaYeuCauTraPhong] (@id int)
-as delete GiaHan where Id = @id
+as delete TraPhong where Id = @id
 GO
 
 create procedure [dbo].[proc_XoaYeuCauSuaChua] (@id int)
-as delete GiaHan where Id = @id
+as delete SuaChua where Id = @id
 GO
 
 create procedure [dbo].[proc_TenThietBi]
@@ -996,3 +999,18 @@ set MaThietBi = @matb,
 	TongSoLuong = @tongsl
 where MaThietBi = @matb;
 GO
+create table [dbo].[Thoigiandangky](
+	ngaybatdau date,
+	ngayketthuc date
+)
+insert into Thoigiandangky values ('2023-01-15','2023-01-30');
+go
+create procedure [dbo].[proc_SuaThoiGianDangKy](@ngaybd date, @ngaykt date)
+as update Thoigiandangky
+set ngaybatdau = @ngaybd,
+	ngayketthuc = @ngaykt
+go
+create procedure [dbo].[proc_ThoiGianDangKy]
+as
+	select * from Thoigiandangky
+go

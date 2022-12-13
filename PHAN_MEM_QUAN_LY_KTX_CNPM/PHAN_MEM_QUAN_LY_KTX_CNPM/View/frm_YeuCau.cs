@@ -23,6 +23,8 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
 
         public string maphong;
         public string masv;
+        public DateTime ngaybatdau;
+        public DateTime ngayketthuc;
 
         public frm_YeuCau(string user = "", string role = "")
         {
@@ -38,6 +40,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             panel2.Visible = true;
             panel2.Controls.Clear();
             fmSuaChua = new frm_SuaChua();
+            fmSuaChua.maphong = maphong;
             fmSuaChua.TopLevel = false;
             panel2.Controls.Add(fmSuaChua);
             fmSuaChua.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -62,8 +65,8 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
 
         private void menu_giahan_Click(object sender, EventArgs e)
         {
-           
-            if (fmYeuCauAd.ngaybatdau <= DateTime.Now.Date && fmYeuCauAd.ngayketthuc > DateTime.Now.Date)
+
+            if (ngaybatdau <= DateTime.Now.Date && ngayketthuc >= DateTime.Now.Date)
             {
                 pictureBox1.Visible = false;
                 panel2.Visible = true;
@@ -80,7 +83,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             {
                 pictureBox1.Visible = true;
                 panel2.Visible = false;
-                MessageBox.Show("Hiện tại không nằm trong thời hạn đăng ký gia hạn ở ","Thông báo",MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Hiện tại không nằm trong thời hạn đăng ký gia hạn ở ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -88,7 +91,10 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
         {
             pictureBox1.Visible = true;
             panel2.Visible = false;
-            
+            var ycBUS = new YeuCau_BUS();
+            DataTable dt = ycBUS.ThoiGianDangKy();
+            ngaybatdau = dt.Rows[0].Field<DateTime>(0);
+            ngayketthuc = dt.Rows[0].Field<DateTime>(1);
         }
 
         private void trangChủToolStripMenuItem_Click(object sender, EventArgs e)

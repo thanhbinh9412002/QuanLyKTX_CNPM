@@ -77,6 +77,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             y = 280;
             btn_thongbaoyeucau.Visible = true;
             timer_tbyeucau.Start();
+            
         }
 
         private void MainNoEnable()

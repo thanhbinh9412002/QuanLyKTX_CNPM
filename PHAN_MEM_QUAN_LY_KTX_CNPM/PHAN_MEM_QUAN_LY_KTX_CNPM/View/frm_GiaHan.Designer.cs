@@ -30,18 +30,22 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
         private void InitializeComponent()
         {
             this.groupBox_giahan = new System.Windows.Forms.GroupBox();
-            this.txt_masv = new PHAN_MEM_QUAN_LY_KTX_CNPM.effect.RJTextBox();
-            this.btn_goi = new CustomButton.VBButton();
+            this.txt_masv = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbb_soky = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.cbb_soky = new System.Windows.Forms.ComboBox();
+            this.btn_huy = new CustomButton.VBButton();
+            this.btn_goi = new CustomButton.VBButton();
             this.groupBox_giahan.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox_giahan
             // 
-            this.groupBox_giahan.Controls.Add(this.cbb_soky);
             this.groupBox_giahan.Controls.Add(this.txt_masv);
+            this.groupBox_giahan.Controls.Add(this.btn_huy);
+            this.groupBox_giahan.Controls.Add(this.label1);
+            this.groupBox_giahan.Controls.Add(this.cbb_soky);
             this.groupBox_giahan.Controls.Add(this.btn_goi);
             this.groupBox_giahan.Controls.Add(this.label9);
             this.groupBox_giahan.Controls.Add(this.label10);
@@ -57,65 +61,20 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             // txt_masv
             // 
             this.txt_masv.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.txt_masv.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.txt_masv.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txt_masv.BorderSize = 2;
-            this.txt_masv.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_masv.ForeColor = System.Drawing.Color.DimGray;
-            this.txt_masv.Location = new System.Drawing.Point(394, 83);
-            this.txt_masv.Margin = new System.Windows.Forms.Padding(4);
-            this.txt_masv.Multiline = false;
+            this.txt_masv.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_masv.Location = new System.Drawing.Point(394, 76);
             this.txt_masv.Name = "txt_masv";
-            this.txt_masv.Padding = new System.Windows.Forms.Padding(7);
-            this.txt_masv.PasswordChar = false;
-            this.txt_masv.Size = new System.Drawing.Size(104, 31);
-            this.txt_masv.TabIndex = 43;
-            this.txt_masv.Texts = "";
-            this.txt_masv.UnderlinedStyle = false;
+            this.txt_masv.Size = new System.Drawing.Size(142, 31);
+            this.txt_masv.TabIndex = 47;
             // 
-            // btn_goi
+            // label1
             // 
-            this.btn_goi.BackColor = System.Drawing.Color.LightCoral;
-            this.btn_goi.BackgroundColor = System.Drawing.Color.LightCoral;
-            this.btn_goi.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btn_goi.BorderRadius = 20;
-            this.btn_goi.BorderSize = 0;
-            this.btn_goi.FlatAppearance.BorderSize = 0;
-            this.btn_goi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_goi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_goi.ForeColor = System.Drawing.Color.Black;
-            this.btn_goi.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_goi.Location = new System.Drawing.Point(301, 196);
-            this.btn_goi.Name = "btn_goi";
-            this.btn_goi.Size = new System.Drawing.Size(118, 58);
-            this.btn_goi.TabIndex = 42;
-            this.btn_goi.Text = "Gởi";
-            this.btn_goi.TextColor = System.Drawing.Color.Black;
-            this.btn_goi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_goi.UseVisualStyleBackColor = false;
-            this.btn_goi.Click += new System.EventHandler(this.btn_goi_Click);
-            // 
-            // label9
-            // 
-            this.label9.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(244, 121);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(129, 36);
-            this.label9.TabIndex = 39;
-            this.label9.Text = "Số kỳ";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label10
-            // 
-            this.label10.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(188, 70);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(190, 44);
-            this.label10.TabIndex = 34;
-            this.label10.Text = "Mã sinh viên";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(504, 129);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(128, 31);
+            this.label1.TabIndex = 45;
+            this.label1.Text = "(kỳ/năm)";
             // 
             // cbb_soky
             // 
@@ -131,6 +90,74 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.cbb_soky.Size = new System.Drawing.Size(104, 28);
             this.cbb_soky.TabIndex = 44;
             // 
+            // label9
+            // 
+            this.label9.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(57, 121);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(316, 36);
+            this.label9.TabIndex = 39;
+            this.label9.Text = "Thời gian đăng ký thêm";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label10
+            // 
+            this.label10.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(188, 70);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(190, 44);
+            this.label10.TabIndex = 34;
+            this.label10.Text = "Mã sinh viên";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // btn_huy
+            // 
+            this.btn_huy.BackColor = System.Drawing.Color.LightCoral;
+            this.btn_huy.BackgroundColor = System.Drawing.Color.LightCoral;
+            this.btn_huy.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btn_huy.BorderRadius = 20;
+            this.btn_huy.BorderSize = 0;
+            this.btn_huy.FlatAppearance.BorderSize = 0;
+            this.btn_huy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_huy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_huy.ForeColor = System.Drawing.Color.Black;
+            this.btn_huy.Image = global::PHAN_MEM_QUAN_LY_KTX_CNPM.Properties.Resources.remove_icon;
+            this.btn_huy.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_huy.Location = new System.Drawing.Point(418, 196);
+            this.btn_huy.Name = "btn_huy";
+            this.btn_huy.Size = new System.Drawing.Size(118, 58);
+            this.btn_huy.TabIndex = 46;
+            this.btn_huy.Text = "Hủy";
+            this.btn_huy.TextColor = System.Drawing.Color.Black;
+            this.btn_huy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_huy.UseVisualStyleBackColor = false;
+            this.btn_huy.Click += new System.EventHandler(this.btn_huy_Click);
+            // 
+            // btn_goi
+            // 
+            this.btn_goi.BackColor = System.Drawing.Color.LightCoral;
+            this.btn_goi.BackgroundColor = System.Drawing.Color.LightCoral;
+            this.btn_goi.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btn_goi.BorderRadius = 20;
+            this.btn_goi.BorderSize = 0;
+            this.btn_goi.FlatAppearance.BorderSize = 0;
+            this.btn_goi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_goi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_goi.ForeColor = System.Drawing.Color.Black;
+            this.btn_goi.Image = global::PHAN_MEM_QUAN_LY_KTX_CNPM.Properties.Resources.Send_icon;
+            this.btn_goi.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_goi.Location = new System.Drawing.Point(255, 196);
+            this.btn_goi.Name = "btn_goi";
+            this.btn_goi.Size = new System.Drawing.Size(118, 58);
+            this.btn_goi.TabIndex = 42;
+            this.btn_goi.Text = "Gởi";
+            this.btn_goi.TextColor = System.Drawing.Color.Black;
+            this.btn_goi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_goi.UseVisualStyleBackColor = false;
+            this.btn_goi.Click += new System.EventHandler(this.btn_goi_Click);
+            // 
             // frm_GiaHan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -143,6 +170,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.Text = "frm_GiaHan";
             this.Load += new System.EventHandler(this.frm_GiaHan_Load);
             this.groupBox_giahan.ResumeLayout(false);
+            this.groupBox_giahan.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -153,7 +181,9 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private CustomButton.VBButton btn_goi;
-        private effect.RJTextBox txt_masv;
         private System.Windows.Forms.ComboBox cbb_soky;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txt_masv;
+        private CustomButton.VBButton btn_huy;
     }
 }

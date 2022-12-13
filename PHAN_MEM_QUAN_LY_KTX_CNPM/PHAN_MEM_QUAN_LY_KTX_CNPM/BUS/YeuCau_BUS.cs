@@ -23,9 +23,9 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
         {
             return ycDAO.ThemTraPhong(maphong, masinhvien, ngaytra, trangthai);
         }
-        public int ThemSuaChua(string tenthietbi, int soluong, string chitiet, string trangthai)
+        public int ThemSuaChua(string maphong,string tenthietbi, int soluong, string chitiet, string trangthai)
         {
-            return ycDAO.ThemSuaChua(tenthietbi, soluong, chitiet, trangthai);
+            return ycDAO.ThemSuaChua(maphong,tenthietbi, soluong, chitiet, trangthai);
         }
         public int CapNhatTrangThaiGiaHan(int id, string trangthai)
         {
@@ -66,6 +66,14 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
         public DataTable DanhSachTenThietBi()
         {
             return ycDAO.DanhSachTenThietBi();
+        }
+        public int CapNhatThoiGianDangKy(DateTime date, DateTime date1)
+        {
+            return ycDAO.CapNhatThoiGianDangKy(date, date1);
+        }
+        public DataTable ThoiGianDangKy()
+        {
+            return ycDAO.ThoiGianDangKy();
         }
     }
 }

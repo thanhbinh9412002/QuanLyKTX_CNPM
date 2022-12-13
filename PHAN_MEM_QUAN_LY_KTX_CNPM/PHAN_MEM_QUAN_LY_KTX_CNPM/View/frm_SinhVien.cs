@@ -20,7 +20,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
         }
         public void LoadData()
         {
-            dgvSinhvien.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvSinhvien.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
             dgvSinhvien.DataSource = SinhvienBUS.Danhsachsinhvien();
         }
         private void frm_SinhVien_Load(object sender, EventArgs e)

@@ -45,43 +45,16 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             int SVHienTai = 0;
             txtSVHienTai.Text = SVHienTai.ToString();
         }
-/*
-        private void btnHD_Click(object sender, EventArgs e)
-        {
-            int r = dgvPhong.CurrentCell.RowIndex;
-            maphong = dgvPhong.Rows[r].Cells[0].Value.ToString();
-            fmHD = new frm_HoaDon();
-            fmHD.maphong = maphong;
 
-            panel_child.Visible = false;
-            main_panel.Visible = true;
-            main_panel.Controls.Clear();
-            fmHD.TopLevel = false;
-            main_panel.Controls.Add(fmHD);
-            fmHD.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            fmHD.Dock = DockStyle.Fill;
-            fmHD.Show();
-        }*/
 
         private void frm_Phong_Load(object sender, EventArgs e)
         {
             LoadDataAdmin();
             gbThongTinPhong.Enabled = false;
             LoadTextBox_CheckBox();
+            btnLuu.Enabled = false;
         }
 
-       /* private void btnThoat_Click(object sender, EventArgs e)
-        {
-            panel_child.Visible = false;
-            main_panel.Visible = true; main_panel.Controls.Clear();
-
-            frm_Phong fmphong = new frm_Phong();
-            fmphong.TopLevel = false;
-            main_panel.Controls.Add(fmphong);
-            fmphong.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            fmphong.Dock = DockStyle.Fill;
-            fmphong.Show();
-        }*/
         public static bool them = true;
         private void btnThem_Click(object sender, EventArgs e)
         {
@@ -184,6 +157,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             txtSVHienTai.Clear();
             cbbTinhTrang.Enabled = true;
             btnThem.Enabled = true;
+            btnLuu.Enabled = false;
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
@@ -199,6 +173,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             cbbTinhTrang.Enabled = false;
             btnThem.Enabled = true;
             dgvPhong.Enabled = true;
+            btnLuu.Enabled = false;
         }
 
         private void btn_timkiem_Click(object sender, EventArgs e)

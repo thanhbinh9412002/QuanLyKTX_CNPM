@@ -50,16 +50,26 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
         private void frm_Yeucau_Admin_Load(object sender, EventArgs e)
         {
             groupBox2.Visible = false;
-            dateTimePicker_batdau.MinDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
-            dateTimePicker_ketthuc.MinDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
-            loaddata_giahan();
+            //dateTimePicker_batdau.MinDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+            //dateTimePicker_ketthuc.MinDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+            //loaddata_giahan();
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ngaybatdau = dateTimePicker_batdau.Value;
-            ngayketthuc = dateTimePicker_ketthuc.Value;
-
+            YeuCau_BUS ycBUS = new YeuCau_BUS();
+            ngaybatdau = dateTimePicker_batdau.Value.Date;
+            ngayketthuc = dateTimePicker_ketthuc.Value.Date;
+            int i = ycBUS.CapNhatThoiGianDangKy(ngaybatdau, ngayketthuc);
+            if( i == 1 )
+            {
+                MessageBox.Show("Cập nhật thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            } 
+            else
+            {
+                MessageBox.Show("Cập nhật thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }    
         }
 
         private void suachua_menu_Click(object sender, EventArgs e)
@@ -157,7 +167,8 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             {
                 if(suachua == 1)
                 {
-                    if(MessageBox.Show("Yêu cầu: Sửa chữa\n\tTên thiết bị:\t" + Convert.ToString(dataGridView1.CurrentRow.Cells["Tên thiết bị"].Value) + 
+                    if(MessageBox.Show("Yêu cầu: Sửa chữa\n\tMã phòng:\t" + Convert.ToString(dataGridView1.CurrentRow.Cells["Mã phòng"].Value) +
+                        "\n\tTên thiết bị:\t" + Convert.ToString(dataGridView1.CurrentRow.Cells["Tên thiết bị"].Value) + 
                         "\n\tSố lượng:\t"+ Convert.ToString(dataGridView1.CurrentRow.Cells["Số lượng"].Value) + 
                         "\n\tChi tiết:\t"+ Convert.ToString(dataGridView1.CurrentRow.Cells["Chi tiết"].Value),
                         "Chi tiết yêu cầu", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
@@ -169,7 +180,8 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
                 else if(giahan == 1)
                 {
                     if(MessageBox.Show("Yêu cầu: Gia hạn\n\tMã sinh viên:\t" + Convert.ToString(dataGridView1.CurrentRow.Cells["Mã sinh viên"].Value) +
-                       "\n\tSố kỳ:\t" + Convert.ToString(dataGridView1.CurrentRow.Cells["Số kỳ"].Value)) == DialogResult.OK)
+                       "\n\tTên sinh viên:\t"+ Convert.ToString(dataGridView1.CurrentRow.Cells["Họ và tên"].Value) +
+                        "\n\tSố kỳ:\t" + Convert.ToString(dataGridView1.CurrentRow.Cells["Số kỳ"].Value)) == DialogResult.OK)
                     {
                         ycBUS.CapNhatTrangThaiTraPhong(id, trangthai);
                         loaddata_giahan();
@@ -179,6 +191,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
                 {
                     if (MessageBox.Show("Yêu cầu: Trả phòng\n\tMã phòng:\t" + Convert.ToString(dataGridView1.CurrentRow.Cells["Mã phòng"].Value) +
                         "\n\tMã sinh viên:\t" + Convert.ToString(dataGridView1.CurrentRow.Cells["Mã sinh viên"].Value) +
+                        "\n\tTên sinh viên:\t" + Convert.ToString(dataGridView1.CurrentRow.Cells["Họ và tên"].Value) +
                         "\n\tNgày trả:\t" + Convert.ToString(dataGridView1.CurrentRow.Cells["Ngày trả"].Value),
                         "Chi tiết yêu cầu", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
                     {

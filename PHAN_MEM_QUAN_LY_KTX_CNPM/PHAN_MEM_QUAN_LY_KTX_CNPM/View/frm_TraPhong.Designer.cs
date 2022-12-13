@@ -30,18 +30,20 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
         private void InitializeComponent()
         {
             this.groupBox_traphong = new System.Windows.Forms.GroupBox();
+            this.txt_masv = new System.Windows.Forms.TextBox();
+            this.txt_maphong = new System.Windows.Forms.TextBox();
             this.btn_goi = new CustomButton.VBButton();
             this.dateTimePicker_ngaytra = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.txt_maphong = new System.Windows.Forms.TextBox();
-            this.txt_masv = new System.Windows.Forms.TextBox();
+            this.btn_huy = new CustomButton.VBButton();
             this.groupBox_traphong.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox_traphong
             // 
+            this.groupBox_traphong.Controls.Add(this.btn_huy);
             this.groupBox_traphong.Controls.Add(this.txt_masv);
             this.groupBox_traphong.Controls.Add(this.txt_maphong);
             this.groupBox_traphong.Controls.Add(this.btn_goi);
@@ -58,6 +60,24 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.groupBox_traphong.TabStop = false;
             this.groupBox_traphong.Text = "Trả phòng";
             // 
+            // txt_masv
+            // 
+            this.txt_masv.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.txt_masv.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_masv.Location = new System.Drawing.Point(357, 126);
+            this.txt_masv.Name = "txt_masv";
+            this.txt_masv.Size = new System.Drawing.Size(154, 38);
+            this.txt_masv.TabIndex = 45;
+            // 
+            // txt_maphong
+            // 
+            this.txt_maphong.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.txt_maphong.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_maphong.Location = new System.Drawing.Point(357, 62);
+            this.txt_maphong.Name = "txt_maphong";
+            this.txt_maphong.Size = new System.Drawing.Size(154, 38);
+            this.txt_maphong.TabIndex = 44;
+            // 
             // btn_goi
             // 
             this.btn_goi.BackColor = System.Drawing.Color.LightCoral;
@@ -69,6 +89,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.btn_goi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_goi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_goi.ForeColor = System.Drawing.Color.Black;
+            this.btn_goi.Image = global::PHAN_MEM_QUAN_LY_KTX_CNPM.Properties.Resources.Send_icon;
             this.btn_goi.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_goi.Location = new System.Drawing.Point(270, 252);
             this.btn_goi.Name = "btn_goi";
@@ -122,23 +143,28 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.label7.Text = "Mã phòng";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // txt_maphong
+            // btn_huy
             // 
-            this.txt_maphong.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.txt_maphong.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_maphong.Location = new System.Drawing.Point(357, 62);
-            this.txt_maphong.Name = "txt_maphong";
-            this.txt_maphong.Size = new System.Drawing.Size(135, 38);
-            this.txt_maphong.TabIndex = 44;
-            // 
-            // txt_masv
-            // 
-            this.txt_masv.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.txt_masv.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_masv.Location = new System.Drawing.Point(357, 126);
-            this.txt_masv.Name = "txt_masv";
-            this.txt_masv.Size = new System.Drawing.Size(135, 38);
-            this.txt_masv.TabIndex = 45;
+            this.btn_huy.BackColor = System.Drawing.Color.LightCoral;
+            this.btn_huy.BackgroundColor = System.Drawing.Color.LightCoral;
+            this.btn_huy.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btn_huy.BorderRadius = 20;
+            this.btn_huy.BorderSize = 0;
+            this.btn_huy.FlatAppearance.BorderSize = 0;
+            this.btn_huy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_huy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_huy.ForeColor = System.Drawing.Color.Black;
+            this.btn_huy.Image = global::PHAN_MEM_QUAN_LY_KTX_CNPM.Properties.Resources.remove_icon;
+            this.btn_huy.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_huy.Location = new System.Drawing.Point(445, 252);
+            this.btn_huy.Name = "btn_huy";
+            this.btn_huy.Size = new System.Drawing.Size(118, 58);
+            this.btn_huy.TabIndex = 48;
+            this.btn_huy.Text = "Hủy";
+            this.btn_huy.TextColor = System.Drawing.Color.Black;
+            this.btn_huy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_huy.UseVisualStyleBackColor = false;
+            this.btn_huy.Click += new System.EventHandler(this.btn_huy_Click);
             // 
             // frm_TraPhong
             // 
@@ -167,5 +193,6 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
         private CustomButton.VBButton btn_goi;
         private System.Windows.Forms.TextBox txt_masv;
         private System.Windows.Forms.TextBox txt_maphong;
+        private CustomButton.VBButton btn_huy;
     }
 }

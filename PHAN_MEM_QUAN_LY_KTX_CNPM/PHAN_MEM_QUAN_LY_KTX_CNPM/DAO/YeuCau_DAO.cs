@@ -35,13 +35,13 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             int count = cnn.ExecuteStoredProcedure_Update(spName, pNames, pValues);
             return count;
         }
-        public int ThemSuaChua(string tenthietbi, int soluong, string chitiet, string trangthai)
+        public int ThemSuaChua(string maphong,string tenthietbi, int soluong, string chitiet, string trangthai)
         {
             string spName = "[dbo].[ThemYeuCauSuaChua]"; // Tên hàm
             // Tên các tham số trong thủ tục
-            string[] pNames = { "@tenthietbi", "@soluong", "@chitiet", "@trangthai" };
+            string[] pNames = { "@maphong", "@tenthietbi", "@soluong", "@chitiet", "@trangthai" };
             // Giá trị tương ứng muốn gán cho từng tham số trên
-            object[] pValues = {tenthietbi, soluong, chitiet, trangthai};
+            object[] pValues = {maphong,tenthietbi, soluong, chitiet, trangthai};
             int count = cnn.ExecuteStoredProcedure_Update(spName, pNames, pValues);
             return count;
         }
@@ -123,6 +123,21 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
         public DataTable DanhSachTenThietBi()
         {
             string spName = "[dbo].[proc_TenThietBi]";
+            return cnn.ExecuteProcedureDatatableNoPara(spName);
+        }
+        public int CapNhatThoiGianDangKy(DateTime date, DateTime date1)
+        {
+            string spName = "[dbo].[proc_SuaThoiGianDangKy]"; // Tên hàm
+            // Tên các tham số trong thủ tục
+            string[] pNames = { "@ngaybd", "@ngaykt" };
+            // Giá trị tương ứng muốn gán cho từng tham số trên
+            object[] pValues = { date, date1 };
+            int count = cnn.ExecuteStoredProcedure_Update(spName, pNames, pValues);
+            return count;
+        }
+        public DataTable ThoiGianDangKy()
+        {
+            string spName = "[dbo].[proc_ThoiGianDangKy]";
             return cnn.ExecuteProcedureDatatableNoPara(spName);
         }
     }

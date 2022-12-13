@@ -39,16 +39,6 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.label1 = new System.Windows.Forms.Label();
             this.panel0 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.txt_ngay = new System.Windows.Forms.TextBox();
-            this.txt_gio = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel_form = new System.Windows.Forms.Panel();
-            this.timer_tbyeucau = new System.Windows.Forms.Timer(this.components);
-            this.btn_thongbaoyeucau = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btn_right = new System.Windows.Forms.Button();
-            this.btn_down = new System.Windows.Forms.Button();
             this.btn_thongtinnophi = new CustomButton.VBButton();
             this.btn_thongtincanhan = new CustomButton.VBButton();
             this.btn_yeucau = new CustomButton.VBButton();
@@ -59,6 +49,16 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.btn_phong = new CustomButton.VBButton();
             this.btn_sinhvien = new CustomButton.VBButton();
             this.btn_Trangchu = new CustomButton.VBButton();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.txt_ngay = new System.Windows.Forms.TextBox();
+            this.txt_gio = new System.Windows.Forms.TextBox();
+            this.btn_down = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_thongbaoyeucau = new System.Windows.Forms.Button();
+            this.panel_form = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btn_right = new System.Windows.Forms.Button();
+            this.timer_tbyeucau = new System.Windows.Forms.Timer(this.components);
             this.elipseControl1 = new ElipseToolDemo.ElipseControl();
             this.panel0.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -117,6 +117,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.panel2.Controls.Add(this.btn_thongbaoyeucau);
             this.panel2.Controls.Add(this.btn_thongtinnophi);
             this.panel2.Controls.Add(this.btn_thongtincanhan);
             this.panel2.Controls.Add(this.btn_yeucau);
@@ -132,116 +133,6 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(120, 472);
             this.panel2.TabIndex = 67;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.panel3.Controls.Add(this.txt_ngay);
-            this.panel3.Controls.Add(this.txt_gio);
-            this.panel3.Controls.Add(this.btn_down);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 472);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(120, 160);
-            this.panel3.TabIndex = 1;
-            // 
-            // txt_ngay
-            // 
-            this.txt_ngay.BackColor = System.Drawing.Color.Aquamarine;
-            this.txt_ngay.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_ngay.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_ngay.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.txt_ngay.Location = new System.Drawing.Point(3, 80);
-            this.txt_ngay.Name = "txt_ngay";
-            this.txt_ngay.Size = new System.Drawing.Size(83, 22);
-            this.txt_ngay.TabIndex = 70;
-            this.txt_ngay.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txt_gio
-            // 
-            this.txt_gio.BackColor = System.Drawing.Color.Aquamarine;
-            this.txt_gio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_gio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_gio.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.txt_gio.Location = new System.Drawing.Point(3, 46);
-            this.txt_gio.Name = "txt_gio";
-            this.txt_gio.Size = new System.Drawing.Size(94, 22);
-            this.txt_gio.TabIndex = 71;
-            this.txt_gio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.btn_thongbaoyeucau);
-            this.panel1.Controls.Add(this.panel_form);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.btn_right);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(120, 56);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1093, 632);
-            this.panel1.TabIndex = 64;
-            // 
-            // panel_form
-            // 
-            this.panel_form.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_form.ForeColor = System.Drawing.Color.Black;
-            this.panel_form.Location = new System.Drawing.Point(30, 0);
-            this.panel_form.Name = "panel_form";
-            this.panel_form.Size = new System.Drawing.Size(1063, 632);
-            this.panel_form.TabIndex = 66;
-            // 
-            // timer_tbyeucau
-            // 
-            this.timer_tbyeucau.Tick += new System.EventHandler(this.timer_tbyeucau_Tick);
-            // 
-            // btn_thongbaoyeucau
-            // 
-            this.btn_thongbaoyeucau.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.btn_thongbaoyeucau.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btn_thongbaoyeucau.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_thongbaoyeucau.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_thongbaoyeucau.ForeColor = System.Drawing.Color.Maroon;
-            this.btn_thongbaoyeucau.Location = new System.Drawing.Point(0, 238);
-            this.btn_thongbaoyeucau.Name = "btn_thongbaoyeucau";
-            this.btn_thongbaoyeucau.Size = new System.Drawing.Size(24, 25);
-            this.btn_thongbaoyeucau.TabIndex = 67;
-            this.btn_thongbaoyeucau.UseVisualStyleBackColor = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Location = new System.Drawing.Point(30, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1063, 632);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 49;
-            this.pictureBox1.TabStop = false;
-            // 
-            // btn_right
-            // 
-            this.btn_right.BackColor = System.Drawing.Color.SkyBlue;
-            this.btn_right.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btn_right.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_right.Image = global::PHAN_MEM_QUAN_LY_KTX_CNPM.Properties.Resources.Actions_go_previous_icon;
-            this.btn_right.Location = new System.Drawing.Point(0, 0);
-            this.btn_right.Name = "btn_right";
-            this.btn_right.Size = new System.Drawing.Size(30, 632);
-            this.btn_right.TabIndex = 48;
-            this.btn_right.UseVisualStyleBackColor = false;
-            this.btn_right.Click += new System.EventHandler(this.btn_right_Click);
-            // 
-            // btn_down
-            // 
-            this.btn_down.BackColor = System.Drawing.Color.SkyBlue;
-            this.btn_down.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_down.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_down.Image = global::PHAN_MEM_QUAN_LY_KTX_CNPM.Properties.Resources.Actions_go_up_icon;
-            this.btn_down.Location = new System.Drawing.Point(0, 0);
-            this.btn_down.Name = "btn_down";
-            this.btn_down.Size = new System.Drawing.Size(120, 30);
-            this.btn_down.TabIndex = 69;
-            this.btn_down.UseVisualStyleBackColor = false;
-            this.btn_down.Click += new System.EventHandler(this.button_down_Click);
             // 
             // btn_thongtinnophi
             // 
@@ -472,6 +363,113 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
             this.btn_Trangchu.UseVisualStyleBackColor = false;
             this.btn_Trangchu.Click += new System.EventHandler(this.btn_Trangchu_Click);
             // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.panel3.Controls.Add(this.txt_ngay);
+            this.panel3.Controls.Add(this.txt_gio);
+            this.panel3.Controls.Add(this.btn_down);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(0, 472);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(120, 160);
+            this.panel3.TabIndex = 1;
+            // 
+            // txt_ngay
+            // 
+            this.txt_ngay.BackColor = System.Drawing.Color.Aquamarine;
+            this.txt_ngay.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_ngay.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_ngay.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.txt_ngay.Location = new System.Drawing.Point(3, 80);
+            this.txt_ngay.Name = "txt_ngay";
+            this.txt_ngay.Size = new System.Drawing.Size(83, 22);
+            this.txt_ngay.TabIndex = 70;
+            this.txt_ngay.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txt_gio
+            // 
+            this.txt_gio.BackColor = System.Drawing.Color.Aquamarine;
+            this.txt_gio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_gio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_gio.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.txt_gio.Location = new System.Drawing.Point(3, 46);
+            this.txt_gio.Name = "txt_gio";
+            this.txt_gio.Size = new System.Drawing.Size(94, 22);
+            this.txt_gio.TabIndex = 71;
+            this.txt_gio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // btn_down
+            // 
+            this.btn_down.BackColor = System.Drawing.Color.SkyBlue;
+            this.btn_down.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_down.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_down.Image = global::PHAN_MEM_QUAN_LY_KTX_CNPM.Properties.Resources.Actions_go_up_icon;
+            this.btn_down.Location = new System.Drawing.Point(0, 0);
+            this.btn_down.Name = "btn_down";
+            this.btn_down.Size = new System.Drawing.Size(120, 30);
+            this.btn_down.TabIndex = 69;
+            this.btn_down.UseVisualStyleBackColor = false;
+            this.btn_down.Click += new System.EventHandler(this.button_down_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.panel_form);
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.btn_right);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(120, 56);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1093, 632);
+            this.panel1.TabIndex = 64;
+            // 
+            // btn_thongbaoyeucau
+            // 
+            this.btn_thongbaoyeucau.BackColor = System.Drawing.Color.Red;
+            this.btn_thongbaoyeucau.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_thongbaoyeucau.Location = new System.Drawing.Point(3, 230);
+            this.btn_thongbaoyeucau.Name = "btn_thongbaoyeucau";
+            this.btn_thongbaoyeucau.Size = new System.Drawing.Size(21, 23);
+            this.btn_thongbaoyeucau.TabIndex = 83;
+            this.btn_thongbaoyeucau.Text = "b";
+            this.btn_thongbaoyeucau.UseVisualStyleBackColor = false;
+            // 
+            // panel_form
+            // 
+            this.panel_form.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_form.ForeColor = System.Drawing.Color.Black;
+            this.panel_form.Location = new System.Drawing.Point(30, 0);
+            this.panel_form.Name = "panel_form";
+            this.panel_form.Size = new System.Drawing.Size(1063, 632);
+            this.panel_form.TabIndex = 66;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Location = new System.Drawing.Point(30, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1063, 632);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 49;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btn_right
+            // 
+            this.btn_right.BackColor = System.Drawing.Color.SkyBlue;
+            this.btn_right.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btn_right.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_right.Image = global::PHAN_MEM_QUAN_LY_KTX_CNPM.Properties.Resources.Actions_go_previous_icon;
+            this.btn_right.Location = new System.Drawing.Point(0, 0);
+            this.btn_right.Name = "btn_right";
+            this.btn_right.Size = new System.Drawing.Size(30, 632);
+            this.btn_right.TabIndex = 48;
+            this.btn_right.UseVisualStyleBackColor = false;
+            this.btn_right.Click += new System.EventHandler(this.btn_right_Click);
+            // 
+            // timer_tbyeucau
+            // 
+            this.timer_tbyeucau.Tick += new System.EventHandler(this.timer_tbyeucau_Tick);
+            // 
             // elipseControl1
             // 
             this.elipseControl1.CornerRadius = 20;
@@ -536,7 +534,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
         private System.Windows.Forms.TextBox txt_gio;
         public System.Windows.Forms.Panel panel_form;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btn_thongbaoyeucau;
         private System.Windows.Forms.Timer timer_tbyeucau;
+        private System.Windows.Forms.Button btn_thongbaoyeucau;
     }
 }

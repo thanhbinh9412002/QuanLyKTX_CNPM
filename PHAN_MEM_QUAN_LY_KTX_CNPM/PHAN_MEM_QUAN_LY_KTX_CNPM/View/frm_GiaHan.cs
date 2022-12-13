@@ -23,7 +23,7 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
         {
             YeuCau_BUS ycBUS = new YeuCau_BUS();
             string trangthai = "Chưa xem";
-            if(ycBUS.ThemGiaHan(txt_masv.Texts, int.Parse(cbb_soky.Text), trangthai) > 0)
+            if(ycBUS.ThemGiaHan(txt_masv.Text, int.Parse(cbb_soky.Text), trangthai) > 0)
             {
                 MessageBox.Show("Yêu cầu của bạn đã được gởi cho ban quản lý KTX!. Ban quản lý KTX sẽ phản hồi lại cho bạn sớm nhất!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);   
             }
@@ -35,10 +35,14 @@ namespace PHAN_MEM_QUAN_LY_KTX_CNPM
 
         private void frm_GiaHan_Load(object sender, EventArgs e)
         {
-            txt_masv.Texts = masv;
+            txt_masv.Text = masv;
             txt_masv.Enabled = true;
             cbb_soky.Focus();
         }
 
+        private void btn_huy_Click(object sender, EventArgs e)
+        {
+            cbb_soky.Focus();
+        }
     }
 }
